@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Account - GHAR!T Laundry Service</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .delete-container {
+        max-width: 500px;
+        margin: 3rem auto;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .delete-header h1 {
+        color: #e74c3c;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .delete-header p {
+        color: #7f8c8d;
+        margin-bottom: 2rem;
+      }
+
+      .delete-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+        text-align: left;
+      }
+
+      .form-group label {
+        display: block;
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .phone-input-container {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .phone-input-container select {
+        width: 80px;
+        padding: 0.8rem;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        background: white;
+        color: #2c3e50;
+      }
+
+      .phone-input-container input {
+        flex: 1;
+        padding: 0.8rem;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .phone-input-container input:focus,
+      .phone-input-container select:focus {
+        outline: none;
+        border-color: #e74c3c;
+      }
+
+      .warning-text {
+        background: #fff5f5;
+        border: 1px solid #fed7d7;
+        border-radius: 8px;
+        padding: 1rem;
+        color: #e53e3e;
+        margin-bottom: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0.5rem;
+      }
+
+      .delete-btn {
+        background: #e74c3c;
+        color: white;
+      }
+
+      .delete-btn:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+      }
+
+      .back-btn {
+        background: #3498db;
+        color: white;
+      }
+
+      .back-btn:hover {
+        background: #2980b9;
+        transform: translateY(-2px);
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 2rem;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-header {
+        color: #e74c3c;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .modal-text {
+        color: #2c3e50;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .modal-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .confirm-btn {
+        background: #e74c3c;
+        color: white;
+      }
+
+      .cancel-btn {
+        background: #95a5a6;
+        color: white;
+      }
+
+      .parent-company {
+        color: #3498db;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="delete-container">
+      <a href="index.html" class="btn back-btn">← Back to Home</a>
+
+      <div class="delete-header">
+        <h1>Delete Account</h1>
+        <p>We're sorry to see you go</p>
+      </div>
+
+      <form class="delete-form" id="delete-form">
+        <div class="warning-text">
+          <strong>Warning:</strong> This action cannot be undone. All your data,
+          order history, and account information will be permanently deleted.
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Enter your phone number to confirm</label>
+          <div class="phone-input-container">
+            <select id="country-code">
+              <option value="+1">+1</option>
+              <option value="+44">+44</option>
+              <option value="+91" selected>+91</option>
+              <option value="+61">+61</option>
+              <option value="+86">+86</option>
+            </select>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
+        </div>
+
+        <button type="submit" class="btn delete-btn">Delete My Account</button>
+      </form>
+
+      <p style="color: #7f8c8d; font-size: 0.9rem">
+        © 2025 GHAR!T. A <span class="parent-company">WIZNIGHT</span> Company.
+        All rights reserved.
+      </p>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">⚠️ Final Confirmation</div>
+        <div class="modal-text">
+          Are you absolutely sure you want to delete your account? This action
+          cannot be undone and all your data will be permanently lost.
+        </div>
+        <div class="modal-buttons">
+          <button class="btn confirm-btn" id="final-delete">
+            Yes, Delete Account
+          </button>
+          <button class="btn cancel-btn" id="cancel-delete">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header" style="color: #27ae60">
+          ✅ Account Deleted
+        </div>
+        <div class="modal-text">
+          Your account has been successfully deleted. We're sorry to see you go.
+          Thank you for using GHAR!T.
+        </div>
+        <button
+          class="btn back-btn"
+          onclick="window.location.href='index.html'"
+        >
+          Return to Home
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const deleteForm = document.getElementById("delete-form");
+      const confirmModal = document.getElementById("confirm-modal");
+      const successModal = document.getElementById("success-modal");
+      const finalDeleteBtn = document.getElementById("final-delete");
+      const cancelDeleteBtn = document.getElementById("cancel-delete");
+
+      deleteForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const phone = document.getElementById("phone").value;
+
+        if (phone.trim() === "") {
+          alert("Please enter your phone number");
+          return;
+        }
+
+        confirmModal.style.display = "block";
+      });
+
+      finalDeleteBtn.addEventListener("click", function () {
+        confirmModal.style.display = "none";
+
+        // Simulate account deletion process
+        setTimeout(() => {
+          successModal.style.display = "block";
+        }, 1000);
+      });
+
+      cancelDeleteBtn.addEventListener("click", function () {
+        confirmModal.style.display = "none";
+      });
+
+      // Close modal when clicking outside
+      window.addEventListener("click", function (e) {
+        if (e.target === confirmModal) {
+          confirmModal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
