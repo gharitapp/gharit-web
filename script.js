@@ -155,4 +155,43 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // Get the modal
+  const modal = document.getElementById("login-modal");
+
+  // Get all elements that should open the modal
+  const loginBtns = document.querySelectorAll(".login-btn, .secondary-btn");
+
+  // Get the close button
+  const closeBtn = document.querySelector(".close-modal");
+
+  // Open modal when login buttons are clicked
+  loginBtns.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      if (
+        this.getAttribute("href") === "login.html" ||
+        this.textContent.trim() === "Get Started"
+      ) {
+        e.preventDefault();
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+      }
+    });
+  });
+
+  // Close modal when close button is clicked
+  if (closeBtn) {
+    closeBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto"; // Enable scrolling
+    });
+  }
+
+  // Close modal when clicking outside the modal content
+  window.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto"; // Enable scrolling
+    }
+  });
 });
