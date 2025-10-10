@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support - GHAR!T Laundry Service</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background: white;
+        min-height: 100vh;
+      }
+
+      .support-container {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+
+      .support-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #f1f2f6;
+      }
+
+      .support-header h1 {
+        color: #2c3e50;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .support-section {
+        margin-bottom: 2rem;
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .support-section h2 {
+        color: #3498db;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        border-left: 4px solid #3498db;
+        padding-left: 1rem;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .contact-item {
+        text-align: center;
+        padding: 1.5rem;
+        border: 2px solid #f1f2f6;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+        border-color: #3498db;
+        transform: translateY(-5px);
+      }
+
+      .contact-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-item h3 {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-item p {
+        color: #7f8c8d;
+        margin: 0.5rem 0;
+      }
+
+      .contact-link {
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .contact-link:hover {
+        text-decoration: underline;
+      }
+
+      .faq-item {
+        margin-bottom: 1.5rem;
+        border: 1px solid #f1f2f6;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .faq-question {
+        background: #f8f9fa;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        color: #2c3e50;
+        border: none;
+        width: 100%;
+        text-align: left;
+        font-size: 1rem;
+      }
+
+      .faq-question:hover {
+        background: #e9ecef;
+      }
+
+      .faq-answer {
+        padding: 1rem 1.5rem;
+        color: #2c3e50;
+        display: none;
+      }
+
+      .faq-answer.active {
+        display: block;
+      }
+
+      .back-to-home {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 0.8rem 2rem;
+        text-decoration: none;
+        border-radius: 25px;
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .back-to-home:hover {
+        background: #2980b9;
+        transform: translateY(-2px);
+      }
+
+      .parent-company {
+        color: #3498db;
+        font-weight: bold;
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #f1f2f6;
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin-top: 3rem;
+      }
+
+      .app-info {
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .app-info h3 {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .app-version {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="support-container">
+      <a href="index.html" class="back-to-home">← Back to Home</a>
+
+      <div class="support-header">
+        <h1>Support Center</h1>
+        <p style="color: #7f8c8d">
+          We're here to help you with any questions or issues
+        </p>
+      </div>
+
+      <div class="app-info">
+        <h3>GHAR!T App</h3>
+        <p>Premium laundry service at your doorstep</p>
+      </div>
+
+      <div class="support-section">
+        <h2>Contact Us</h2>
+        <p>
+          Get in touch with our support team for assistance with your laundry
+          service needs.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <h3>Email Support</h3>
+            <p>General inquiries and support</p>
+            <a href="mailto:support@gharit.com" class="contact-link"
+              >support@gharit.com</a
+            >
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <h3>Phone Support</h3>
+            <p>Monday - Sunday, 9 AM - 9 PM</p>
+            <a href="tel:+918828244356" class="contact-link"
+              >+91 882-8244-356</a
+            >
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">💬</div>
+            <h3>App Support</h3>
+            <p>In-app chat and notifications</p>
+            <p class="contact-link">Available 24/7</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How do I schedule a pickup? ▼
+          </button>
+          <div class="faq-answer">
+            <p>
+              You can schedule a pickup through our mobile app by selecting your
+              preferred time slot and adding your laundry details. We offer
+              same-day and next-day pickup options.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            What are your service areas? ▼
+          </button>
+          <div class="faq-answer">
+            <p>
+              We currently serve major metropolitan areas. Please check our app
+              or website for specific coverage in your location.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How do I track my order? ▼
+          </button>
+          <div class="faq-answer">
+            <p>
+              You can track your order in real-time through our mobile app.
+              You'll receive notifications for pickup, processing, and delivery
+              updates.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            What payment methods do you accept? ▼
+          </button>
+          <div class="faq-answer">
+            <p>
+              We accept all major credit cards, debit cards, UPI, digital
+              wallets, and cash on delivery for your convenience.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            How do I cancel or modify my order? ▼
+          </button>
+          <div class="faq-answer">
+            <p>
+              You can cancel or modify your order through the app before our
+              team picks up your laundry. After pickup, modifications may not be
+              possible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-section">
+        <h2>Report an Issue</h2>
+        <p>
+          If you're experiencing technical difficulties or have feedback about
+          our service, please contact us:
+        </p>
+        <ul>
+          <li>
+            Email:
+            <a href="mailto:support@gharit.com" class="contact-link"
+              >support@gharit.com</a
+            >
+          </li>
+          <li>
+            Phone:
+            <a href="tel:+918828244356" class="contact-link"
+              >+91 882-8244-356</a
+            >
+          </li>
+          <li>
+            Include your order number and device details for faster resolution
+          </li>
+        </ul>
+      </div>
+
+      <p class="copyright">
+        © 2025 GHAR!T. A <span class="parent-company">WIZNIGHT</span> Company.
+        All rights reserved.
+      </p>
+    </div>
+
+    <script>
+      function toggleFAQ(element) {
+        const answer = element.nextElementSibling;
+        const isActive = answer.classList.contains("active");
+
+        // Close all FAQ answers
+        document.querySelectorAll(".faq-answer").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        // Reset all question arrows
+        document.querySelectorAll(".faq-question").forEach((item) => {
+          item.textContent = item.textContent.replace("▲", "▼");
+        });
+
+        if (!isActive) {
+          answer.classList.add("active");
+          element.textContent = element.textContent.replace("▼", "▲");
+        }
+      }
+    </script>
+  </body>
+</html>
