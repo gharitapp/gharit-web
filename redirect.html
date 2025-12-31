@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    // Immediately detect device and redirect to app store
+    function redirectToAppStore() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // iOS detection
+      var isIOS = /iPad|iPhone|iPod/.test(userAgent) ||
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      
+      // Android detection
+      var isAndroid = /android/i.test(userAgent);
+      
+      console.log('[Redirect] User Agent:', userAgent);
+      
+      if (isIOS) {
+        console.log('[Redirect] iOS detected - sending to App Store');
+        window.location.href = "https://apps.apple.com/ng/app/ghar-t/id6752650388";
+      } else if (isAndroid) {
+        console.log('[Redirect] Android detected - sending to Play Store');
+        window.location.href = "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
+      } else {
+        console.log('[Redirect] Desktop detected - showing QR page');
+        window.location.href = "https://gharitapp.com/GharitQr.html";
+      }
+    }
+    
+    // Redirect immediately
+    redirectToAppStore();
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
