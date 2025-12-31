@@ -161,12 +161,11 @@
     }
 
     function generateQRCode() {
-      // Point directly to a redirect URL that will send users to app stores
-      // This way, when they scan, they go straight to the app store (no landing page)
-      var redirectUrl = "https://gharitapp.com/redirect.html";
+      // QR code points to redirect.html which detects device and sends to app store
+      var qrUrl = "https://gharitapp.com/redirect.html";
       
       new QRCode(document.getElementById("qrcode"), {
-        text: redirectUrl,
+        text: qrUrl,
         width: 280,
         height: 280,
         colorDark: "#000000",
@@ -174,7 +173,7 @@
         correctLevel: QRCode.CorrectLevel.H
       });
 
-      console.log('[QR Code] Generated for URL:', redirectUrl);
+      console.log('[QR Code] Generated for URL:', qrUrl);
     }
 
     // Run detection when page loads with a small delay to ensure proper detection
@@ -183,36 +182,46 @@
     });
   </script>
   <script>
-    // Device detection and redirect for QR code page
-(function() {
-  // Only run on QR code page
-  if (window.location.pathname.includes('GharitQr')) {
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
-    // Comprehensive iOS detection
-    var isIOS = /iPad|iPhone|iPod/.test(userAgent) ||
-                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    
-    // Android detection
-    var isAndroid = /android/i.test(userAgent);
-    
-    console.log('[Device Detection] User Agent:', userAgent);
-    console.log('[Device Detection] iOS:', isIOS, 'Android:', isAndroid);
-    
-    // Redirect with delay to ensure proper detection
-    if (isIOS) {
-      console.log('[Redirect] Sending to App Store...');
-      setTimeout(function() {
-        window.location.href = "https://apps.apple.com/ng/app/ghar-t/id6752650388";
-      }, 500);
-    } else if (isAndroid) {
-      console.log('[Redirect] Sending to Play Store...');
-      setTimeout(function() {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
-      }, 500);
+    // Check if this page is being opened from QR scan
+    function checkIfFromQRScan() {
+      var urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('redirect') === 'true';
     }
-  }
-})();
+
+    // Redirect mobile users when coming from QR scan
+    function redirectFromQRScan() {
+      if (checkIfFromQRScan()) {
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        
+        // Comprehensive iOS detection
+        var isIOS = /iPad|iPhone|iPod/.test(userAgent) ||
+                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        
+        // Android detection
+        var isAndroid = /android/i.test(userAgent);
+        
+        console.log('[QR Redirect] Detected from QR scan');
+        console.log('[Device Detection] User Agent:', userAgent);
+        
+        if (isIOS) {
+          console.log('[Redirect] Sending iOS user to App Store...');
+          setTimeout(function() {
+            window.location.href = "https://apps.apple.com/ng/app/ghar-t/id6752650388";
+          }, 300);
+          return true;
+        } else if (isAndroid) {
+          console.log('[Redirect] Sending Android user to Play Store...');
+          setTimeout(function() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
+          }, 300);
+          return true;
+        }
+      }
+      return false;
+    }
+
+    // Check and redirect if coming from QR scan before page fully loads
+    redirectFromQRScan();
   </script>
 </body>
 </html>
