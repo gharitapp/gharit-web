@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download GHAR!T App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+      }
+
+      .logo {
+        font-size: 32px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 20px;
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      #qrcode {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+      }
+
+      #qrcode canvas {
+        border: 2px solid #eee;
+        border-radius: 10px;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+
+      .app-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .app-link {
+        padding: 12px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .play-store {
+        background: #34a853;
+        color: white;
+      }
+
+      .play-store:hover {
+        background: #2d8e47;
+        transform: translateY(-2px);
+      }
+
+      .app-store {
+        background: #000;
+        color: white;
+      }
+
+      .app-store:hover {
+        background: #333;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 30px 20px;
+        }
+
+        .app-links {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">GHAR!T</div>
+      <div class="title">Download Our App</div>
+      <div class="subtitle">Scan QR or tap the links below</div>
+
+      <div id="qrcode"></div>
+
+      <div class="app-links">
+        <a
+          href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp"
+          class="app-link play-store"
+          target="_blank"
+          >Google Play</a
+        >
+        <a
+          href="https://apps.apple.com/ng/app/ghar-t/id6752650388"
+          class="app-link app-store"
+          target="_blank"
+          >App Store</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // Detect device and create QR code with direct app store URL
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      var qrUrl;
+
+      // Better iOS detection
+      var isIOS =
+        /iPad|iPhone|iPod|Mac|Macintosh/.test(userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      var isAndroid = /android/i.test(userAgent);
+
+      console.log("[Device Detection]");
+      console.log("User Agent:", userAgent);
+      console.log("Is iOS:", isIOS);
+      console.log("Is Android:", isAndroid);
+
+      if (isIOS) {
+        // iOS - QR points directly to App Store
+        qrUrl = "https://apps.apple.com/ng/app/ghar-t/id6752650388";
+      } else if (isAndroid) {
+        // Android - QR points directly to Play Store
+        qrUrl =
+          "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
+      } else {
+        // Desktop/Other - default to Play Store
+        qrUrl =
+          "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
+      }
+
+      window.location.href = qrUrl;
+    </script>
+  </body>
+</html>
