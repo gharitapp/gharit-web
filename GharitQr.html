@@ -4,14 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Download GHAR!T App</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -20,8 +13,8 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
+      margin: 0;
     }
-
     .container {
       background: white;
       border-radius: 20px;
@@ -29,49 +22,26 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
       text-align: center;
       max-width: 500px;
-      width: 100%;
     }
-
-    .logo {
-      font-size: 32px;
-      font-weight: bold;
-      color: #000;
-      margin-bottom: 20px;
+    .logo { font-size: 32px; font-weight: bold; color: #000; margin-bottom: 20px; }
+    .title { font-size: 24px; font-weight: 600; color: #333; margin-bottom: 10px; }
+    .subtitle { font-size: 14px; color: #666; margin-bottom: 20px; }
+    .spinner { 
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #667eea;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
     }
-
-    .title {
-      font-size: 24px;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 30px;
-    }
-
-    #qrcode {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
-    }
-
-    #qrcode canvas {
-      border: 2px solid #eee;
-      border-radius: 10px;
-      padding: 10px;
-      background: #f9f9f9;
-    }
-
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     .app-links {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
-
     .app-link {
       padding: 12px 16px;
       border-radius: 10px;
@@ -80,88 +50,50 @@
       font-weight: 600;
       transition: all 0.3s ease;
     }
-
-    .play-store {
-      background: #34a853;
-      color: white;
-    }
-
-    .play-store:hover {
-      background: #2d8e47;
-      transform: translateY(-2px);
-    }
-
-    .app-store {
-      background: #000;
-      color: white;
-    }
-
-    .app-store:hover {
-      background: #333;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 480px) {
-      .container {
-        padding: 30px 20px;
-      }
-
-      .app-links {
-        grid-template-columns: 1fr;
-      }
-    }
+    .play-store { background: #34a853; color: white; }
+    .play-store:hover { background: #2d8e47; transform: translateY(-2px); }
+    .app-store { background: #000; color: white; }
+    .app-store:hover { background: #333; transform: translateY(-2px); }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="logo">GHAR!T</div>
-    <div class="title">Download Our App</div>
-    <div class="subtitle">Scan QR or tap the links below</div>
-
-    <div id="qrcode"></div>
-
+    <div class="title">Redirecting...</div>
+    <div class="subtitle">Opening your app store</div>
+    <div class="spinner"></div>
     <div class="app-links">
-      <a href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp" class="app-link play-store" target="_blank">Google Play</a>
-      <a href="https://apps.apple.com/ng/app/ghar-t/id6752650388" class="app-link app-store" target="_blank">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp" class="app-link play-store">Google Play</a>
+      <a href="https://apps.apple.com/ng/app/ghar-t/id6752650388" class="app-link app-store">App Store</a>
     </div>
   </div>
 
   <script>
-    // Detect device and create QR code with direct app store URL
+    // INSTANT DEVICE DETECTION & REDIRECT
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    var qrUrl;
-    
-    // Better iOS detection
-    var isIOS = /iPad|iPhone|iPod|Mac|Macintosh/.test(userAgent) || 
-                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    var isAndroid = /android/i.test(userAgent);
-    
-    console.log('[Device Detection]');
-    console.log('User Agent:', userAgent);
-    console.log('Is iOS:', isIOS);
-    console.log('Is Android:', isAndroid);
-    
-    if (isIOS) {
-      // iOS - QR points directly to App Store
-      qrUrl = "https://apps.apple.com/ng/app/ghar-t/id6752650388";
-    } else if (isAndroid) {
-      // Android - QR points directly to Play Store
-      qrUrl = "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
-    } else {
-      // Desktop/Other - default to Play Store
-      qrUrl = "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
-    }
-    
-    new QRCode(document.getElementById("qrcode"), {
-      text: qrUrl,
-      width: 280,
-      height: 280,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
-    });
+    var redirectUrl = null;
 
-    console.log('[QR Code] Generated link:', qrUrl);
+    // Detect Android
+    var isAndroid = /android/i.test(userAgent);
+
+    // Detect iOS
+    var isIOS = /iPad|iPhone|iPod/.test(userAgent) || 
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    console.log('[QR Redirect]');
+    console.log('Android:', isAndroid);
+    console.log('iOS:', isIOS);
+
+    if (isAndroid) {
+      redirectUrl = "https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp";
+    } else if (isIOS) {
+      redirectUrl = "https://apps.apple.com/ng/app/ghar-t/id6752650388";
+    }
+
+    // INSTANT REDIRECT (no delay)
+    if (redirectUrl) {
+      window.location.href = redirectUrl;
+    }
   </script>
 </body>
 </html>
