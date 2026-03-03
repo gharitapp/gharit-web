@@ -1,353 +1,3617 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Support - GHAR!T Laundry Service</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Support | Gharit — Premium Laundry Service</title>
+
     <style>
-      body {
-        font-family: "Arial", sans-serif;
+      /* ============================================
+           TYPOGRAPHY & VARIABLES (MATCHING MAIN SITE)
+           ============================================ */
+      @font-face {
+        font-family: "SohneSchmal";
+        src: url("https://fonts.cdnfonts.com/s/15011/SohneSchmal-Buch.woff ")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --primary: #538994;
+        --primary-dark: #3d6b75;
+        --primary-light: #6aa3b0;
+        --primary-glow: rgba(83, 137, 148, 0.3);
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray-50: #fafafa;
+        --gray-100: #f5f5f5;
+        --gray-200: #e5e5e5;
+        --gray-400: #a3a3a3;
+        --gray-600: #525252;
+        --gray-800: #262626;
+        --gray-900: #171717;
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      }
+
+      * {
         margin: 0;
         padding: 0;
-        background: white;
-        min-height: 100vh;
+        box-sizing: border-box;
       }
 
-      .support-container {
-        max-width: 900px;
-        margin: 2rem auto;
-        padding: 2rem;
+      html {
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "SF Pro Text",
+          "Helvetica Neue",
+          Helvetica,
+          Arial,
+          sans-serif;
+        background: var(--white);
+        color: var(--gray-900);
         line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
-      .support-header {
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--gray-100);
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, var(--primary) 0%, #4a8b8b 100%);
+        border-radius: 5px;
+        border: 2px solid var(--gray-100);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #4a8b8b 0%, #3a7b7b 100%);
+      }
+
+      /* ============================================
+           HERO SECTION
+           ============================================ */
+      .hero {
+        position: relative;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        margin-bottom: 3rem;
-        padding-bottom: 1rem;
-        border-bottom: 2px solid #f1f2f6;
-      }
-
-      .support-header h1 {
-        color: #2c3e50;
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .support-section {
-        margin-bottom: 2rem;
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .support-section h2 {
-        color: #3498db;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-        border-left: 4px solid #3498db;
-        padding-left: 1rem;
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-
-      .contact-item {
-        text-align: center;
-        padding: 1.5rem;
-        border: 2px solid #f1f2f6;
-        border-radius: 15px;
-        transition: all 0.3s ease;
-      }
-
-      .contact-item:hover {
-        border-color: #3498db;
-        transform: translateY(-5px);
-      }
-
-      .contact-icon {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-      }
-
-      .contact-item h3 {
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
-      }
-
-      .contact-item p {
-        color: #7f8c8d;
-        margin: 0.5rem 0;
-      }
-
-      .contact-link {
-        color: #3498db;
-        text-decoration: none;
-        font-weight: 600;
-      }
-
-      .contact-link:hover {
-        text-decoration: underline;
-      }
-
-      .faq-item {
-        margin-bottom: 1.5rem;
-        border: 1px solid #f1f2f6;
-        border-radius: 10px;
+        padding: 100px 40px;
+        background: var(--black);
         overflow: hidden;
       }
 
-      .faq-question {
-        background: #f8f9fa;
-        padding: 1rem 1.5rem;
-        cursor: pointer;
-        font-weight: 600;
-        color: #2c3e50;
-        border: none;
-        width: 100%;
-        text-align: left;
-        font-size: 1rem;
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
       }
 
-      .faq-question:hover {
-        background: #e9ecef;
+      .hero-gradient {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(83, 137, 148, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 30%,
+            rgba(106, 163, 176, 0.1) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 50% 80%,
+            rgba(83, 137, 148, 0.08) 0%,
+            transparent 40%
+          );
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(30px, -30px) scale(1.1);
+        }
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.4) 0%,
+          rgba(0, 0, 0, 0.2) 50%,
+          rgba(0, 0, 0, 0.6) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px 20px;
+        border-radius: 100px;
+        margin-bottom: 32px;
+      }
+
+      .hero-badge-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--primary);
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.2);
+        }
+      }
+
+      .hero-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .hero-title {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: clamp(48px, 8vw, 100px);
+        font-weight: 400;
+        line-height: 0.95;
+        letter-spacing: -2px;
+        color: var(--white);
+        margin-bottom: 24px;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(18px, 2vw, 22px);
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px;
+        margin-top: 60px;
+        flex-wrap: wrap;
+      }
+
+      .hero-stat {
+        text-align: center;
+      }
+
+      .hero-stat-number {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: 48px;
+        font-weight: 400;
+        color: var(--primary);
+        display: block;
+        line-height: 1;
+      }
+
+      .hero-stat-label {
+        font-size: 12px;
+        color: var(--gray-400);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 8px;
+      }
+
+      /* ============================================
+           SECTION STYLING
+           ============================================ */
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .section-label {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 16px;
+      }
+
+      .section-title {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: clamp(36px, 5vw, 56px);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: var(--black);
+      }
+
+      /* ============================================
+           CONTACT SECTION
+           ============================================ */
+      .contact-section {
+        padding: 120px 40px;
+        background: var(--gray-50);
+        position: relative;
+      }
+
+      .contact-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+
+      .contact-card {
+        background: var(--white);
+        border-radius: 24px;
+        padding: 50px 35px;
+        text-align: center;
+        border: 1px solid var(--gray-200);
+        transition: all 0.4s var(--ease-out-expo);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        transform: scaleX(0);
+        transition: transform 0.4s var(--ease-out-expo);
+      }
+
+      .contact-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        border-color: var(--primary-light);
+      }
+
+      .contact-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .contact-icon-wrapper {
+        width: 72px;
+        height: 72px;
+        background: var(--gray-50);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 28px;
+        font-size: 28px;
+        position: relative;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover .contact-icon-wrapper {
+        background: var(--primary-glow);
+        transform: scale(1.1);
+      }
+
+      .contact-card h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--black);
+        margin-bottom: 8px;
+      }
+
+      .contact-card .subtitle {
+        font-size: 12px;
+        color: var(--gray-400);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .contact-card .value {
+        font-size: 16px;
+        color: var(--primary);
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: var(--gray-50);
+        border-radius: 100px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .contact-card .value:hover {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+        transform: scale(1.05);
+      }
+
+      /* ============================================
+           FAQ SECTION
+           ============================================ */
+      .faq-section {
+        padding: 120px 40px;
+        background: var(--white);
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: var(--gray-50);
+        border-radius: 16px;
+        margin-bottom: 16px;
+        overflow: hidden;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        background: var(--white);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        border-color: var(--gray-200);
+      }
+
+      .faq-item.active {
+        background: var(--white);
+        box-shadow: 0 20px 50px rgba(83, 137, 148, 0.1);
+        border-color: var(--primary-light);
+      }
+
+      .faq-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 28px 32px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .faq-question {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--black);
+        transition: color 0.3s ease;
+        padding-right: 20px;
+      }
+
+      .faq-item:hover .faq-question {
+        color: var(--primary-dark);
+      }
+
+      .faq-item.active .faq-question {
+        color: var(--primary);
+      }
+
+      .faq-toggle {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--white);
+        border: 2px solid var(--gray-200);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-400);
+        transition: all 0.3s var(--ease-out-expo);
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-toggle {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+        transform: rotate(45deg);
+      }
+
+      .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s var(--ease-out-expo);
+      }
+
+      .faq-item.active .faq-content {
+        max-height: 400px;
       }
 
       .faq-answer {
-        padding: 1rem 1.5rem;
-        color: #2c3e50;
-        display: none;
+        padding: 0 32px 28px;
+        color: var(--gray-600);
+        line-height: 1.8;
+        font-size: 15px;
       }
 
-      .faq-answer.active {
-        display: block;
+      /* ============================================
+           REPORT SECTION
+           ============================================ */
+      .report-section {
+        padding: 120px 40px;
+        background: linear-gradient(
+          135deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
       }
 
-      .back-to-home {
-        display: inline-block;
-        background: #3498db;
-        color: white;
-        padding: 0.8rem 2rem;
-        text-decoration: none;
-        border-radius: 25px;
-        margin-bottom: 2rem;
-        transition: all 0.3s ease;
+      .report-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: var(--white);
+        border-radius: 32px;
+        padding: 70px;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+        border: 1px solid var(--gray-200);
+      }
+
+      .report-header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .report-header h2 {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: 48px;
+        font-weight: 400;
+        letter-spacing: -1px;
+        color: var(--black);
+        margin-bottom: 16px;
+      }
+
+      .report-header p {
+        color: var(--gray-600);
+        font-size: 18px;
+        line-height: 1.6;
+      }
+
+      .contact-info-box {
+        background: var(--gray-50);
+        border-radius: 20px;
+        padding: 32px;
+        margin-bottom: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid var(--gray-200);
+      }
+
+      .contact-info-box h4 {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--primary);
+        margin-bottom: 8px;
         font-weight: 600;
       }
 
-      .back-to-home:hover {
-        background: #2980b9;
-        transform: translateY(-2px);
+      .contact-info-box .value {
+        font-size: 18px;
+        color: var(--black);
+        font-weight: 600;
       }
 
-      .parent-company {
-        color: #3498db;
-        font-weight: bold;
+      .contact-info-divider {
+        width: 1px;
+        height: 40px;
+        background: var(--gray-200);
       }
 
-      .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid #f1f2f6;
-        color: #7f8c8d;
-        font-size: 0.9rem;
-        margin-top: 3rem;
+      /* Support Form */
+      .support-form {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
       }
 
-      .app-info {
-        background: linear-gradient(135deg, #3498db, #2980b9);
-        color: white;
-        border-radius: 15px;
-        padding: 2rem;
-        text-align: center;
-        margin-bottom: 2rem;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
       }
 
-      .app-info h3 {
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
+      .form-group label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--black);
+        letter-spacing: 1px;
+        text-transform: uppercase;
       }
 
-      .app-version {
-        font-size: 0.9rem;
-        opacity: 0.9;
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        padding: 16px 20px;
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        font-size: 15px;
+        font-family: inherit;
+        transition: all 0.3s ease;
+        background: var(--white);
+        color: var(--gray-900);
+        -webkit-appearance: none;
+      }
+
+      .form-group input:hover,
+      .form-group select:hover,
+      .form-group textarea:hover {
+        border-color: var(--gray-400);
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px var(--primary-glow);
+      }
+
+      .form-group textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      .form-group select {
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg '%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23525252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        padding-right: 48px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .submit-btn {
+        background: var(--black);
+        color: var(--white);
+        border: none;
+        padding: 20px 40px;
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.4s var(--ease-out-expo);
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .submit-btn:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px rgba(83, 137, 148, 0.3);
+      }
+
+      .submit-btn:active {
+        transform: translateY(-1px);
+      }
+
+      .report-note {
+        background: var(--gray-50);
+        border-radius: 16px;
+        padding: 24px;
+        margin-top: 40px;
+        border-left: 4px solid var(--primary);
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .report-note-icon {
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .report-note p {
+        font-size: 14px;
+        color: var(--gray-600);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .report-note strong {
+        color: var(--black);
+        font-weight: 600;
+      }
+
+      /* ============================================
+           RESPONSIVE
+           ============================================ */
+      @media (max-width: 1024px) {
+        .contact-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          min-height: auto;
+          padding: 80px 20px 60px;
+        }
+
+        .hero-title {
+          font-size: 48px;
+        }
+
+        .hero-stats {
+          gap: 40px;
+          margin-top: 40px;
+        }
+
+        .contact-section,
+        .faq-section,
+        .report-section {
+          padding: 80px 20px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .contact-card {
+          padding: 40px 30px;
+        }
+
+        .faq-header {
+          padding: 24px;
+        }
+
+        .faq-question {
+          font-size: 16px;
+        }
+
+        .faq-answer {
+          padding: 0 24px 24px;
+          font-size: 14px;
+        }
+
+        .report-container {
+          padding: 40px 24px;
+          border-radius: 24px;
+        }
+
+        .report-header h2 {
+          font-size: 36px;
+        }
+
+        .contact-info-box {
+          flex-direction: column;
+          gap: 24px;
+          text-align: center;
+        }
+
+        .contact-info-divider {
+          width: 60px;
+          height: 1px;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .section-header {
+          margin-bottom: 50px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 40px;
+        }
+
+        .hero-stat-number {
+          font-size: 36px;
+        }
+
+        .section-title {
+          font-size: 32px;
+        }
+
+        .report-header h2 {
+          font-size: 32px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="support-container">
-      <a href="index.html" class="back-to-home">← Back to Home</a>
+    <style>
+      /* Header Styles */
+      .nav-header {
+        background: white;
+        border-bottom: 1px solid #e5e5e5;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
 
-      <div class="support-header">
-        <h1>Support Center</h1>
-        <p style="color: #7f8c8d">
-          We're here to help you with any questions or issues
-        </p>
-      </div>
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 50px;
+        max-width: 100%;
+      }
 
-      <div class="app-info">
-        <h3>GHAR!T App</h3>
-        <p>Premium laundry service at your doorstep</p>
-      </div>
+      .hamburger-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 10px;
+        transition: all 0.3s ease;
+        z-index: 2000;
+        position: relative;
+      }
 
-      <div class="support-section">
-        <h2>Contact Us</h2>
-        <p>
-          Get in touch with our support team for assistance with your laundry
-          service needs.
-        </p>
+      .hamburger-toggle span {
+        display: block;
+        width: 45px;
+        height: 6px;
+        background: #2c0707;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
 
-        <div class="contact-grid">
-          <div class="contact-item">
-            <div class="contact-icon">📧</div>
-            <h3>Email Support</h3>
-            <p>General inquiries and support</p>
-            <a href="mailto:support@gharit.com" class="contact-link"
-              >support@gharit.com</a
-            >
-          </div>
+      .hamburger-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+      }
 
-          <div class="contact-item">
-            <div class="contact-icon">📱</div>
-            <h3>Phone Support</h3>
-            <p>Monday - Sunday, 9 AM - 9 PM</p>
-            <a href="tel:+918828244356" class="contact-link"
-              >+91 882-8244-356</a
-            >
-          </div>
+      .hamburger-toggle.active span:nth-child(2) {
+        transform: scaleX(0);
+        opacity: 0;
+      }
 
-          <div class="contact-item">
-            <div class="contact-icon">💬</div>
-            <h3>App Support</h3>
-            <p>In-app chat and notifications</p>
-            <p class="contact-link">Available 24/7</p>
-          </div>
-        </div>
-      </div>
+      .hamburger-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
 
-      <div class="support-section">
-        <h2>Frequently Asked Questions</h2>
+      /* Pricing Button Styles */
+      .pricing-btn {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #6db3a6;
+        text-decoration: none;
+        padding: 12px 28px;
+        border: 2px solid #000000;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        letter-spacing: -0.01em;
+        background: transparent;
+        cursor: pointer;
+        z-index: 2000;
+        position: relative;
+        min-width: 100px;
+        text-align: center;
+      }
 
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
-            How do I schedule a pickup? ▼
-          </button>
-          <div class="faq-answer">
-            <p>
-              You can schedule a pickup through our mobile app by selecting your
-              preferred time slot and adding your laundry details. We offer
-              same-day and next-day pickup options.
-            </p>
-          </div>
-        </div>
+      .pricing-btn:hover {
+        background: #6db3a6;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(109, 179, 166, 0.2);
+        border-color: #000000;
+      }
 
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
-            What are your service areas? ▼
-          </button>
-          <div class="faq-answer">
-            <p>
-              We currently serve major metropolitan areas. Please check our app
-              or website for specific coverage in your location.
-            </p>
-          </div>
-        </div>
+      .pricing-btn.active {
+        background: #6db3a6;
+        color: #ffffff;
+        border-color: #000000;
+      }
 
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
-            How do I track my order? ▼
-          </button>
-          <div class="faq-answer">
-            <p>
-              You can track your order in real-time through our mobile app.
-              You'll receive notifications for pickup, processing, and delivery
-              updates.
-            </p>
-          </div>
-        </div>
+      .fullscreen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #0a0a0a;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
-            What payment methods do you accept? ▼
-          </button>
-          <div class="faq-answer">
-            <p>
-              We accept all major credit cards, debit cards, UPI, digital
-              wallets, and cash on delivery for your convenience.
-            </p>
-          </div>
-        </div>
+      .fullscreen-menu.active {
+        opacity: 1;
+        visibility: visible;
+      }
 
-        <div class="faq-item">
-          <button class="faq-question" onclick="toggleFAQ(this)">
-            How do I cancel or modify my order? ▼
-          </button>
-          <div class="faq-answer">
-            <p>
-              You can cancel or modify your order through the app before our
-              team picks up your laundry. After pickup, modifications may not be
-              possible.
-            </p>
-          </div>
-        </div>
-      </div>
+      .menu-links {
+        list-style: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
 
-      <div class="support-section">
-        <h2>Report an Issue</h2>
-        <p>
-          If you're experiencing technical difficulties or have feedback about
-          our service, please contact us:
-        </p>
-        <ul>
-          <li>
-            Email:
-            <a href="mailto:support@gharit.com" class="contact-link"
-              >support@gharit.com</a
-            >
-          </li>
-          <li>
-            Phone:
-            <a href="tel:+918828244356" class="contact-link"
-              >+91 882-8244-356</a
-            >
-          </li>
-          <li>
-            Include your order number and device details for faster resolution
-          </li>
-        </ul>
-      </div>
+      .menu-links li {
+        margin: 5px 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s ease;
+      }
 
-      <p class="copyright">
-        © 2025 GHAR!T. A <span class="parent-company">WIZNIGHT</span> Company.
-        All rights reserved.
-      </p>
-    </div>
+      .fullscreen-menu.active .menu-links li {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-    <script>
-      function toggleFAQ(element) {
-        const answer = element.nextElementSibling;
-        const isActive = answer.classList.contains("active");
+      .fullscreen-menu.active .menu-links li:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(5) {
+        transition-delay: 0.5s;
+      }
 
-        // Close all FAQ answers
-        document.querySelectorAll(".faq-answer").forEach((item) => {
-          item.classList.remove("active");
-        });
+      .menu-links a {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          sans-serif;
+        font-size: clamp(24px, 5vw, 48px);
+        font-weight: 600;
+        color: #ffffff;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        position: relative;
+        letter-spacing: -0.02em;
+      }
 
-        // Reset all question arrows
-        document.querySelectorAll(".faq-question").forEach((item) => {
-          item.textContent = item.textContent.replace("▲", "▼");
-        });
+      .menu-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: #5ea9ad;
+        transition: width 0.3s ease;
+      }
 
-        if (!isActive) {
-          answer.classList.add("active");
-          element.textContent = element.textContent.replace("▼", "▲");
+      .menu-links a:hover {
+        color: #5ea9ad;
+      }
+
+      .menu-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Footer Styles */
+      .menu-footer {
+        margin-top: 40px;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          sans-serif;
+        font-size: 20px;
+        color: #666666;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease 0.5s;
+      }
+
+      .fullscreen-menu.active .menu-footer {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .menu-footer .heart {
+        color: #ff6b6b;
+        display: inline-block;
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
         }
       }
+
+      /* Social Media Styles */
+      .social-media-section {
+        margin: 50px 0 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease 0.4s;
+      }
+
+      .fullscreen-menu.active .social-media-section {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .social-media-title {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: #999999;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+      }
+
+      .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(94, 169, 173, 0.1);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .social-icon:hover {
+        background: rgba(94, 169, 173, 0.3);
+        transform: scale(1.1);
+      }
+
+      .social-icon img {
+        display: block;
+      }
+
+      /* Pricing Overlay Card Styles */
+      .pricing-overlay-card {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        z-index: 998;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+      }
+
+      .pricing-overlay-card.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .pricing-overlay-card .pricing-close-btn {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 10px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease 0.3s;
+      }
+
+      .pricing-overlay-card.active .pricing-close-btn {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .pricing-overlay-card .pricing-close-btn span {
+        display: block;
+        width: 36px;
+        height: 4px;
+        background: #000000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .pricing-overlay-card .pricing-close-btn span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .pricing-overlay-card .pricing-close-btn span:nth-child(2) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+
+      .pricing-overlay-card .pricing-close-btn:hover span {
+        background: #6db3a6;
+      }
+
+      .pricing-overlay-card .pricing-content-wrapper {
+        padding: 60px 15px 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s ease 0.2s;
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100vh - 100px);
+        box-sizing: border-box;
+      }
+
+      @media (max-width: 479px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+          margin-top: 1rem !important;
+        }
+      }
+
+      @media (min-width: 480px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+          padding: 70px 20px 35px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+          padding: 25px 40px 50px;
+          max-height: calc(100vh - 70px);
+          margin-top: 5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+          padding: 20px 60px 60px;
+          max-height: calc(100vh - 60px);
+          margin-top: 5rem;
+        }
+      }
+
+      .pricing-overlay-card.active .pricing-content-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 968px) {
+        .nav-container {
+          padding: 14px 25px;
+        }
+        .hamburger-toggle span {
+          width: 36px;
+          height: 4px;
+        }
+        .pricing-btn {
+          font-size: 14px;
+          padding: 10px 20px;
+          min-width: 90px;
+        }
+        .menu-links a {
+          font-size: clamp(18px, 4vw, 36px);
+        }
+        .menu-links li {
+          margin: 12px 0;
+        }
+        .menu-footer {
+          font-size: 16px;
+          margin-top: 30px;
+        }
+        .social-media-section {
+          margin: 30px 0 20px 0;
+          gap: 12px;
+        }
+        .social-icons {
+          gap: 20px;
+        }
+        .pricing-overlay-card .pricing-close-btn {
+          right: 25px;
+          top: 16px;
+        }
+        .pricing-overlay-card .pricing-close-btn span {
+          width: 30px;
+          height: 3px;
+        }
+        .pricing-overlay-card .pricing-content-wrapper {
+          padding: 70px 15px 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .pricing-btn {
+          font-size: 13px;
+          padding: 8px 16px;
+          min-width: 80px;
+        }
+        .menu-links a {
+          font-size: clamp(20px, 6vw, 32px);
+        }
+        .menu-links li {
+          margin: 14px 0;
+        }
+      }
+    </style>
+
+    <header class="nav-header">
+      <div class="nav-container">
+        <button
+          class="hamburger-toggle"
+          id="hamburgerBtn"
+          aria-label="Toggle Menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button
+          class="pricing-btn"
+          id="pricingBtn"
+          onclick="togglePricingCard()"
+        >
+          Pricing
+        </button>
+      </div>
+    </header>
+
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+      <ul class="menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+      <div class="menu-footer">
+        © 2024 GHAR!T. Crafted with <span class="heart">💛</span> in Mumbai,
+        India
+      </div>
+    </div>
+
+    <!-- Pricing Overlay Card -->
+    <div class="pricing-overlay-card" id="pricingOverlayCard">
+      <button
+        class="pricing-close-btn"
+        onclick="togglePricingCard()"
+        aria-label="Close Pricing"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="pricing-content-wrapper">
+        <section class="gharit-pricing-section">
+          <style>
+            .gharit-pricing-section {
+              font-family:
+                "Inter",
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                "Helvetica Neue",
+                Arial,
+                sans-serif;
+              background-color: #ffffff;
+              color: #111827;
+              box-sizing: border-box;
+              width: 100%;
+              max-width: 100%;
+              overflow-x: hidden;
+              display: flex;
+              flex-direction: column;
+              padding: 0.4rem;
+              margin: 0 auto;
+              border-radius: 0.8rem;
+              max-height: 100%;
+            }
+
+            /* iPhone 7 / Ultra small screens (max-width: 375px) */
+            @media (max-width: 375px) {
+              .gharit-pricing-section {
+                padding: 0.35rem;
+                border-radius: 0.6rem;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section {
+                padding: 0.5rem;
+                border-radius: 0.75rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section {
+                padding: 0.75rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section {
+                padding: 1.5rem;
+              }
+            }
+
+            @media (min-width: 1024px) {
+              .gharit-pricing-section {
+                padding: 2rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-header {
+              margin-bottom: 0.75rem;
+              width: 100%;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-header {
+                margin-bottom: 1rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-header {
+                margin-bottom: 0.5rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-header-container {
+              display: flex;
+              flex-direction: column;
+              gap: 0.75rem;
+              width: 100%;
+              position: relative;
+            }
+
+            .gharit-pricing-section .gharit-download-link {
+              font-weight: 700;
+              text-decoration: underline;
+              color: #ef4444;
+              font-size: 0.875rem;
+              line-height: 1.4;
+              word-break: break-word;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              display: inline-block;
+            }
+
+            .gharit-pricing-section .gharit-download-link:hover {
+              color: #dc2626;
+              text-decoration: underline;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-header-container {
+                gap: 1rem;
+              }
+
+              .gharit-pricing-section .gharit-download-link {
+                font-size: 0.9375rem;
+              }
+            }
+
+            @media (min-width: 1024px) {
+              .gharit-pricing-section .gharit-header-container {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 1.5rem;
+              }
+
+              .gharit-pricing-section .gharit-download-link {
+                max-width: 12rem;
+                padding-left: 1rem;
+                border-left: 2px solid #e5e7eb;
+              }
+            }
+
+            .gharit-pricing-section .gharit-title-wrapper {
+              flex: 1;
+              width: 100%;
+              min-width: 0;
+            }
+
+            .gharit-pricing-section .gharit-main-title {
+              font-size: 1.2rem;
+              font-weight: 800;
+              letter-spacing: -0.025em;
+              line-height: 1.1;
+              margin-bottom: 0.4rem;
+              margin-top: -0.1rem;
+              text-transform: uppercase;
+              word-break: break-word;
+              color: #111827;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-main-title {
+                font-size: 1rem;
+                line-height: 1.05;
+                margin-bottom: 0.3rem;
+                word-spacing: -0.01em;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-main-title {
+                font-size: 1.35rem;
+                margin-bottom: 0.45rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-main-title {
+                font-size: 1.875rem;
+                margin-bottom: 0.6rem;
+                margin-top: -0.2rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-main-title {
+                font-size: 2.25rem;
+                line-height: 1.1;
+                margin-bottom: 0.8rem;
+                margin-top: -0.2rem;
+              }
+            }
+
+            @media (min-width: 1024px) {
+              .gharit-pricing-section .gharit-main-title {
+                font-size: 3rem;
+                margin-bottom: -0.5rem;
+                margin-top: -0rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-search-section {
+              margin-bottom: 0.75rem;
+              width: 100%;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-search-section {
+                margin-bottom: 1rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-search-section {
+                margin-bottom: 1.25rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-search-wrapper {
+              display: flex;
+              flex-direction: row;
+              gap: 0.5rem;
+              align-items: center;
+              width: 100%;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-search-wrapper {
+                flex-direction: row;
+                gap: 0.75rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-search-wrapper {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+              }
+            }
+
+            .gharit-pricing-section .gharit-search-box {
+              position: relative;
+              width: 100%;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-search-box {
+                width: 20rem;
+              }
+            }
+
+            @media (min-width: 1024px) {
+              .gharit-pricing-section .gharit-search-box {
+                width: 24rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-search-icon {
+              position: absolute;
+              left: 0.75rem;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #9ca3af;
+              pointer-events: none;
+              width: 1rem;
+              height: 1rem;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-search-icon {
+                width: 1.25rem;
+                height: 1.25rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-search-input {
+              width: 100%;
+              padding: 0.5rem 2rem 0.5rem 2rem;
+              border: 1px solid #e5e7eb;
+              border-radius: 0.5rem;
+              background-color: #ffffff;
+              font-size: 0.75rem;
+              color: #111827;
+              transition: all 0.3s ease;
+              outline: none;
+              box-sizing: border-box;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-search-input {
+                padding: 0.45rem 1.8rem 0.45rem 1.8rem;
+                font-size: 0.7rem;
+                border-radius: 0.4rem;
+                min-height: 32px;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-search-input {
+                padding: 0.55rem 2.1rem 0.55rem 2.1rem;
+                font-size: 0.8rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-search-input {
+                padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+                font-size: 0.875rem;
+                border-radius: 0.75rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-search-input::placeholder {
+              color: #9ca3af;
+            }
+
+            .gharit-pricing-section .gharit-search-input:focus {
+              border-color: #6db3a6;
+              box-shadow: 0 0 0 3px rgba(109, 179, 166, 0.2);
+            }
+
+            .gharit-pricing-section .gharit-clear-btn {
+              position: absolute;
+              right: 0.625rem;
+              top: 50%;
+              transform: translateY(-50%);
+              background: none;
+              border: none;
+              color: #9ca3af;
+              cursor: pointer;
+              padding: 0;
+              display: none;
+              width: 1.25rem;
+              height: 1.25rem;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-clear-btn {
+                right: 0.75rem;
+                width: 1.5rem;
+                height: 1.5rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-clear-btn:hover {
+              color: #4b5563;
+            }
+
+            .gharit-pricing-section .gharit-clear-btn.visible {
+              display: block;
+            }
+
+            .gharit-pricing-section .gharit-results-count {
+              font-size: 0.6rem;
+              color: #6b7280;
+              text-align: right;
+              white-space: nowrap;
+              flex-shrink: 0;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-results-count {
+                font-size: 0.55rem;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-results-count {
+                font-size: 0.65rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-results-count {
+                font-size: 0.75rem;
+                text-align: right;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-results-count {
+                font-size: 0.875rem;
+                text-align: right;
+              }
+            }
+
+            .gharit-pricing-section .gharit-active-filters {
+              margin-top: 0.5rem;
+              display: none;
+              flex-wrap: wrap;
+              gap: 0.5rem;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-active-filters {
+                margin-top: 0.75rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-active-filters.visible {
+              display: flex;
+            }
+
+            .gharit-pricing-section .gharit-filter-tag {
+              display: inline-flex;
+              align-items: center;
+              padding: 0.25rem 0.625rem;
+              border-radius: 9999px;
+              font-size: 0.6875rem;
+              font-weight: 500;
+              background-color: #6db3a6;
+              color: #ffffff;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-filter-tag {
+                padding: 0.25rem 0.75rem;
+                font-size: 0.75rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-filter-tag button {
+              margin-left: 0.375rem;
+              background: none;
+              border: none;
+              color: #ffffff;
+              cursor: pointer;
+              padding: 0;
+              display: flex;
+              align-items: center;
+              width: 0.75rem;
+              height: 0.75rem;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-filter-tag button {
+                margin-left: 0.5rem;
+                width: 0.875rem;
+                height: 0.875rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-filter-tag button:hover {
+              color: #e5e7eb;
+            }
+
+            .gharit-pricing-section
+              .gharit-global-search-mode
+              .gharit-tabs-nav {
+              display: none;
+            }
+
+            .gharit-pricing-section .gharit-category-badge {
+              display: inline-flex;
+              align-items: center;
+              padding: 0.125rem 0.5rem;
+              border-radius: 0.25rem;
+              font-size: 0.625rem;
+              font-weight: 600;
+              background-color: #e5e7eb;
+              color: #374151;
+              margin-left: 0.5rem;
+              text-transform: uppercase;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-category-badge {
+                padding: 0.25rem 0.625rem;
+                font-size: 0.6875rem;
+                margin-left: 0.75rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-tabs-nav {
+              margin-bottom: 0.75rem;
+              overflow-x: auto;
+              padding-bottom: 0.25rem;
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+              width: 100%;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-tabs-nav {
+                margin-bottom: 1rem;
+                padding-bottom: 0.375rem;
+                overflow-x: visible;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-tabs-nav {
+                margin-bottom: 1rem;
+                padding-bottom: 0.5rem;
+                margin-top: 0;
+                overflow-x: visible;
+              }
+            }
+
+            .gharit-pricing-section .gharit-tabs-nav::-webkit-scrollbar {
+              display: none;
+            }
+
+            .gharit-pricing-section .gharit-tabs-container {
+              display: flex;
+              gap: 0.5rem;
+              min-width: auto;
+              flex-wrap: nowrap;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-tabs-nav {
+                overflow-x: visible;
+              }
+
+              .gharit-pricing-section .gharit-tabs-container {
+                gap: 0.75rem;
+                flex-wrap: wrap;
+              }
+            }
+
+            .gharit-pricing-section .gharit-tab-btn {
+              padding: 0.4rem 0.8rem;
+              border-radius: 0.4rem;
+              font-size: 0.65rem;
+              font-weight: 600;
+              white-space: nowrap;
+              border: 1px solid #e5e7eb;
+              background-color: #ffffff;
+              color: #4b5563;
+              cursor: pointer;
+              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+              outline: none;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-tab-btn {
+                padding: 0.35rem 0.7rem;
+                font-size: 0.6rem;
+                border-radius: 0.35rem;
+                min-height: 30px;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-tab-btn {
+                padding: 0.42rem 0.85rem;
+                font-size: 0.68rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-tab-btn {
+                padding: 0.75rem 1.25rem;
+                font-size: 0.875rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-tab-btn:hover {
+              border-color: #9ca3af;
+              background-color: #f9fafb;
+            }
+
+            .gharit-pricing-section .gharit-tab-btn.active {
+              background-color: #000000;
+              color: #ffffff;
+              border-color: #000000;
+              box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+              transform: scale(1.02);
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-tab-btn.active {
+                transform: scale(1.05);
+              }
+            }
+
+            .gharit-pricing-section .gharit-table-container {
+              flex-grow: 1;
+              background-color: #ffffff;
+              border-radius: 0.75rem;
+              border: 1px solid #e5e7eb;
+              box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+              overflow: hidden;
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+              box-sizing: border-box;
+              min-height: auto;
+              max-height: 100%;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-table-container {
+                flex-grow: 1;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-table-container {
+                border-radius: 1rem;
+                max-height: 100%;
+              }
+            }
+
+            .gharit-pricing-section .gharit-table-header {
+              display: none;
+              grid-template-columns: repeat(12, minmax(0, 1fr));
+              gap: 0.75rem;
+              padding: 1rem;
+              border-bottom: 1px solid #f3f4f6;
+              background-color: rgba(249, 250, 251, 0.5);
+              font-size: 0.625rem;
+              font-weight: 700;
+              letter-spacing: 0.05em;
+              color: #6b7280;
+              text-transform: uppercase;
+              position: sticky;
+              top: 0;
+              z-index: 10;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-table-header {
+                display: grid;
+                padding: 1rem;
+                font-size: 0.75rem;
+                gap: 1rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-header-col-service {
+              grid-column: span 5 / span 5;
+              padding-left: 0.75rem;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-header-col-service {
+                padding-left: 1rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-header-col-price {
+              grid-column: span 2 / span 2;
+              text-align: center;
+            }
+
+            .gharit-pricing-section .gharit-header-col-desc {
+              grid-column: span 3 / span 3;
+              text-align: right;
+              padding-right: 0.75rem;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-header-col-desc {
+                padding-right: 1rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-table-body {
+              overflow-y: scroll;
+              max-height: 50vh;
+              scrollbar-width: thin;
+              scrollbar-color: #5ea9ad #f5f5f5;
+              width: 100%;
+              flex-grow: 1;
+              transition: opacity 0.3s ease;
+              scroll-behavior: smooth;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-table-body {
+                max-height: 42vh;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-table-body {
+                max-height: 46vh;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-table-body {
+                max-height: 50vh;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-table-body {
+                max-height: 84vh;
+              }
+            }
+
+            @media (min-width: 1024px) {
+              .gharit-pricing-section .gharit-table-body {
+                max-height: 92vh;
+              }
+            }
+
+            .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+              width: 7px;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                width: 5px;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                width: 6px;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                width: 10px;
+              }
+            }
+
+            .gharit-pricing-section
+              .gharit-table-body::-webkit-scrollbar-track {
+              background: #f5f5f5;
+              border-radius: 5px;
+            }
+
+            .gharit-pricing-section
+              .gharit-table-body::-webkit-scrollbar-thumb {
+              background: linear-gradient(180deg, #5ea9ad 0%, #4a8b8b 100%);
+              border-radius: 5px;
+              border: 2px solid #f5f5f5;
+            }
+
+            .gharit-pricing-section
+              .gharit-table-body::-webkit-scrollbar-thumb:hover {
+              background: linear-gradient(180deg, #4a8b8b 0%, #3a7b7b 100%);
+            }
+
+            .gharit-pricing-section .gharit-service-row {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 0.4rem;
+              padding: 0.55rem;
+              border-bottom: 1px solid #f3f4f6;
+              align-items: start;
+              transition: all 0.2s ease;
+              animation: gharitFadeIn 0.3s ease-in-out forwards;
+              opacity: 0;
+              transform: translateY(10px);
+              width: 100%;
+              box-sizing: border-box;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-service-row {
+                gap: 0.35rem;
+                padding: 0.5rem;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-service-row {
+                gap: 0.5rem;
+                padding: 0.6rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-service-row {
+                grid-template-columns: 1fr auto auto;
+                gap: 0.625rem;
+                padding: 0.75rem;
+                align-items: center;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-service-row {
+                grid-template-columns: repeat(12, minmax(0, 1fr));
+                gap: 1rem;
+                padding: 1rem;
+                align-items: center;
+              }
+            }
+
+            @keyframes gharitFadeIn {
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            .gharit-pricing-section .gharit-service-row:hover {
+              background-color: #f9fafb;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-service-row:hover {
+                transform: translateX(4px);
+              }
+            }
+
+            @media (max-width: 767px) {
+              .gharit-pricing-section .gharit-service-row:hover {
+                transform: none;
+              }
+            }
+
+            .gharit-pricing-section .gharit-service-info {
+              display: flex;
+              align-items: center;
+              gap: 0.75rem;
+              min-width: 0;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-service-info {
+                grid-column: span 1;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-service-info {
+                grid-column: span 5 / span 5;
+                gap: 1rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-img-container {
+              width: 2.5rem;
+              height: 2.5rem;
+              border-radius: 0.35rem;
+              background-color: #f3f4f6;
+              overflow: hidden;
+              flex-shrink: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid #f3f4f6;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-img-container {
+                width: 2.2rem;
+                height: 2.2rem;
+                border-radius: 0.3rem;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-img-container {
+                width: 2.8rem;
+                height: 2.8rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-img-container {
+                width: 3.5rem;
+                height: 3.5rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-img-container {
+                width: 4.5rem;
+                height: 4.5rem;
+                border-radius: 0.5rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-img-container img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+            }
+
+            .gharit-pricing-section
+              .gharit-service-row:hover
+              .gharit-img-container
+              img {
+              transform: scale(1.05);
+            }
+
+            .gharit-pricing-section .gharit-service-details {
+              min-width: 0;
+              overflow: hidden;
+            }
+
+            .gharit-pricing-section .gharit-service-details h3 {
+              font-weight: 700;
+              color: #111827;
+              font-size: 0.7rem;
+              margin: 0 0 0.1rem 0;
+              line-height: 1.25;
+              word-break: break-word;
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-service-details h3 {
+                font-size: 0.65rem;
+                line-height: 1.2;
+                margin: 0 0 0.08rem 0;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-service-details h3 {
+                font-size: 0.75rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-service-details h3 {
+                font-size: 0.875rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-service-details h3 {
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-service-code {
+              font-size: 0.625rem;
+              color: #9ca3af;
+              display: block;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-service-code {
+                display: none;
+              }
+            }
+
+            .gharit-pricing-section .gharit-service-desc-mobile {
+              font-size: 0.6875rem;
+              color: #6b7280;
+              margin-top: 0.25rem;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              line-height: 1.4;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-service-desc-mobile {
+                display: none;
+              }
+            }
+
+            .gharit-pricing-section .gharit-price-cell {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 0.5rem;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-price-cell {
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+                gap: 0.25rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-price-cell {
+                grid-column: span 2 / span 2;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+              }
+            }
+
+            .gharit-pricing-section .gharit-price-label {
+              font-size: 0.625rem;
+              font-weight: 700;
+              color: #9ca3af;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              white-space: nowrap;
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-price-label {
+                font-size: 0.6875rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-price-label {
+                display: none;
+              }
+            }
+
+            .gharit-pricing-section .gharit-price-value {
+              font-weight: 700;
+              font-size: 0.8rem;
+              color: #111827;
+              white-space: nowrap;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-price-value {
+                font-size: 0.75rem;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-price-value {
+                font-size: 0.85rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-price-value {
+                font-size: 1rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-price-value {
+                font-size: 1.125rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-price-value.accent {
+              color: #6db3a6;
+            }
+
+            .gharit-pricing-section .gharit-price-value.muted {
+              color: #9ca3af;
+            }
+
+            .gharit-pricing-section .gharit-desc-cell {
+              display: none;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-desc-cell {
+                display: block;
+                grid-column: span 3 / span 3;
+                text-align: right;
+              }
+            }
+
+            .gharit-pricing-section .gharit-desc-box {
+              display: inline-block;
+              background-color: #f9fafb;
+              border: 1px solid #f3f4f6;
+              border-radius: 0.5rem;
+              padding: 0.625rem;
+              max-width: 100%;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-desc-box {
+                padding: 0.75rem;
+                max-width: 20rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-desc-text {
+              font-size: 0.6875rem;
+              color: #4b5563;
+              line-height: 1.5;
+              margin: 0;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-desc-text {
+                font-size: 0.75rem;
+                line-height: 1.625;
+              }
+            }
+
+            .gharit-pricing-section .gharit-no-results {
+              text-align: center;
+              padding: 2rem 1rem;
+              color: #6b7280;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-no-results {
+                padding: 3rem 1rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-no-results svg {
+              width: 2.5rem;
+              height: 2.5rem;
+              margin: 0 auto 0.75rem;
+              color: #d1d5db;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-no-results svg {
+                width: 3rem;
+                height: 3rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-no-results-title {
+              font-size: 1rem;
+              font-weight: 500;
+              color: #111827;
+              margin: 0 0 0.25rem 0;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-no-results-title {
+                font-size: 1.125rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-no-results-text {
+              font-size: 0.8125rem;
+              margin: 0;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-no-results-text {
+                font-size: 0.875rem;
+              }
+            }
+
+            .gharit-pricing-section mark {
+              background-color: #fef08a;
+              padding: 0 0.125rem;
+              border-radius: 0.125rem;
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section mark {
+                padding: 0 0.25rem;
+                border-radius: 0.25rem;
+              }
+            }
+
+            .gharit-pricing-section .gharit-footer {
+              margin-top: 0.6rem;
+              font-size: 0.55rem;
+              color: #9ca3af;
+              line-height: 1.35;
+              max-width: 100%;
+              word-break: break-word;
+            }
+
+            /* iPhone 7 / Ultra small screens */
+            @media (max-width: 375px) {
+              .gharit-pricing-section .gharit-footer {
+                margin-top: 0.5rem;
+                font-size: 0.5rem;
+                line-height: 1.3;
+                display: none;
+              }
+            }
+
+            @media (min-width: 376px) and (max-width: 479px) {
+              .gharit-pricing-section .gharit-footer {
+                margin-top: 0.7rem;
+                font-size: 0.58rem;
+              }
+            }
+
+            @media (min-width: 480px) {
+              .gharit-pricing-section .gharit-footer {
+                margin-top: 1rem;
+                font-size: 0.6875rem;
+              }
+            }
+
+            @media (min-width: 768px) {
+              .gharit-pricing-section .gharit-footer {
+                margin-top: 1.5rem;
+                font-size: 0.75rem;
+                line-height: 1.625;
+                max-width: 56rem;
+              }
+            }
+
+            @media (max-width: 767px) {
+              .gharit-pricing-section .gharit-footer {
+                display: none;
+              }
+            }
+
+            @media print {
+              .gharit-pricing-section .gharit-no-print {
+                display: none !important;
+              }
+
+              .gharit-pricing-section .gharit-table-body {
+                overflow: visible !important;
+                max-height: none !important;
+              }
+            }
+
+            @media screen and (-ms-high-contrast: active),
+              (-ms-high-contrast: none) {
+              .gharit-pricing-section .gharit-service-row {
+                display: flex;
+                width: 100%;
+              }
+            }
+          </style>
+
+          <!-- <header class="gharit-header">
+            <div class="gharit-header-container">
+              <div class="gharit-title-wrapper">
+                <h1 class="gharit-main-title">
+                  TRANSPARENT<br />
+                  PRICING FOR GHAR!T SERVICES
+                </h1>
+              </div>
+              <a
+                href="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/SKU/properties_list.xlsx"
+                download="gharit-price-list.xlsx"
+                class="gharit-download-link"
+              >
+                Download our detailed price list
+              </a>
+            </div>
+          </header> -->
+
+          <div class="gharit-search-section gharit-no-print">
+            <div class="gharit-search-wrapper">
+              <div class="gharit-search-box">
+                <svg
+                  class="gharit-search-icon"
+                  xmlns="http://www.w3.org/2000/svg "
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <input
+                  type="text"
+                  id="gharit-search-input-pricing"
+                  class="gharit-search-input"
+                  placeholder="Search all items..."
+                />
+                <button
+                  id="gharit-clear-search-pricing"
+                  class="gharit-clear-btn"
+                  onclick="gharitClearSearchPricing()"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg "
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m15 9-6 6" />
+                    <path d="m9 9 6 6" />
+                  </svg>
+                </button>
+              </div>
+              <div class="gharit-results-count">
+                <span id="gharit-results-count-pricing">Showing all items</span>
+              </div>
+            </div>
+            <div
+              id="gharit-active-filters-pricing"
+              class="gharit-active-filters"
+            >
+              <span class="gharit-filter-tag">
+                Search: "<span id="gharit-search-term-pricing"></span>"
+                <button onclick="gharitClearSearchPricing()">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg "
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M18 6 6 18" />
+                    <path d="m6 6 12 12" />
+                  </svg>
+                </button>
+              </span>
+            </div>
+          </div>
+
+          <nav
+            class="gharit-tabs-nav gharit-no-print"
+            id="gharit-tabs-nav-pricing"
+          >
+            <div
+              class="gharit-tabs-container"
+              id="gharit-category-tabs-pricing"
+            ></div>
+          </nav>
+
+          <main
+            class="gharit-table-container"
+            id="gharit-table-container-pricing"
+          >
+            <div class="gharit-table-header">
+              <div class="gharit-header-col-service">Service</div>
+              <div class="gharit-header-col-price">Ironing</div>
+              <div class="gharit-header-col-price">Dry Cleaning</div>
+              <div class="gharit-header-col-desc">Description</div>
+            </div>
+            <div
+              id="gharit-services-list-pricing"
+              class="gharit-table-body"
+            ></div>
+          </main>
+
+          <footer class="gharit-footer">
+            *Please note that pricing may vary based on the location, fabric
+            type, and special treatment required. Prices listed above are our
+            standard rates and may be adjusted for delicate or premium garments.
+            For items not listed, please contact us for a custom quote. All
+            services are performed with professional care and attention to
+            detail.
+          </footer>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/js/gharit-pricing-api.js"></script>
+    <script>
+      // Hamburger Menu Logic
+      (function () {
+        const hamburgerBtn = document.getElementById("hamburgerBtn");
+        const fullscreenMenu = document.getElementById("fullscreenMenu");
+
+        hamburgerBtn.addEventListener("click", function () {
+          // Close pricing if open
+          const pricingCard = document.getElementById("pricingOverlayCard");
+          const pricingBtn = document.getElementById("pricingBtn");
+          if (pricingCard.classList.contains("active")) {
+            pricingCard.classList.remove("active");
+            pricingBtn.textContent = "Pricing";
+            pricingBtn.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+
+          hamburgerBtn.classList.toggle("active");
+          fullscreenMenu.classList.toggle("active");
+          document.body.style.overflow = fullscreenMenu.classList.contains(
+            "active",
+          )
+            ? "hidden"
+            : "";
+        });
+
+        document.querySelectorAll(".menu-links a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            hamburgerBtn.classList.remove("active");
+            fullscreenMenu.classList.remove("active");
+            document.body.style.overflow = "";
+          });
+        });
+      })();
+
+      // Toggle Pricing Card Function
+      function togglePricingCard() {
+        const pricingCard = document.getElementById("pricingOverlayCard");
+        const pricingBtn = document.getElementById("pricingBtn");
+        const hamburgerBtn = document.getElementById("hamburgerBtn");
+        const fullscreenMenu = document.getElementById("fullscreenMenu");
+
+        // Close hamburger menu if open
+        if (fullscreenMenu.classList.contains("active")) {
+          hamburgerBtn.classList.remove("active");
+          fullscreenMenu.classList.remove("active");
+        }
+
+        pricingCard.classList.toggle("active");
+
+        // Update button text and style based on state
+        if (pricingCard.classList.contains("active")) {
+          pricingBtn.textContent = "Close Pricing";
+          pricingBtn.classList.add("active");
+          document.body.style.overflow = "hidden";
+
+          // Initialize pricing data if first time opening
+          if (!window.pricingInitialized) {
+            initPricingSection();
+            window.pricingInitialized = true;
+          }
+        } else {
+          pricingBtn.textContent = "Pricing";
+          pricingBtn.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      }
+
+      // Close pricing card when clicking outside content
+      document
+        .getElementById("pricingOverlayCard")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            togglePricingCard();
+          }
+        });
+
+      // Close pricing card on Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          const pricingCard = document.getElementById("pricingOverlayCard");
+          const pricingBtn = document.getElementById("pricingBtn");
+          const hamburgerBtn = document.getElementById("hamburgerBtn");
+          const fullscreenMenu = document.getElementById("fullscreenMenu");
+
+          if (pricingCard.classList.contains("active")) {
+            pricingCard.classList.remove("active");
+            pricingBtn.textContent = "Pricing";
+            pricingBtn.classList.remove("active");
+            document.body.style.overflow = "";
+          } else if (fullscreenMenu.classList.contains("active")) {
+            hamburgerBtn.classList.remove("active");
+            fullscreenMenu.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        }
+      });
     </script>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-gradient"></div>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span class="hero-label">24/7 Support Center</span>
+        </div>
+        <h1 class="hero-title">We're here to<br />help you</h1>
+        <p class="hero-subtitle">
+          Get instant answers to your questions and personalized solutions from
+          our dedicated support team
+        </p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">2min</span>
+            <div class="hero-stat-label">Avg Response</div>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">98%</span>
+            <div class="hero-stat-label">Resolution Rate</div>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">24/7</span>
+            <div class="hero-stat-label">Available</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+      <div class="section-header">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">
+          Choose your preferred<br />support channel
+        </h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon-wrapper">📧</div>
+          <h3>Email Support</h3>
+          <p class="subtitle">Detailed inquiries</p>
+          <a href="mailto:support@gharit.com" class="value"
+            >support@gharit.com →</a
+          >
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon-wrapper">📱</div>
+          <h3>Phone Support</h3>
+          <p class="subtitle">Mon-Sun, 9AM-9PM</p>
+          <a href="tel:+918828244356" class="value">+91 882-8244-356 →</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon-wrapper">💬</div>
+          <h3>Live Chat</h3>
+          <p class="subtitle">Instant response</p>
+          <span class="value" style="cursor: pointer" onclick="startChat()"
+            >Start Chat →</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+      <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Quick answers to<br />common questions</h2>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">How do I schedule a pickup?</h3>
+            <div class="faq-toggle">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">
+              Scheduling a pickup is easy! Use our mobile app to select your
+              preferred 2-hour time slot, or call us directly. Our delivery
+              partner will arrive at your doorstep with a branded Gharit bag for
+              your garments. Same-day pickup available for orders before 2 PM.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">What areas do you currently serve?</h3>
+            <div class="faq-toggle">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">
+              We currently operate across all major Mumbai neighborhoods
+              including Bandra, Andheri, Juhu, Powai, Worli, Lower Parel, and
+              South Mumbai. Enter your pincode in our app for instant
+              availability check. Expanding to Pune and Delhi NCR soon!
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">How can I track my order status?</h3>
+            <div class="faq-toggle">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">
+              Real-time tracking is available 24/7 through the Gharit app.
+              Receive push notifications at every stage: Pickup → Washing →
+              Ironing → Quality Check → Out for Delivery. You can also chat
+              directly with your delivery partner for ETA updates.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">What payment methods are accepted?</h3>
+            <div class="faq-toggle">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">
+              We accept all major payment methods: UPI (Google Pay, PhonePe,
+              PayTM), credit/debit cards (Visa, Mastercard, RuPay), net banking,
+              and cash on delivery. All digital payments are encrypted and
+              PCI-DSS compliant for your security.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">What is your cancellation policy?</h3>
+            <div class="faq-toggle">
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </div>
+          </div>
+          <div class="faq-content">
+            <p class="faq-answer">
+              Cancel or modify free before pickup. After pickup, changes depend
+              on processing stage. Contact us immediately at +91 882-8244-356 or
+              via app chat. If we've started processing, a nominal fee may
+              apply. Your satisfaction is our priority.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORT SECTION -->
+    <section class="report-section">
+      <div class="report-container">
+        <div class="report-header">
+          <h2>Report an Issue</h2>
+          <p>
+            Experiencing problems? Fill out the form below and our technical
+            team will resolve it within 24 hours.
+          </p>
+        </div>
+
+        <div class="contact-info-box">
+          <div>
+            <h4>Email Us</h4>
+            <div class="value">support@gharit.com</div>
+          </div>
+          <div class="contact-info-divider"></div>
+          <div>
+            <h4>Call Us</h4>
+            <div class="value">+91 882-8244-356</div>
+          </div>
+        </div>
+
+        <form class="support-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+91 98765 43210"
+              />
+            </div>
+            <div class="form-group">
+              <label for="order">Order ID (Optional)</label>
+              <input
+                type="text"
+                id="order"
+                name="order"
+                placeholder="GH-123456"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="issue">Issue Category</label>
+            <select id="issue" name="issue" required>
+              <option value="" disabled selected>Select issue type</option>
+              <option value="technical">Technical Problem</option>
+              <option value="delivery">Delivery Issue</option>
+              <option value="quality">Quality Concern</option>
+              <option value="payment">Payment Issue</option>
+              <option value="account">Account Help</option>
+              <option value="feedback">Feedback</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Describe the Issue</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Please provide details about your issue. For technical problems, include your device model and OS version."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Submit Support Ticket
+          </button>
+        </form>
+
+        <div class="report-note">
+          <span class="report-note-icon">💡</span>
+          <p>
+            <strong>Pro tip:</strong> Include screenshots and your Order ID for
+            faster resolution. Our average response time is under 2 minutes
+            during business hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // FAQ Accordion
+      function toggleFaq(header) {
+        const item = header.parentElement;
+        const allItems = document.querySelectorAll(".faq-item");
+
+        allItems.forEach((otherItem) => {
+          if (otherItem !== item && otherItem.classList.contains("active")) {
+            otherItem.classList.remove("active");
+          }
+        });
+
+        item.classList.toggle("active");
+      }
+
+      // Form Submission
+      function handleSubmit(e) {
+        e.preventDefault();
+
+        const btn = e.target.querySelector(".submit-btn");
+        const originalText = btn.textContent;
+
+        btn.textContent = "Sending...";
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.textContent = "✓ Ticket Submitted!";
+          btn.style.background = "var(--primary)";
+
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+            btn.style.background = "";
+            e.target.reset();
+          }, 2500);
+        }, 1500);
+      }
+
+      // Start Chat
+      function startChat() {
+        alert(
+          "Live chat feature coming soon! Please email us at support@gharit.com",
+        );
+      }
+    </script>
+
+    <section class="gf-footer">
+      <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+        .gf-footer {
+          --gf-teal: #5ea9ad;
+          font-family: "Inter", sans-serif;
+          background: #0a0a0a;
+          color: #999;
+          width: 100%;
+          margin: 0;
+          border-radius: 24px 24px 0 0;
+          overflow: hidden;
+        }
+
+        .gf-footer * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        .gf-container {
+          width: 100%;
+          max-width: 1400px;
+          margin: 0 auto;
+          padding-left: clamp(16px, 5vw, 80px);
+          padding-right: clamp(16px, 5vw, 80px);
+        }
+
+        .gf-cta {
+          background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+          padding: clamp(32px, 6vw, 60px) 0;
+          text-align: center;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gf-cta h2 {
+          color: #fff;
+          font-size: clamp(24px, 5vw, 48px);
+          font-weight: 700;
+          margin-bottom: 8px;
+          letter-spacing: -0.02em;
+          line-height: 1.2;
+        }
+
+        .gf-cta h2 span {
+          color: var(--gf-teal);
+        }
+
+        .gf-cta p {
+          color: #888;
+          font-size: clamp(14px, 3vw, 18px);
+          margin-bottom: 20px;
+        }
+
+        .gf-btns {
+          display: flex;
+          gap: 12px;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .gf-btn {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 14px 24px;
+          background: #fff;
+          border-radius: 10px;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 600;
+          color: #000;
+          transition: all 0.2s;
+        }
+
+        .gf-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .gf-btn svg {
+          width: 20px;
+          height: 20px;
+          fill: currentColor;
+        }
+
+        .gf-btn--outline {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          color: #fff;
+        }
+
+        .gf-btn--outline:hover {
+          border-color: var(--gf-teal);
+          background: rgba(94, 169, 173, 0.1);
+        }
+
+        .gf-links {
+          padding: clamp(32px, 5vw, 48px) 0;
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1fr;
+          gap: clamp(32px, 5vw, 80px);
+        }
+
+        .gf-brand img {
+          height: 24px;
+          margin-bottom: 16px;
+          filter: brightness(0) invert(1);
+        }
+
+        .gf-brand p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: #aaa;
+          margin-bottom: 20px;
+          max-width: 280px;
+        }
+
+        .gf-social {
+          display: flex;
+          gap: 10px;
+        }
+
+        .gf-social a {
+          width: 36px;
+          height: 36px;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.05);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #444;
+          transition: all 0.2s;
+        }
+
+        .gf-social a:hover {
+          background: var(--gf-teal);
+          color: #000;
+        }
+
+        .gf-social svg {
+          width: 16px;
+          height: 16px;
+          fill: currentColor;
+        }
+
+        .gf-col h4 {
+          color: var(--gf-teal);
+          font-size: 12px;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          margin-bottom: 16px;
+          font-weight: 600;
+        }
+
+        .gf-col a {
+          display: block;
+          color: #bbb;
+          font-size: 15px;
+          text-decoration: none;
+          margin-bottom: 10px;
+          transition: color 0.2s;
+        }
+
+        .gf-col a:hover {
+          color: var(--gf-teal);
+        }
+
+        .gf-contact {
+          margin-top: 16px;
+          padding: 14px;
+          background: rgba(94, 169, 173, 0.08);
+          border-radius: 8px;
+          font-size: 13px;
+        }
+
+        .gf-contact a {
+          color: var(--gf-teal);
+          font-weight: 500;
+          display: inline;
+        }
+
+        .gf-contact p {
+          color: #888;
+          font-size: 13px;
+          margin-top: 4px;
+        }
+
+        .gf-bar {
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          padding: 20px 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 13px;
+          color: #777;
+        }
+
+        /* ==================== MOBILE - Company Below Social Icons ==================== */
+
+        @media (max-width: 768px) {
+          .gf-footer {
+            border-radius: 20px 20px 0 0;
+          }
+
+          .gf-container {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+
+          .gf-cta {
+            padding: 24px 0;
+          }
+
+          .gf-cta h2 {
+            font-size: 24px;
+            margin-bottom: 6px;
+          }
+
+          .gf-cta p {
+            font-size: 13px;
+            margin-bottom: 16px;
+          }
+
+          .gf-btns {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .gf-btn {
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+            padding: 12px 20px;
+            font-size: 14px;
+          }
+
+          /* Layout: Brand centered, then Company & Support side by side */
+          .gf-links {
+            padding: 24px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+              "brand brand"
+              "company support"
+              "legal legal";
+            gap: 20px;
+            text-align: left;
+          }
+
+          .gf-brand {
+            grid-area: brand;
+            text-align: center;
+            margin-bottom: 8px;
+          }
+
+          .gf-brand img {
+            height: 26px;
+            margin: 0 auto 12px;
+            display: block;
+          }
+
+          .gf-brand p {
+            font-size: 14px;
+            color: #bbb;
+            margin: 0 auto 16px;
+            max-width: 300px;
+          }
+
+          .gf-social {
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+          }
+
+          /* Company - positioned under social icons (center-left) */
+          .gf-col:nth-of-type(2) {
+            grid-area: company;
+            text-align: left;
+            padding: 0;
+            /* No margin - starts from center-left under social icons */
+            justify-self: center; /* Center in its grid cell */
+            padding-left: 20px; /* Slight padding to align under icons */
+          }
+
+          /* Support - RIGHT side */
+          .gf-col:nth-of-type(3) {
+            grid-area: support;
+            text-align: left;
+            padding: 0;
+            justify-self: center; /* Center in its grid cell */
+          }
+
+          /* Legal at bottom */
+          .gf-col:nth-of-type(4) {
+            grid-area: legal;
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+          }
+
+          .gf-col:nth-of-type(4) h4 {
+            display: none;
+          }
+
+          .gf-col:nth-of-type(4) a {
+            display: inline-block;
+            font-size: 13px;
+            color: #777;
+          }
+
+          .gf-col h4 {
+            font-size: 11px;
+            margin-bottom: 12px;
+            color: var(--gf-teal);
+            letter-spacing: 2px;
+          }
+
+          .gf-col a {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 10px;
+          }
+
+          .gf-contact {
+            margin: 12px 0 0;
+            padding: 12px;
+            background: rgba(94, 169, 173, 0.1);
+          }
+
+          .gf-contact a {
+            font-size: 13px;
+            margin-bottom: 4px;
+          }
+
+          .gf-contact p {
+            color: #888;
+            font-size: 11px;
+            margin: 0;
+          }
+
+          .gf-bar {
+            padding: 16px 0;
+            flex-direction: column;
+            gap: 4px;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .gf-container {
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+
+          .gf-cta {
+            padding: 20px 0;
+          }
+
+          .gf-cta h2 {
+            font-size: 22px;
+          }
+
+          .gf-links {
+            padding: 20px 0;
+            gap: 16px;
+          }
+
+          /* Adjust alignment for small screens */
+          .gf-col:nth-of-type(2) {
+            padding-left: 10px;
+          }
+
+          .gf-brand img {
+            height: 24px;
+          }
+
+          .gf-brand p {
+            font-size: 13px;
+          }
+
+          .gf-col h4 {
+            font-size: 10px;
+            margin-bottom: 10px;
+          }
+
+          .gf-col a {
+            font-size: 13px;
+            margin-bottom: 8px;
+          }
+
+          .gf-contact {
+            padding: 10px;
+          }
+
+          .gf-bar {
+            padding: 14px 0;
+            font-size: 11px;
+          }
+        }
+      </style>
+
+      <!-- CTA -->
+      <div class="gf-cta">
+        <div class="gf-container">
+          <h2>Ready for <span>premium</span> laundry?</h2>
+          <p>Download the app and get your first wash free.</p>
+          <div class="gf-btns">
+            <a
+              href="https://apps.apple.com/ng/app/ghar-t/id6752650388"
+              class="gf-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                />
+              </svg>
+              App Store
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp"
+              class="gf-btn gf-btn--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"
+                />
+              </svg>
+              Google Play
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="gf-links gf-container">
+        <div class="gf-brand">
+          <img
+            src="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/GHarit%20Full%20logo%20PNG%20.svg"
+            alt="GHAR!T"
+          />
+          <p>
+            Premium laundry service that comes to you. Professional care for
+            your clothes.
+          </p>
+          <div class="gf-social">
+            <a
+              href="https://www.instagram.com/gharitapp?igsh=MWpkZWJvNTdkcXN3cw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                /></svg
+            ></a>
+            <a href="#"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                /></svg
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/ghar-t/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                /></svg
+            ></a>
+            <a
+              href="https://www.facebook.com/people/Gharit-App/61583880161338/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg viewBox="0 0 24 24">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+
+        <div class="gf-col">
+          <h4>Company</h4>
+          <a href="about-us.html">About</a>
+          <a href="careers.html">Careers</a>
+          <a href="blog.html">Blog</a>
+        </div>
+
+        <div class="gf-col">
+          <h4>Support</h4>
+          <a href="faq.html">FAQ</a>
+          <a href="support.html">Contact</a>
+          <div class="gf-contact">
+            <a href="mailto:support@gharitapp.com">support@gharitapp.com</a>
+            <p>Mon–Sat, 9am–7pm</p>
+          </div>
+        </div>
+
+        <div class="gf-col">
+          <h4>Legal</h4>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="gf-bar gf-container">
+        <span>© 2024 GHAR!T</span>
+        <span>Made with 💛 in Mumbai</span>
+      </div>
+    </section>
   </body>
 </html>

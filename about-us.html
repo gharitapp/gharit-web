@@ -1,33 +1,23 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GHAR!T - Terms & Conditions</title>
-
-    <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
+    <title>About Us | GHAR!T - Premium Laundry Service</title>
 
     <style>
       :root {
-        --color-primary: #5ea9ad;
-        --color-primary-dark: #4a9599;
-        --color-text: #1a1a1a;
-        --color-text-secondary: #555555;
-        --color-text-muted: #777777;
-        --color-bg: #ffffff;
-        --color-bg-subtle: #f8f9fa;
-        --color-border: #e5e5e5;
-        --font-display:
-          -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
-          Roboto, sans-serif;
-        --font-body:
-          -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
-          sans-serif;
-        --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --brand-teal: #5ea9ad;
+        --brand-teal-dark: #4a8b8b;
+        --brand-teal-light: #e8f4f4;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray-50: #fafafa;
+        --gray-100: #f5f5f5;
+        --gray-200: #e5e5e5;
+        --gray-400: #a3a3a3;
+        --gray-600: #525252;
+        --gray-900: #171717;
       }
 
       * {
@@ -36,855 +26,582 @@
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+        scrollbar-gutter: stable;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background: var(--white);
+        color: var(--gray-900);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
       /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f5f5f5;
-        border-radius: 5px;
+        background: var(--gray-100);
       }
       ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #5ea9ad 0%, #4a8b8b 100%);
+        background: linear-gradient(
+          180deg,
+          var(--brand-teal) 0%,
+          var(--brand-teal-dark) 100%
+        );
         border-radius: 5px;
-        border: 2px solid #f5f5f5;
+        border: 2px solid var(--gray-100);
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg, #4a8b8b 0%, #3a7b7b 100%);
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        background: var(--color-bg);
-        color: var(--color-text);
-        font-family: var(--font-body);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-
-      /* Container */
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 80px 24px;
-      }
-
-      @media (min-width: 768px) {
-        .container {
-          padding: 120px 48px;
-        }
-      }
-
-      /* Header Section - Simple Line Style */
-      .header-section {
-        margin-bottom: 80px;
-        position: relative;
-      }
-
-      .title {
-        font-family: var(--font-display);
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 600;
-        line-height: 1.2;
-        color: var(--color-text);
-        letter-spacing: -0.02em;
-        position: relative;
-        display: inline-block;
-        padding-bottom: 16px;
-        border-bottom: 4px solid var(--color-primary);
-      }
-
-      /* Main Layout Grid */
-      .main-wrapper {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 48px;
-        margin-bottom: 100px;
-        position: relative;
-      }
-
-      @media (min-width: 1024px) {
-        .main-wrapper {
-          grid-template-columns: 280px 1fr;
-          gap: 80px;
-        }
-      }
-
-      /* Left Column - Date */
-      .left-section {
-        position: relative;
-        animation: fadeInUp 0.8s var(--ease-out) 0.3s forwards;
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      @media (min-width: 1024px) {
-        .left-section {
-          position: sticky;
-          top: 120px;
-          height: fit-content;
-        }
-      }
-
-      .date-card {
         background: linear-gradient(
-          135deg,
-          rgba(94, 169, 173, 0.1) 0%,
-          rgba(94, 169, 173, 0.05) 100%
+          180deg,
+          var(--brand-teal-dark) 0%,
+          #3a7b7b 100%
         );
-        border: 1px solid rgba(94, 169, 173, 0.2);
-        border-radius: 16px;
-        padding: 24px;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 140px 40px 100px;
+        background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
         position: relative;
         overflow: hidden;
-        transition: all 0.4s var(--ease-out);
       }
 
-      .date-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(94, 169, 173, 0.15);
-        border-color: rgba(94, 169, 173, 0.4);
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -20%;
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(
+          circle,
+          rgba(94, 169, 173, 0.15) 0%,
+          transparent 70%
+        );
+        animation: pulse 8s ease-in-out infinite;
       }
 
-      .date-label {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        color: var(--color-text-muted);
-        margin-bottom: 8px;
-        font-weight: 600;
-      }
-
-      .date-value {
-        font-size: 1.125rem;
-        color: var(--color-primary);
-        font-weight: 600;
-        line-height: 1.5;
-      }
-
-      /* Right Column - Content */
-      .right-section {
-        animation: fadeInUp 0.8s var(--ease-out) 0.5s forwards;
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 0.8;
         }
       }
 
-      .company-info {
-        font-size: 1.125rem;
-        color: var(--color-text-secondary);
-        margin-bottom: 48px;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      .introduction {
-        margin-bottom: 48px;
-        padding-bottom: 48px;
-        border-bottom: 1px solid var(--color-border);
-      }
-
-      .intro-title {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        color: var(--color-text);
-        margin-bottom: 20px;
+      .hero-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--brand-teal);
+        margin-bottom: 24px;
         font-weight: 600;
       }
 
-      .intro-text {
-        font-size: 1rem;
-        line-height: 1.8;
-        color: var(--color-text-secondary);
-        margin-bottom: 16px;
+      .hero-title {
+        font-size: clamp(40px, 6vw, 72px);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        max-width: 800px;
+        margin-bottom: 32px;
       }
 
-      .intro-text a {
-        color: var(--color-primary);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(94, 169, 173, 0.3);
-        transition: all 0.3s var(--ease-out);
-        font-weight: 500;
+      .hero-subtitle {
+        font-size: clamp(16px, 1.5vw, 20px);
+        color: var(--gray-400);
+        max-width: 600px;
+        font-weight: 400;
+        line-height: 1.7;
       }
 
-      .intro-text a:hover {
-        color: var(--color-primary-dark);
-        border-bottom-color: var(--color-primary);
-      }
-
-      /* Quick Links */
-      .quick-links {
-        list-style: none;
-        margin-top: 32px;
-      }
-
-      .quick-link-item {
-        margin: 16px 0;
-        padding: 20px 20px 20px 40px;
-        position: relative;
-        font-size: 0.9375rem;
-        color: var(--color-text-secondary);
-        line-height: 1.6;
-        background: var(--color-bg-subtle);
-        border-radius: 12px;
-        border: 1px solid transparent;
-        transition: all 0.4s var(--ease-out);
-      }
-
-      .quick-link-item::before {
-        content: "";
+      .scroll-indicator {
         position: absolute;
-        left: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 8px;
-        height: 8px;
-        background: var(--color-primary);
-        border-radius: 50%;
-        opacity: 0.6;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        color: var(--gray-400);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        animation: bounce 2s infinite;
       }
 
-      .quick-link-item:hover {
-        background: white;
-        border-color: rgba(94, 169, 173, 0.3);
-        transform: translateX(8px);
-        box-shadow: 0 8px 24px rgba(94, 169, 173, 0.1);
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(-10px);
+        }
       }
 
-      .quick-link-item strong {
-        color: var(--color-primary);
-        font-weight: 600;
+      .scroll-line {
+        width: 1px;
+        height: 60px;
+        background: linear-gradient(to bottom, var(--brand-teal), transparent);
+      }
+
+      /* Stats Bar */
+      .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        background: var(--brand-teal);
+        padding: 60px 40px;
+        gap: 40px;
+      }
+
+      .stat-item {
+        text-align: center;
+        color: var(--white);
+      }
+
+      .stat-number {
+        font-size: clamp(32px, 4vw, 48px);
+        font-weight: 700;
+        margin-bottom: 8px;
         display: block;
-        margin-bottom: 4px;
-        font-size: 1rem;
+        letter-spacing: -0.02em;
       }
 
-      /* Section 2 - Grid Linked Container */
-      .section-2-wrapper {
-        margin-top: 80px;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.8s var(--ease-out);
+      .stat-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        opacity: 0.9;
+        font-weight: 500;
       }
 
-      .section-2-wrapper.visible {
-        opacity: 1;
-        transform: translateY(0);
+      @media (max-width: 768px) {
+        .stats-bar {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 40px 20px;
+        }
+      }
+
+      /* Team Section */
+      .team-section {
+        padding: 100px 0;
+        background: var(--gray-50);
+        position: relative;
       }
 
       .section-header {
-        margin-bottom: 24px;
-        position: relative;
-      }
-
-      .section-number {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--color-text);
-        margin-bottom: 8px;
-      }
-
-      .section-title {
-        font-family: var(--font-display);
-        font-size: clamp(1.25rem, 3vw, 1.5rem);
-        font-weight: 500;
-        color: var(--color-primary);
-        margin-bottom: 24px;
-      }
-
-      /* GRID LINKED CONTAINER - NEW DESIGN */
-      .grid-links-container {
-        margin-top: 32px;
-        background: var(--color-bg);
-        border: 1px solid var(--color-border);
-        border-radius: 20px;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .grid-links-container::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(
-          90deg,
-          var(--color-primary) 0%,
-          var(--color-primary-dark) 100%
-        );
-      }
-
-      /* Grid Header */
-      .grid-header {
-        display: grid;
-        grid-template-columns: 200px 1fr 1fr;
-        gap: 0;
-        background: var(--color-bg-subtle);
-        border-bottom: 2px solid var(--color-primary);
-        padding: 0;
-      }
-
-      .grid-header-cell {
-        padding: 16px 20px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--color-primary);
-        border-right: 1px solid rgba(94, 169, 173, 0.2);
-      }
-
-      .grid-header-cell:last-child {
-        border-right: none;
-      }
-
-      /* Grid Body - Linked Rows */
-      .grid-body {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .grid-row {
-        display: grid;
-        grid-template-columns: 200px 1fr 1fr;
-        gap: 0;
-        position: relative;
-        border-bottom: 1px solid var(--color-border);
-        transition: all 0.3s var(--ease-out);
-        cursor: pointer;
-        text-decoration: none;
-        color: inherit;
-      }
-
-      .grid-row:last-child {
-        border-bottom: none;
-      }
-
-      .grid-row::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: var(--color-primary);
-        transform: scaleY(0);
-        transition: transform 0.3s var(--ease-out);
-      }
-
-      .grid-row:hover {
-        background: rgba(94, 169, 173, 0.03);
-      }
-
-      .grid-row:hover::before {
-        transform: scaleY(1);
-      }
-
-      .grid-cell {
-        padding: 24px 20px;
-        border-right: 1px solid var(--color-border);
-        display: flex;
-        align-items: flex-start;
-        position: relative;
-      }
-
-      .grid-cell:last-child {
-        border-right: none;
-      }
-
-      /* Section Name Styling */
-      .section-name {
-        color: var(--color-primary);
-        font-weight: 600;
-        font-size: 1rem;
-        line-height: 1.4;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .section-icon {
-        width: 32px;
-        height: 32px;
-        background: linear-gradient(
-          135deg,
-          rgba(94, 169, 173, 0.15) 0%,
-          rgba(94, 169, 173, 0.05) 100%
-        );
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.875rem;
-        color: var(--color-primary);
-        flex-shrink: 0;
-      }
-
-      .grid-row:hover .section-icon {
-        background: var(--color-primary);
-        color: white;
-        transform: scale(1.1);
-        transition: all 0.3s var(--ease-out);
-      }
-
-      /* Description & Key Points */
-      .cell-content {
-        font-size: 0.9375rem;
-        line-height: 1.7;
-        color: var(--color-text-secondary);
-      }
-
-      .cell-label {
-        font-size: 0.6875rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--color-primary);
-        margin-bottom: 8px;
-        opacity: 0.7;
-      }
-
-      /* Link Indicator */
-      .link-indicator {
-        position: absolute;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%) translateX(-10px);
-        opacity: 0;
-        width: 24px;
-        height: 24px;
-        background: var(--color-primary);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 0.75rem;
-        transition: all 0.3s var(--ease-out);
-      }
-
-      .grid-row:hover .link-indicator {
-        opacity: 1;
-        transform: translateY(-50%) translateX(0);
-      }
-
-      /* MOBILE GRID - Card Style */
-      @media (max-width: 768px) {
-        .grid-links-container {
-          border: none;
-          background: transparent;
-          border-radius: 0;
-        }
-
-        .grid-links-container::before {
-          display: none;
-        }
-
-        .grid-header {
-          display: none;
-        }
-
-        .grid-body {
-          gap: 16px;
-        }
-
-        .grid-row {
-          grid-template-columns: 1fr;
-          background: white;
-          border: 1px solid var(--color-border);
-          border-radius: 16px;
-          padding: 20px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-          position: relative;
-          overflow: hidden;
-        }
-
-        .grid-row::before {
-          width: 100%;
-          height: 4px;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: auto;
-          transform: scaleX(0);
-        }
-
-        .grid-row:hover::before {
-          transform: scaleX(1);
-        }
-
-        .grid-cell {
-          border-right: none;
-          border-bottom: 1px solid var(--color-border);
-          padding: 16px 0;
-        }
-
-        .grid-cell:first-child {
-          padding-top: 0;
-        }
-
-        .grid-cell:last-child {
-          border-bottom: none;
-          padding-bottom: 0;
-        }
-
-        .cell-label {
-          display: block;
-          margin-bottom: 6px;
-        }
-
-        .link-indicator {
-          display: none;
-        }
-
-        .section-name {
-          font-size: 1.125rem;
-        }
-      }
-
-      /* Contact Section */
-      .contact-section {
-        margin-top: 60px;
-        padding: 48px;
-        background: linear-gradient(
-          135deg,
-          rgba(94, 169, 173, 0.08) 0%,
-          rgba(94, 169, 173, 0.02) 100%
-        );
-        border-radius: 24px;
-        border: 1px solid rgba(94, 169, 173, 0.15);
-      }
-
-      .contact-title {
-        font-family: var(--font-display);
-        font-size: 1.5rem;
-        margin-bottom: 16px;
-        color: var(--color-text);
-        font-weight: 600;
-      }
-
-      .contact-text {
-        color: var(--color-text-secondary);
-        margin-bottom: 24px;
-        line-height: 1.7;
-      }
-
-      /* App Store Buttons */
-      .app-buttons {
-        display: flex;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-top: 24px;
-      }
-
-      .app-button {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        padding: 16px 28px;
-        background: var(--color-text);
-        color: white;
-        text-decoration: none;
-        border-radius: 12px;
-        font-size: 0.875rem;
-        font-weight: 600;
-        transition: all 0.4s var(--ease-out);
-      }
-
-      .app-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-        background: #000;
-      }
-
-      .app-button svg {
-        width: 24px;
-        height: 24px;
-        fill: currentColor;
-      }
-
-      .app-button-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        line-height: 1.2;
-      }
-
-      .app-button-small {
-        font-size: 0.6875rem;
-        opacity: 0.8;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 500;
-      }
-
-      .app-button-large {
-        font-size: 1rem;
-        font-weight: 600;
-      }
-
-      /* Addendum Section */
-      .addendum-wrapper {
-        margin-top: 100px;
-        padding-top: 80px;
-        border-top: 1px solid var(--color-border);
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.8s var(--ease-out);
-      }
-
-      .addendum-wrapper.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .return-to-top {
         text-align: center;
+        padding: 0 40px;
         margin-bottom: 60px;
       }
 
-      .return-to-top a {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        color: var(--color-primary);
-        text-decoration: none;
-        font-size: 0.875rem;
+      .section-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--brand-teal);
         font-weight: 600;
-        padding: 14px 28px;
-        border: 1px solid rgba(94, 169, 173, 0.3);
-        border-radius: 100px;
-        transition: all 0.4s var(--ease-out);
-        background: white;
+        margin-bottom: 16px;
+        display: inline-block;
+        padding: 8px 16px;
+        background: var(--brand-teal-light);
+        border-radius: 50px;
       }
 
-      .return-to-top a::before {
-        content: "↑";
-        font-size: 1.2em;
+      .section-title {
+        font-size: clamp(32px, 4vw, 56px);
+        font-weight: 700;
+        color: var(--black);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
       }
 
-      .return-to-top a:hover {
-        background: var(--color-primary);
-        color: white;
-        border-color: var(--color-primary);
-        transform: translateY(-3px);
-      }
-
-      .addendum-title {
-        font-family: var(--font-display);
-        font-size: clamp(1.5rem, 3vw, 2rem);
-        text-align: center;
-        margin-bottom: 40px;
-        color: var(--color-text);
-        font-weight: 600;
+      /* Horizontal Scroll Container - DRAG ONLY */
+      .team-scroll-wrapper {
         position: relative;
       }
 
-      .addendum-title::after {
-        content: "";
-        position: absolute;
-        bottom: -16px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: var(--color-primary);
-        border-radius: 2px;
+      .team-scroll-container {
+        height: calc(75vh + 80px);
+        max-height: 730px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        cursor: grab;
       }
 
-      /* Desktop Grid */
-      .addendum-grid {
+      .team-scroll-container.dragging {
+        cursor: grabbing;
+      }
+
+      .team-track {
+        display: flex;
+        gap: 80px;
+        padding: 0 10vw;
+        will-change: transform;
+      }
+
+      .team-card {
+        flex-shrink: 0;
+        width: 80vw;
+        max-width: 1200px;
+        height: 75vh;
+        max-height: 650px;
+        background: var(--white);
+        border-radius: 32px;
+        overflow: hidden;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.08);
+        transition: transform 0.4s ease;
       }
 
-      @media (min-width: 1024px) {
-        .addendum-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
+      .team-card:hover {
+        transform: translateY(-8px);
       }
 
-      /* Mobile Swiper */
-      .addendum-swiper {
-        display: none;
-        padding-bottom: 50px;
+      .team-content {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
       }
 
-      @media (max-width: 767px) {
-        .addendum-grid {
-          display: none;
-        }
-
-        .addendum-swiper {
-          display: block;
-        }
+      .team-quote-icon {
+        font-size: 100px;
+        color: var(--brand-teal);
+        opacity: 0.1;
+        font-family: Georgia, serif;
+        line-height: 0.5;
+        position: absolute;
+        top: 40px;
+        left: 40px;
       }
 
-      .swiper-slide {
-        height: auto;
+      .team-quote {
+        font-size: clamp(18px, 1.8vw, 24px);
+        line-height: 1.7;
+        color: var(--gray-600);
+        margin-top: 80px;
+        font-weight: 400;
+        position: relative;
+        z-index: 1;
       }
 
-      .addendum-card {
-        padding: 32px;
-        background: var(--color-bg-subtle);
-        border-radius: 20px;
-        border: 1px solid var(--color-border);
-        transition: all 0.4s var(--ease-out);
-        height: 100%;
+      .team-info {
+        border-top: 3px solid var(--brand-teal);
+        padding-top: 24px;
+        margin-top: auto;
       }
 
-      .addendum-card:hover {
-        border-color: rgba(94, 169, 173, 0.3);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-        transform: translateY(-6px);
-        background: white;
+      .team-name {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--black);
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
       }
 
-      .addendum-card-title {
-        font-family: var(--font-display);
-        font-size: 1.125rem;
-        color: var(--color-primary);
-        margin-bottom: 16px;
+      .team-role {
+        font-size: 14px;
+        color: var(--brand-teal);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
         font-weight: 600;
       }
 
-      .addendum-card-text {
-        font-size: 0.9375rem;
-        line-height: 1.7;
-        color: var(--color-text-secondary);
+      .team-image-wrapper {
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          var(--brand-teal-light) 0%,
+          #f0f7f7 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        overflow: hidden;
       }
 
-      /* Swiper Pagination */
-      .swiper-pagination {
-        bottom: 0 !important;
+      .team-image-wrapper::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(94, 169, 173, 0.1) 0%,
+          transparent 70%
+        );
+        animation: rotate 20s linear infinite;
       }
 
-      .swiper-pagination-bullet {
-        width: 8px;
-        height: 8px;
-        background: var(--color-border);
-        opacity: 1;
-        transition: all 0.3s var(--ease-out);
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
       }
 
-      .swiper-pagination-bullet-active {
-        background: var(--color-primary);
-        width: 24px;
-        border-radius: 4px;
+      .team-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+        transition: transform 0.6s ease;
       }
 
-      /* Responsive adjustments */
-      @media (max-width: 767px) {
-        .container {
-          padding: 60px 20px;
+      .team-card:hover .team-image {
+        transform: scale(1.02);
+      }
+
+      .team-badge {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: var(--brand-teal);
+        color: var(--white);
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        z-index: 2;
+        box-shadow: 0 4px 15px rgba(94, 169, 173, 0.4);
+      }
+
+      /* Values Section */
+      .values-section {
+        padding: 100px 40px;
+        background: var(--white);
+      }
+
+      .values-grid {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .value-item {
+        border-bottom: 1px solid var(--gray-200);
+        overflow: hidden;
+      }
+
+      .value-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 28px 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .value-header:hover {
+        padding-left: 10px;
+      }
+
+      .value-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--black);
+        transition: color 0.3s ease;
+        letter-spacing: -0.01em;
+      }
+
+      .value-item.active .value-title {
+        color: var(--brand-teal);
+      }
+
+      .value-toggle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--gray-200);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--gray-400);
+        transition: all 0.3s ease;
+        font-weight: 300;
+      }
+
+      .value-item.active .value-toggle {
+        background: var(--brand-teal);
+        border-color: var(--brand-teal);
+        color: var(--white);
+        transform: rotate(45deg);
+      }
+
+      .value-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .value-item.active .value-content {
+        max-height: 200px;
+      }
+
+      .value-description {
+        padding: 0 0 28px;
+        color: var(--gray-600);
+        line-height: 1.8;
+        max-width: 700px;
+        font-size: 15px;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 968px) {
+        .hero {
+          padding: 120px 20px 80px;
+          min-height: 70vh;
         }
 
-        .header-section {
-          margin-bottom: 60px;
+        .hero-title {
+          font-size: 36px;
         }
 
-        .title {
-          font-size: 1.75rem;
-          padding-bottom: 12px;
-          border-bottom-width: 3px;
+        .stats-bar {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 40px 20px;
+          gap: 30px;
         }
 
-        .main-wrapper {
-          gap: 32px;
-          margin-bottom: 60px;
+        .team-section {
+          padding: 80px 0;
         }
 
-        .date-card {
+        .section-header {
+          padding: 0 20px;
+          margin-bottom: 40px;
+        }
+
+        .team-scroll-wrapper {
+          height: auto;
+        }
+
+        .team-scroll-container {
+          position: relative;
+          height: auto;
+          overflow-x: auto;
+          overflow-y: hidden;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
           padding: 20px;
         }
 
-        .quick-link-item {
-          padding: 16px 16px 16px 36px;
-          margin: 12px 0;
+        .team-scroll-container::-webkit-scrollbar {
+          display: none;
         }
 
-        .quick-link-item::before {
-          left: 12px;
+        .team-track {
+          padding: 0;
+          gap: 20px;
         }
 
-        .contact-section {
-          padding: 28px;
-          margin: 40px -20px 0;
-          border-radius: 0;
+        .team-card {
+          width: 90vw;
+          height: auto;
+          min-height: auto;
+          grid-template-columns: 1fr;
+          grid-template-rows: 350px auto;
+          scroll-snap-align: center;
         }
 
-        .app-buttons {
-          flex-direction: column;
+        .team-content {
+          padding: 32px;
         }
 
-        .app-button {
-          justify-content: center;
-          width: 100%;
+        .team-quote-icon {
+          font-size: 60px;
+          top: 20px;
+          left: 20px;
         }
 
-        .addendum-wrapper {
-          margin-top: 60px;
-          padding-top: 60px;
+        .team-quote {
+          margin-top: 50px;
+          font-size: 16px;
         }
 
-        .addendum-card {
-          padding: 24px;
+        .team-name {
+          font-size: 24px;
+        }
+
+        .team-image-wrapper {
+          padding: 30px;
+        }
+
+        .team-badge {
+          top: 20px;
+          right: 20px;
+          padding: 8px 16px;
+          font-size: 12px;
+        }
+
+        .values-section {
+          padding: 80px 20px;
+        }
+
+        .value-title {
+          font-size: 18px;
         }
       }
 
       @media (max-width: 480px) {
-        .title {
-          font-size: 1.5rem;
+        .team-card {
+          grid-template-rows: 300px auto;
         }
 
-        .company-info {
-          font-size: 1rem;
-        }
-
-        .intro-title {
-          font-size: 1.25rem;
-        }
-
-        .section-number {
-          font-size: 1.25rem;
-        }
-
-        .section-title {
-          font-size: 1.125rem;
-        }
-
-        .contact-title {
-          font-size: 1.25rem;
-        }
-
-        .addendum-title {
-          font-size: 1.25rem;
-        }
-
-        .addendum-card-title {
-          font-size: 1rem;
+        .team-image-wrapper {
+          padding: 20px;
         }
       }
+
+      /* Animations */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     </style>
-    <base target="_blank" />
   </head>
   <body>
-    <!-- HEADER SECTION - Copy everything below this line -->
-
     <style>
       /* Header Styles */
       .nav-header {
@@ -2816,440 +2533,288 @@
       });
     </script>
 
-    <!-- HEADER SECTION END - Copy everything above this line -->
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-label">About Us</div>
+      <h1 class="hero-title">
+        We handle your clothes<br />like they're our own
+      </h1>
+      <p class="hero-subtitle">
+        Premium laundry care delivered to your doorstep. Trusted by thousands
+        across Mumbai for quality, reliability, and care that goes beyond clean.
+      </p>
 
-    <div class="container">
-      <!-- HEADER -->
-      <div class="header-section">
-        <h1 class="title">Terms & Conditions</h1>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-number">50K+</span>
+        <span class="stat-label">Deliveries</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">98%</span>
+        <span class="stat-label">Happy Customers</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">2hr</span>
+        <span class="stat-label">Avg. Delivery</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">Support</span>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="teamSection">
+      <div class="section-header fade-up">
+        <span class="section-label">Our People</span>
+        <h2 class="section-title">
+          Meet the team delivering<br />excellence to your doorstep
+        </h2>
       </div>
 
-      <!-- MAIN CONTENT -->
-      <div class="main-wrapper">
-        <!-- LEFT COLUMN -->
-        <div class="left-section">
-          <div class="date-card">
-            <div class="date-label">Last Updated</div>
-            <div class="date-value">February 7, 2026</div>
-          </div>
-        </div>
-
-        <!-- RIGHT COLUMN -->
-        <div class="right-section">
-          <div class="company-info">Gharit – A WIZNIGHT Company</div>
-
-          <section class="introduction">
-            <h2 class="intro-title">Introduction</h2>
-            <p class="intro-text">
-              These Terms & Conditions ("T&C") govern the use of services
-              provided by Gharit – Premium Laundry Service ("Gharit", "Company",
-              "we", "our", "us") Legal Name: WIZNIGHT. By placing an order,
-              scheduling a pickup, or using the Gharit mobile application,
-              website, or services, you ("Customer", "you") agree to be bound by
-              these Terms & Conditions along with our
-              <a href="#">Privacy Policy</a>.
-            </p>
-          </section>
-
-          <ul class="quick-links">
-            <li class="quick-link-item">
-              <strong>Scope of Services</strong> — Laundry, dry-cleaning,
-              ironing, and related garment-care services through scheduled
-              pickup and delivery. Subject to availability and location
-              serviceability.
-            </li>
-            <li class="quick-link-item">
-              <strong>Orders & Assessment</strong> — Final pricing, category
-              selection, and service type determined at physical pickup by
-              authorized personnel.
-            </li>
-            <li class="quick-link-item">
-              <strong>Liability & Insurance</strong> — Limited to service value
-              of affected articles with depreciation rules. Optional insurance
-              available.
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- SECTION 2: GRID LINKED CONTAINER -->
-      <div class="section-2-wrapper" id="details">
-        <div class="section-header">
-          <div class="section-number">2. Information We Collect</div>
-          <div class="section-title">2.1. Service Terms And Conditions</div>
-        </div>
-
-        <div class="grid-links-container">
-          <div class="grid-header">
-            <div class="grid-header-cell">Section</div>
-            <div class="grid-header-cell">Description</div>
-            <div class="grid-header-cell">Key Points</div>
-          </div>
-
-          <div class="grid-body">
-            <a href="#pricing" class="grid-row">
-              <div class="grid-cell">
-                <div class="section-name">
-                  <div class="section-icon">01</div>
-                  Pricing & Billing
+      <div class="team-scroll-wrapper">
+        <div class="team-scroll-container">
+          <div class="team-track" id="teamTrack">
+            <!-- Card 1: Shiv Nivas Yadav -->
+            <article class="team-card">
+              <div class="team-content">
+                <div class="team-quote-icon">"</div>
+                <p class="team-quote">
+                  Every delivery is a promise. Rain or shine, I ensure your
+                  garments arrive fresh, clean, and on time. Being a Delivery
+                  Partner at GHAR!T means being the trusted face that connects
+                  our service to your home.
+                </p>
+                <div class="team-info">
+                  <h3 class="team-name">Shiv Nivas Yadav</h3>
+                  <span class="team-role">Delivery Partner ID #0008</span>
                 </div>
               </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Description</div>
-                  Final pricing is determined based on physical assessment at
-                  pickup by authorized personnel.
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Key Points</div>
-                  All prices are final and inclusive of GST and taxes.
-                  Additional charges identified after inspection will be
-                  communicated in the final bill.
-                </div>
-                <div class="link-indicator">→</div>
-              </div>
-            </a>
-
-            <a href="#payment" class="grid-row">
-              <div class="grid-cell">
-                <div class="section-name">
-                  <div class="section-icon">02</div>
-                  Payment Terms
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Description</div>
-                  Payment is requested 7 days after the creation of the first
-                  order.
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Key Points</div>
-                  Payment terms may be extended up to one billing cycle
-                  (monthly) at the Company's discretion based on relationship
-                  history.
-                </div>
-                <div class="link-indicator">→</div>
-              </div>
-            </a>
-
-            <a href="#pickup" class="grid-row">
-              <div class="grid-cell">
-                <div class="section-name">
-                  <div class="section-icon">03</div>
-                  Pickup & Delivery
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Description</div>
-                  Gharit endeavors to meet all committed pickup and delivery
-                  timelines.
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Key Points</div>
-                  Delays may occur due to traffic, weather, operational issues,
-                  strikes, or force majeure events.
-                </div>
-                <div class="link-indicator">→</div>
-              </div>
-            </a>
-
-            <a href="#insurance" class="grid-row">
-              <div class="grid-cell">
-                <div class="section-name">
-                  <div class="section-icon">04</div>
-                  Insurance & Liability
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Description</div>
-                  Articles can be insured by the customer for reimbursement
-                  based on original purchase invoice.
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Key Points</div>
-                  A standard depreciation of 15% per year is applied to
-                  calculate current value. Compensation shall not exceed the
-                  depreciated value.
-                </div>
-                <div class="link-indicator">→</div>
-              </div>
-            </a>
-
-            <a href="#claims" class="grid-row">
-              <div class="grid-cell">
-                <div class="section-name">
-                  <div class="section-icon">05</div>
-                  Claims & Complaints
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Description</div>
-                  Any damage, quality issue, or service-related concern must be
-                  reported within 7 days of delivery.
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Key Points</div>
-                  Complaints raised after 7 days shall not be entertained. Minor
-                  discoloration, fading, shrinkage, or texture changes due to
-                  fabric nature are not covered.
-                </div>
-                <div class="link-indicator">→</div>
-              </div>
-            </a>
-
-            <a href="#customer" class="grid-row">
-              <div class="grid-cell">
-                <div class="section-name">
-                  <div class="section-icon">06</div>
-                  Customer Responsibilities
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Description</div>
-                  Accurate information required for addresses, garment details,
-                  and care instructions.
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Key Points</div>
-                  Valuables left in pockets are customer responsibility.
-                  Delivery partners undergo background verification and
-                  professional training.
-                </div>
-                <div class="link-indicator">→</div>
-              </div>
-            </a>
-
-            <a href="#liability" class="grid-row">
-              <div class="grid-cell">
-                <div class="section-name">
-                  <div class="section-icon">07</div>
-                  Limitation of Liability
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Description</div>
-                  Liability strictly limited to service value of affected
-                  article.
-                </div>
-              </div>
-              <div class="grid-cell">
-                <div class="cell-content">
-                  <div class="cell-label">Key Points</div>
-                  Subject to depreciation rules. No liability for indirect,
-                  incidental, or consequential losses. Third-party personnel
-                  misconduct addressed through internal resolution.
-                </div>
-                <div class="link-indicator">→</div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Contact & Legal -->
-        <div class="contact-section">
-          <h3 class="contact-title">Terms Modifications & Governing Law</h3>
-          <p class="contact-text">
-            Gharit reserves the right to modify these Terms & Conditions at any
-            time. Continued use constitutes acceptance of revised terms.
-            Governed by laws of India with exclusive jurisdiction in Mumbai
-            courts.
-          </p>
-          <p class="contact-text">
-            <strong>Customer Support:</strong> Via Gharit App Chat Support<br />
-            Mumbai, India
-          </p>
-
-          <div class="app-buttons">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp"
-              target="_blank"
-              class="app-button"
-            >
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"
+              <div class="team-image-wrapper">
+                <img
+                  src="https://github.com/shrikantsky/GHARITWEBIMAGES/blob/main/uploads/full_photo_ID_CARD_0008.png?raw=true   "
+                  alt="Shiv Nivas Yadav"
+                  class="team-image"
                 />
-              </svg>
-              <span class="app-button-text">
-                <span class="app-button-small">Get it on</span>
-                <span class="app-button-large">Google Play</span>
-              </span>
-            </a>
-            <a
-              href="https://apps.apple.com/ng/app/ghar-t/id6752650388"
-              target="_blank"
-              class="app-button"
-            >
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.37 12.36,4.26 13,3.5Z"
+                <span class="team-badge">#0008</span>
+              </div>
+            </article>
+
+            <!-- Card 2: Pawan Girish Kanojiya -->
+            <article class="team-card">
+              <div class="team-content">
+                <div class="team-quote-icon">"</div>
+                <p class="team-quote">
+                  Precision is everything. Every crease matters, every fabric
+                  deserves care. As an Iron Man, I bring years of expertise to
+                  ensure your clothes look impeccable. Your confidence starts
+                  with how you present yourself.
+                </p>
+                <div class="team-info">
+                  <h3 class="team-name">Pawan Girish Kanojiya</h3>
+                  <span class="team-role">Iron Man ID #0007</span>
+                </div>
+              </div>
+              <div class="team-image-wrapper">
+                <img
+                  src="https://github.com/shrikantsky/GHARITWEBIMAGES/blob/main/uploads/full_photo_ID_CARD_0007.png?raw=true   "
+                  alt="Pawan Girish Kanojiya"
+                  class="team-image"
                 />
-              </svg>
-              <span class="app-button-text">
-                <span class="app-button-small">Download on the</span>
-                <span class="app-button-large">App Store</span>
-              </span>
-            </a>
+                <span class="team-badge">#0007</span>
+              </div>
+            </article>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- ADDENDUM SECTION -->
-      <div class="addendum-wrapper">
-        <div class="return-to-top">
-          <a href="#top">Return to top</a>
-        </div>
+    <!-- Values Section -->
+    <section class="values-section">
+      <div class="section-header fade-up">
+        <span class="section-label">What We Believe</span>
+        <h2 class="section-title">Our Values</h2>
+      </div>
 
-        <h2 class="addendum-title">Terms & Conditions Summary</h2>
-
-        <!-- Desktop Grid -->
-        <div class="addendum-grid">
-          <div class="addendum-card">
-            <h3 class="addendum-card-title">Scope of Services</h3>
-            <p class="addendum-card-text">
-              Laundry, dry-cleaning, ironing, and garment-care via scheduled
-              pickup/delivery. Subject to availability and location constraints.
-              Pickup assessment is final and binding.
-            </p>
+      <div class="values-grid fade-up">
+        <div class="value-item">
+          <div class="value-header" onclick="toggleValue(this)">
+            <h3 class="value-title">Precision & Care</h3>
+            <div class="value-toggle">+</div>
           </div>
-
-          <div class="addendum-card">
-            <h3 class="addendum-card-title">Orders & Assessment</h3>
-            <p class="addendum-card-text">
-              Category selection based on size, textile, fabric, weight, and
-              condition. Prices final and GST-inclusive. Additional charges
-              communicated post-inspection.
-            </p>
-          </div>
-
-          <div class="addendum-card">
-            <h3 class="addendum-card-title">Insurance & Claims</h3>
-            <p class="addendum-card-text">
-              Insured articles eligible for reimbursement with 15% annual
-              depreciation. Claims must be reported within 7 days of delivery.
-              No coverage without explicit opt-in.
-            </p>
-          </div>
-
-          <div class="addendum-card">
-            <h3 class="addendum-card-title">Limitations</h3>
-            <p class="addendum-card-text">
-              Not liable for chemical processing discoloration. Customer
-              responsible for valuables in pockets. Liability limited to service
-              value with depreciation applied.
-            </p>
-          </div>
-
-          <div class="addendum-card">
-            <h3 class="addendum-card-title">Delivery</h3>
-            <p class="addendum-card-text">
-              Committed timelines subject to traffic, weather, and force
-              majeure. No liability for delays. Delivery partners are
-              background-verified and professionally trained.
-            </p>
-          </div>
-
-          <div class="addendum-card">
-            <h3 class="addendum-card-title">Payment</h3>
-            <p class="addendum-card-text">
-              Payment due 7 days after first order. Terms extendable based on
-              relationship history. Credit limits adjustable without prior
-              notice.
+          <div class="value-content">
+            <p class="value-description">
+              Every garment receives meticulous attention. We treat your clothes
+              with the precision they deserve, ensuring quality results on every
+              wash.
             </p>
           </div>
         </div>
 
-        <!-- Mobile Swiper -->
-        <div class="swiper addendum-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="addendum-card">
-                <h3 class="addendum-card-title">Scope of Services</h3>
-                <p class="addendum-card-text">
-                  Laundry, dry-cleaning, ironing, and garment-care via scheduled
-                  pickup/delivery. Subject to availability and location
-                  constraints.
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="addendum-card">
-                <h3 class="addendum-card-title">Orders & Assessment</h3>
-                <p class="addendum-card-text">
-                  Category selection based on size, textile, fabric, weight, and
-                  condition. Prices final and GST-inclusive.
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="addendum-card">
-                <h3 class="addendum-card-title">Insurance & Claims</h3>
-                <p class="addendum-card-text">
-                  Insured articles eligible for reimbursement with 15% annual
-                  depreciation. Claims within 7 days.
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="addendum-card">
-                <h3 class="addendum-card-title">Limitations</h3>
-                <p class="addendum-card-text">
-                  Not liable for chemical processing discoloration. Customer
-                  responsible for valuables in pockets.
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="addendum-card">
-                <h3 class="addendum-card-title">Delivery</h3>
-                <p class="addendum-card-text">
-                  Committed timelines subject to traffic, weather, and force
-                  majeure. No liability for delays.
-                </p>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="addendum-card">
-                <h3 class="addendum-card-title">Payment</h3>
-                <p class="addendum-card-text">
-                  Payment due 7 days after first order. Terms extendable based
-                  on relationship history.
-                </p>
-              </div>
-            </div>
+        <div class="value-item">
+          <div class="value-header" onclick="toggleValue(this)">
+            <h3 class="value-title">Customer Trust</h3>
+            <div class="value-toggle">+</div>
           </div>
-          <div class="swiper-pagination"></div>
+          <div class="value-content">
+            <p class="value-description">
+              Trust is earned through transparency, reliability, and our
+              unwavering commitment to your satisfaction. If anything happens to
+              your clothes, we will reimburse you if you have proof of the bill.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-header" onclick="toggleValue(this)">
+            <h3 class="value-title">Accountability</h3>
+            <div class="value-toggle">+</div>
+          </div>
+          <div class="value-content">
+            <p class="value-description">
+              We take full responsibility for every garment entrusted to us. Our
+              damage guarantee ensures immediate compensation for any issues.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-header" onclick="toggleValue(this)">
+            <h3 class="value-title">Reliability</h3>
+            <div class="value-toggle">+</div>
+          </div>
+          <div class="value-content">
+            <p class="value-description">
+              Consistency is our promise. Whether it's our 3-5 day standard
+              turnaround or perfect fabric handling, we deliver reliability you
+              can count on.
+            </p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-header" onclick="toggleValue(this)">
+            <h3 class="value-title">Innovation</h3>
+            <div class="value-toggle">+</div>
+          </div>
+          <div class="value-content">
+            <p class="value-description">
+              Real-time tracking, app-based convenience, and specialized care
+              for every fabric type. We're transforming laundry through
+              technology.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </section>
 
     <script>
-      // Intersection Observer for scroll animations
+      // Team Horizontal Scroll - SLOWER (300vh height for more scroll distance)
+      const teamSection = document.getElementById("teamSection");
+      const teamTrack = document.getElementById("teamTrack");
+
+      const isMobile = window.matchMedia("(max-width: 968px)").matches;
+
+      if (!isMobile) {
+        let targetX = 0;
+        let currentX = 0;
+        const ease = 0.08;
+        let isAnimating = false;
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartTargetX = 0;
+
+        function getMaxScroll() {
+          return (
+            teamTrack.scrollWidth -
+            teamSection.querySelector(".team-scroll-container").clientWidth
+          );
+        }
+
+        function startAnimation() {
+          if (isAnimating) return;
+          isAnimating = true;
+          animateTeam();
+        }
+
+        function animateTeam() {
+          currentX += (targetX - currentX) * ease;
+          teamTrack.style.transform = `translateX(-${currentX}px)`;
+
+          if (Math.abs(targetX - currentX) > 0.3) {
+            requestAnimationFrame(animateTeam);
+          } else {
+            currentX = targetX;
+            teamTrack.style.transform = `translateX(-${currentX}px)`;
+            isAnimating = false;
+          }
+        }
+
+        // ── Mouse drag ──────────────────────────────────────────────
+        const dragContainer = teamSection.querySelector(
+          ".team-scroll-container",
+        );
+
+        dragContainer.addEventListener("mousedown", (e) => {
+          isDragging = true;
+          dragStartX = e.clientX;
+          dragStartTargetX = targetX;
+          dragContainer.classList.add("dragging");
+          dragContainer.style.userSelect = "none";
+          e.preventDefault();
+        });
+
+        window.addEventListener("mousemove", (e) => {
+          if (!isDragging) return;
+          const maxScroll = getMaxScroll();
+          const delta = (dragStartX - e.clientX) * 1.5;
+          targetX = Math.max(0, Math.min(dragStartTargetX + delta, maxScroll));
+          startAnimation();
+        });
+
+        window.addEventListener("mouseup", () => {
+          if (!isDragging) return;
+          isDragging = false;
+          dragContainer.classList.remove("dragging");
+          dragContainer.style.userSelect = "";
+        });
+
+        window.addEventListener("mouseleave", () => {
+          if (!isDragging) return;
+          isDragging = false;
+          dragContainer.classList.remove("dragging");
+          dragContainer.style.userSelect = "";
+        });
+        // ────────────────────────────────────────────────────────────
+      } else {
+        const teamContainer = document.querySelector(".team-scroll-container");
+      }
+
+      // Values Accordion
+      function toggleValue(header) {
+        const item = header.parentElement;
+        const allItems = document.querySelectorAll(".value-item");
+
+        allItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.classList.remove("active");
+          }
+        });
+
+        item.classList.toggle("active");
+      }
+
+      // Fade Up Animation on Scroll
       const observerOptions = {
-        root: null,
-        rootMargin: "0px",
         threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
       };
 
       const observer = new IntersectionObserver((entries) => {
@@ -3260,51 +2825,11 @@
         });
       }, observerOptions);
 
-      document
-        .querySelectorAll(".section-2-wrapper, .addendum-wrapper")
-        .forEach((el) => {
-          observer.observe(el);
-        });
-
-      // Smooth scroll for return to top
-      document
-        .querySelector(".return-to-top a")
-        .addEventListener("click", (e) => {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-
-      // Initialize Swiper for mobile
-      const swiper = new Swiper(".addendum-swiper", {
-        slidesPerView: 1.1,
-        spaceBetween: 16,
-        centeredSlides: true,
-        grabCursor: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        breakpoints: {
-          480: {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-          },
-        },
-      });
-
-      // Grid row click handlers (optional - for future expansion)
-      document.querySelectorAll(".grid-row").forEach((row) => {
-        row.addEventListener("click", (e) => {
-          // Add click animation
-          row.style.transform = "scale(0.99)";
-          setTimeout(() => {
-            row.style.transform = "";
-          }, 150);
-        });
+      document.querySelectorAll(".fade-up").forEach((el) => {
+        observer.observe(el);
       });
     </script>
 
-    <!-- footer code starts here -->
     <section class="gf-footer">
       <style>
         @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");

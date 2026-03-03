@@ -1,302 +1,807 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delete Account - GHAR!T Laundry Service</title>
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Delete Account | Gharit — Premium Laundry Service</title>
+    
     <style>
-      body {
-        font-family: "Arial", sans-serif;
-        margin: 0;
-        padding: 0;
-        background: white;
-        min-height: 100vh;
-      }
+        /* ============================================
+           TYPOGRAPHY & VARIABLES (MATCHING MAIN SITE)
+           ============================================ */
+        @font-face {
+            font-family: 'SohneSchmal';
+            src: url('https://fonts.cdnfonts.com/s/15011/SohneSchmal-Buch.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
 
-      .delete-container {
-        max-width: 500px;
-        margin: 3rem auto;
-        padding: 2rem;
-        text-align: center;
-      }
+        :root {
+            --primary: #538994;
+            --primary-dark: #3d6b75;
+            --primary-light: #6aa3b0;
+            --primary-glow: rgba(83, 137, 148, 0.3);
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-400: #a3a3a3;
+            --gray-600: #525252;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --danger: #ef4444;
+            --danger-dark: #dc2626;
+            --danger-light: #fef2f2;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+        }
 
-      .delete-header h1 {
-        color: #e74c3c;
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      .delete-header p {
-        color: #7f8c8d;
-        margin-bottom: 2rem;
-      }
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            height: 100%;
+        }
 
-      .delete-form {
-        background: white;
-        padding: 2rem;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-bottom: 2rem;
-      }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: var(--white);
+            color: var(--gray-900);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-      .form-group {
-        margin-bottom: 1.5rem;
-        text-align: left;
-      }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 3px;
+        }
 
-      .form-group label {
-        display: block;
-        color: #2c3e50;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 35vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px 40px;
+            background: var(--black);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
 
-      .phone-input-container {
-        display: flex;
-        gap: 0.5rem;
-      }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
 
-      .phone-input-container select {
-        width: 80px;
-        padding: 0.8rem;
-        border: 2px solid #e1e8ed;
-        border-radius: 8px;
-        background: white;
-        color: #2c3e50;
-      }
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(83, 137, 148, 0.08) 0%, transparent 40%);
+            animation: float 20s ease-in-out infinite;
+        }
 
-      .phone-input-container input {
-        flex: 1;
-        padding: 0.8rem;
-        border: 2px solid #e1e8ed;
-        border-radius: 8px;
-        font-size: 1rem;
-      }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
 
-      .phone-input-container input:focus,
-      .phone-input-container select:focus {
-        outline: none;
-        border-color: #e74c3c;
-      }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.4) 0%, 
+                rgba(0,0,0,0.2) 50%, 
+                rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
 
-      .warning-text {
-        background: #fff5f5;
-        border: 1px solid #fed7d7;
-        border-radius: 8px;
-        padding: 1rem;
-        color: #e53e3e;
-        margin-bottom: 1.5rem;
-        font-size: 0.9rem;
-      }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
 
-      .btn {
-        padding: 0.8rem 2rem;
-        border: none;
-        border-radius: 25px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        margin: 0.5rem;
-      }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(239, 68, 68, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 10px 20px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
 
-      .delete-btn {
-        background: #e74c3c;
-        color: white;
-      }
+        .hero-badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--danger);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
 
-      .delete-btn:hover {
-        background: #c0392b;
-        transform: translateY(-2px);
-      }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
 
-      .back-btn {
-        background: #3498db;
-        color: white;
-      }
+        .hero-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--danger);
+        }
 
-      .back-btn:hover {
-        background: #2980b9;
-        transform: translateY(-2px);
-      }
+        .hero-title {
+            font-family: 'SohneSchmal', sans-serif;
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -2px;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
 
-      /* Modal Styles */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 18px);
+            color: rgba(255,255,255,0.85);
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
 
-      .modal-content {
-        background-color: white;
-        margin: 15% auto;
-        padding: 2rem;
-        border-radius: 15px;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      }
+        /* ============================================
+           DELETE SECTION
+           ============================================ */
+        .delete-section {
+            flex: 1;
+            padding: 60px 40px;
+            background: linear-gradient(to bottom, var(--gray-50), var(--white));
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
 
-      .modal-header {
-        color: #e74c3c;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
+        .delete-container {
+            max-width: 560px;
+            width: 100%;
+            background: var(--white);
+            border-radius: 32px;
+            padding: 48px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.08);
+            border: 1px solid var(--gray-200);
+            position: relative;
+        }
 
-      .modal-text {
-        color: #2c3e50;
-        margin-bottom: 2rem;
-        line-height: 1.6;
-      }
+        .delete-container::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--danger), transparent);
+            border-radius: 3px;
+        }
 
-      .modal-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-      }
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, var(--danger-light) 0%, rgba(239, 68, 68, 0.05) 100%);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
 
-      .confirm-btn {
-        background: #e74c3c;
-        color: white;
-      }
+        .warning-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.25);
+        }
 
-      .cancel-btn {
-        background: #95a5a6;
-        color: white;
-      }
+        .warning-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--danger);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
 
-      .parent-company {
-        color: #3498db;
-        font-weight: bold;
-      }
+        .warning-content p {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Form Styling */
+        .delete-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 100%;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--black);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .phone-input-wrapper {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .country-code {
+            padding: 16px 18px;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-900);
+            background: var(--gray-50);
+            cursor: default;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .country-code::before {
+            content: '🇮🇳';
+            font-size: 20px;
+        }
+
+        .form-group input {
+            flex: 1;
+            min-width: 0;
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--gray-900);
+            -webkit-appearance: none;
+        }
+
+        .form-group input:hover {
+            border-color: var(--gray-400);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-glow);
+            transform: translateY(-2px);
+        }
+
+        .form-group input::placeholder {
+            color: var(--gray-400);
+        }
+
+        /* Delete Button */
+        .delete-btn {
+            background: linear-gradient(135deg, var(--danger) 0%, var(--danger-dark) 100%);
+            color: var(--white);
+            border: none;
+            padding: 18px 32px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s var(--ease-out-expo);
+            margin-top: 8px;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.25);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .delete-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(239, 68, 68, 0.35);
+        }
+
+        .delete-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .delete-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .delete-btn svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Alternative Action */
+        .alternative-action {
+            text-align: center;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .alternative-action p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 8px;
+        }
+
+        .alternative-action a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .alternative-action a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* ============================================
+           MOBILE OPTIMIZATIONS - Single Screen Fit
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: auto;
+                padding: 40px 20px 30px;
+            }
+
+            .hero-badge {
+                padding: 8px 16px;
+                margin-bottom: 16px;
+            }
+
+            .hero-badge-dot {
+                width: 5px;
+                height: 5px;
+            }
+
+            .hero-label {
+                font-size: 10px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+                margin-bottom: 12px;
+                letter-spacing: -1px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+
+            .delete-section {
+                padding: 20px;
+                flex: 0;
+            }
+
+            .delete-container {
+                max-width: 100%;
+                padding: 28px 20px;
+                border-radius: 24px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            }
+
+            .warning-box {
+                padding: 16px;
+                margin-bottom: 20px;
+                border-radius: 16px;
+                gap: 12px;
+            }
+
+            .warning-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 12px;
+                font-size: 20px;
+            }
+
+            .warning-content h3 {
+                font-size: 15px;
+                margin-bottom: 4px;
+            }
+
+            .warning-content p {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .delete-form {
+                gap: 16px;
+            }
+
+            .form-group {
+                gap: 6px;
+            }
+
+            .form-group label {
+                font-size: 11px;
+                letter-spacing: 0.5px;
+            }
+
+            .phone-input-wrapper {
+                gap: 8px;
+            }
+
+            .country-code {
+                padding: 14px 12px;
+                font-size: 15px;
+                border-radius: 10px;
+            }
+
+            .country-code::before {
+                font-size: 18px;
+            }
+
+            .form-group input {
+                padding: 14px 16px;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+
+            .delete-btn {
+                padding: 16px 24px;
+                font-size: 13px;
+                border-radius: 100px;
+                margin-top: 4px;
+                gap: 8px;
+            }
+
+            .delete-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .alternative-action {
+                margin-top: 20px;
+                padding-top: 20px;
+            }
+
+            .alternative-action p {
+                font-size: 13px;
+            }
+
+            .alternative-action a {
+                font-size: 13px;
+            }
+        }
+
+        /* Extra small screens - iPhone SE, etc */
+        @media (max-width: 375px) {
+            .hero {
+                padding: 32px 20px 24px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 13px;
+            }
+
+            .delete-section {
+                padding: 16px;
+            }
+
+            .delete-container {
+                padding: 24px 16px;
+                border-radius: 20px;
+            }
+
+            .warning-box {
+                padding: 14px;
+                margin-bottom: 16px;
+                gap: 10px;
+            }
+
+            .warning-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+                border-radius: 10px;
+            }
+
+            .warning-content h3 {
+                font-size: 14px;
+            }
+
+            .warning-content p {
+                font-size: 12px;
+            }
+
+            .form-group input {
+                padding: 12px 14px;
+            }
+
+            .delete-btn {
+                padding: 14px 20px;
+                font-size: 12px;
+            }
+
+            .alternative-action {
+                margin-top: 16px;
+                padding-top: 16px;
+            }
+        }
+
+        /* Height-based optimizations for mobile */
+        @media (max-height: 700px) and (max-width: 768px) {
+            .hero {
+                padding: 28px 20px 20px;
+            }
+
+            .hero-badge {
+                margin-bottom: 12px;
+                padding: 6px 14px;
+            }
+
+            .hero-title {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .hero-subtitle {
+                font-size: 12px;
+            }
+
+            .delete-section {
+                padding: 12px;
+            }
+
+            .delete-container {
+                padding: 20px 16px;
+            }
+
+            .warning-box {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .warning-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+
+            .delete-form {
+                gap: 12px;
+            }
+
+            .form-group label {
+                font-size: 10px;
+            }
+
+            .country-code {
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+
+            .form-group input {
+                padding: 12px 14px;
+            }
+
+            .delete-btn {
+                padding: 12px 18px;
+            }
+
+            .alternative-action {
+                margin-top: 12px;
+                padding-top: 12px;
+            }
+        }
+
+        /* Landscape mode */
+        @media (max-height: 500px) and (orientation: landscape) and (max-width: 768px) {
+            .hero {
+                padding: 20px;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
+
+            .delete-section {
+                padding: 12px;
+            }
+
+            .delete-container {
+                max-width: 400px;
+                padding: 16px;
+            }
+
+            .warning-box {
+                margin-bottom: 12px;
+            }
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: 60px 40px;
+            background: var(--black);
+            color: var(--gray-400);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        .footer strong {
+            color: var(--white);
+            font-weight: 600;
+        }
     </style>
-  </head>
-  <body>
-    <div class="delete-container">
-      <a href="index.html" class="btn back-btn">← Back to Home</a>
+</head>
+<body>
 
-      <div class="delete-header">
-        <h1>Delete Account</h1>
-        <p>We're sorry to see you go</p>
-      </div>
-
-      <form class="delete-form" id="delete-form">
-        <div class="warning-text">
-          <strong>Warning:</strong> This action cannot be undone. All your data,
-          order history, and account information will be permanently deleted.
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-overlay"></div>
         </div>
-
-        <div class="form-group">
-          <label for="phone">Enter your phone number to confirm</label>
-          <div class="phone-input-container">
-            <select id="country-code">
-              <option value="+1">+1</option>
-              <option value="+44">+44</option>
-              <option value="+91" selected>+91</option>
-              <option value="+61">+61</option>
-              <option value="+86">+86</option>
-            </select>
-            <input
-              type="tel"
-              id="phone"
-              placeholder="Enter your phone number"
-              required
-            />
-          </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span class="hero-label">Account Actions</span>
+            </div>
+            <h1 class="hero-title">Delete Account</h1>
+            <p class="hero-subtitle">We're sorry to see you go. Please confirm your identity to proceed.</p>
         </div>
+    </section>
 
-        <button type="submit" class="btn delete-btn">Delete My Account</button>
-      </form>
+    <!-- DELETE SECTION -->
+    <section class="delete-section">
+        <div class="delete-container">
+            <!-- Warning Box -->
+            <div class="warning-box">
+                <div class="warning-icon">⚠️</div>
+                <div class="warning-content">
+                    <h3>This cannot be undone</h3>
+                    <p>All your data, order history, and account information will be permanently deleted.</p>
+                </div>
+            </div>
 
-      <p style="color: #7f8c8d; font-size: 0.9rem">
-        © 2025 GHAR!T. A <span class="parent-company">WIZNIGHT</span> Company.
-        All rights reserved.
-      </p>
-    </div>
+            <!-- Delete Form -->
+            <form class="delete-form" onsubmit="handleDelete(event)">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="phone-input-wrapper">
+                        <div class="country-code">+91</div>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" maxlength="10" required inputmode="numeric">
+                    </div>
+                </div>
 
-    <!-- Confirmation Modal -->
-    <div id="confirm-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">⚠️ Final Confirmation</div>
-        <div class="modal-text">
-          Are you absolutely sure you want to delete your account? This action
-          cannot be undone and all your data will be permanently lost.
-        </div>
-        <div class="modal-buttons">
-          <button class="btn confirm-btn" id="final-delete">
-            Yes, Delete Account
-          </button>
-          <button class="btn cancel-btn" id="cancel-delete">Cancel</button>
-        </div>
-      </div>
-    </div>
+                <button type="submit" class="delete-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    Delete Account
+                </button>
+            </form>
 
-    <!-- Success Modal -->
-    <div id="success-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header" style="color: #27ae60">
-          ✅ Account Deleted
+            <!-- Alternative Action -->
+            <div class="alternative-action">
+                <p>Having second thoughts?</p>
+                <a href="support.html">Contact Support →</a>
+            </div>
         </div>
-        <div class="modal-text">
-          Your account has been successfully deleted. We're sorry to see you go.
-          Thank you for using GHAR!T.
-        </div>
-        <button
-          class="btn back-btn"
-          onclick="window.location.href='index.html'"
-        >
-          Return to Home
-        </button>
-      </div>
-    </div>
+    </section>
 
     <script>
-      const deleteForm = document.getElementById("delete-form");
-      const confirmModal = document.getElementById("confirm-modal");
-      const successModal = document.getElementById("success-modal");
-      const finalDeleteBtn = document.getElementById("final-delete");
-      const cancelDeleteBtn = document.getElementById("cancel-delete");
-
-      deleteForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const phone = document.getElementById("phone").value;
-
-        if (phone.trim() === "") {
-          alert("Please enter your phone number");
-          return;
+        // Form Submission
+        function handleDelete(e) {
+            e.preventDefault();
+            
+            const btn = e.target.querySelector('.delete-btn');
+            const phone = document.getElementById('phone').value;
+            
+            // Validation for 10 digits
+            if (phone.length !== 10 || !/^\d+$/.test(phone)) {
+                alert('Please enter a valid 10-digit phone number');
+                return;
+            }
+            
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<span style="display: inline-flex; align-items: center; gap: 8px;">Verifying...</span>';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '✓ Account Deleted';
+                btn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
+                
+                setTimeout(() => {
+                    alert('Your account has been scheduled for deletion. You will be logged out.');
+                    window.location.href = 'index.html';
+                }, 1200);
+            }, 1800);
         }
-
-        confirmModal.style.display = "block";
-      });
-
-      finalDeleteBtn.addEventListener("click", function () {
-        confirmModal.style.display = "none";
-
-        // Simulate account deletion process
-        setTimeout(() => {
-          successModal.style.display = "block";
-        }, 1000);
-      });
-
-      cancelDeleteBtn.addEventListener("click", function () {
-        confirmModal.style.display = "none";
-      });
-
-      // Close modal when clicking outside
-      window.addEventListener("click", function (e) {
-        if (e.target === confirmModal) {
-          confirmModal.style.display = "none";
-        }
-      });
     </script>
-  </body>
+    
+     <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 <strong>Gharit</strong>. Premium Laundry Delivered. All rights reserved.</p>
+    </footer>
+    
+
+</body>
 </html>

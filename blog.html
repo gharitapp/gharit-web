@@ -1,0 +1,1845 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — Gharit | Premium Laundry Delivered</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <style>
+      /* ============================================
+           TYPOGRAPHY & VARIABLES
+           ============================================ */
+      @font-face {
+        font-family: "SohneSchmal";
+        src: url("https://fonts.cdnfonts.com/s/15011/SohneSchmal-Buch.woff")
+          format("woff");
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --primary: #538994;
+        --primary-dark: #3d6b75;
+        --primary-light: #6aa3b0;
+        --primary-glow: rgba(83, 137, 148, 0.3);
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray-50: #fafafa;
+        --gray-100: #f5f5f5;
+        --gray-200: #e5e5e5;
+        --gray-400: #a3a3a4;
+        --gray-600: #525252;
+        --gray-800: #262626;
+        --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        background: var(--white);
+        color: var(--black);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* ============================================
+           HEADER
+           ============================================ */
+      .nav-header {
+        background: transparent;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.4s ease;
+      }
+
+      .nav-header.scrolled {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--gray-200);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-header.scrolled .hamburger-toggle span {
+        background: var(--black);
+      }
+
+      .nav-header.scrolled .pricing-btn {
+        border-color: var(--black);
+        color: var(--primary);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        max-width: 100%;
+      }
+
+      .nav-logo {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: 28px;
+        color: var(--white);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        z-index: 2001;
+        position: relative;
+      }
+
+      .nav-header.scrolled .nav-logo {
+        color: var(--black);
+      }
+
+      .hamburger-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 10px;
+        transition: all 0.3s ease;
+        z-index: 2000;
+        position: relative;
+      }
+
+      .hamburger-toggle span {
+        display: block;
+        width: 32px;
+        height: 3px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger-toggle.active span {
+        background: var(--white) !important;
+      }
+
+      .hamburger-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .hamburger-toggle.active span:nth-child(2) {
+        transform: scaleX(0);
+        opacity: 0;
+      }
+
+      .hamburger-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      .pricing-btn {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--white);
+        text-decoration: none;
+        padding: 12px 24px;
+        border: 2px solid var(--white);
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        background: transparent;
+        cursor: pointer;
+        z-index: 2000;
+        position: relative;
+      }
+
+      .pricing-btn:hover {
+        background: var(--white);
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      .fullscreen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--black);
+        z-index: 1999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.6s var(--ease-out-expo);
+      }
+
+      .fullscreen-menu.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .menu-links {
+        list-style: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .menu-links li {
+        margin: 8px 0;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.5s var(--ease-out-expo);
+      }
+
+      .fullscreen-menu.active .menu-links li {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .fullscreen-menu.active .menu-links li:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      .fullscreen-menu.active .menu-links li:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+
+      .menu-links a {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: clamp(40px, 8vw, 72px);
+        font-weight: 400;
+        color: var(--white);
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        position: relative;
+        letter-spacing: -2px;
+        line-height: 1.1;
+      }
+
+      .menu-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
+        background: var(--primary);
+        transition: width 0.4s var(--ease-out-expo);
+      }
+
+      .menu-links a:hover {
+        color: var(--primary);
+      }
+
+      .menu-links a:hover::after {
+        width: 100%;
+      }
+
+      .menu-footer {
+        margin-top: 60px;
+        font-size: 14px;
+        color: var(--gray-400);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease 0.6s;
+      }
+
+      .fullscreen-menu.active .menu-footer {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .menu-footer .heart {
+        color: #ff6b6b;
+        display: inline-block;
+        animation: heartbeat 1.5s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      /* ============================================
+           FULL SCREEN HERO
+           ============================================ */
+      .blog-hero-full {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: var(--black);
+      }
+
+      .blog-hero-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark) 0%,
+          var(--primary) 50%,
+          var(--primary-light) 100%
+        );
+        opacity: 0.9;
+      }
+
+      .blog-hero-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 40%
+          );
+      }
+
+      .blog-hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+        animation: gridMove 20s linear infinite;
+      }
+
+      @keyframes gridMove {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(60px, 60px);
+        }
+      }
+
+      .blog-hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 900px;
+        padding: 0 40px;
+        opacity: 0;
+        transform: translateY(60px);
+        animation: heroReveal 1.4s var(--ease-out-expo) forwards 0.5s;
+      }
+
+      @keyframes heroReveal {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .blog-hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 32px;
+        padding: 12px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 100px;
+        backdrop-filter: blur(10px);
+      }
+
+      .blog-hero-label::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: #4ade80;
+        border-radius: 50%;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.5;
+          transform: scale(1.2);
+        }
+      }
+
+      .blog-hero-title {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: clamp(48px, 12vw, 120px);
+        font-weight: 400;
+        line-height: 0.9;
+        letter-spacing: -4px;
+        color: var(--white);
+        margin-bottom: 32px;
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .blog-hero-subtitle {
+        font-size: clamp(18px, 3vw, 24px);
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 400;
+        max-width: 600px;
+        margin: 0 auto 48px;
+        line-height: 1.5;
+      }
+
+      .blog-hero-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .blog-hero-meta span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 11px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        animation: fadeInUp 1s ease forwards 1.5s;
+        opacity: 0;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+      }
+
+      .scroll-indicator:hover {
+        color: var(--white);
+        transform: translateX(-50%) translateY(5px);
+      }
+
+      .scroll-line {
+        width: 1px;
+        height: 60px;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0.6),
+          transparent
+        );
+        animation: scrollLine 2s ease-in-out infinite;
+      }
+
+      @keyframes scrollLine {
+        0%,
+        100% {
+          transform: scaleY(0);
+          transform-origin: top;
+        }
+        50% {
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+        51% {
+          transform-origin: bottom;
+        }
+        100% {
+          transform: scaleY(0);
+          transform-origin: bottom;
+        }
+      }
+
+      /* ============================================
+           BLOG CONTENT SECTION
+           ============================================ */
+      .blog-content-section {
+        position: relative;
+        background: var(--white);
+        margin-top: -100px;
+        border-radius: 40px 40px 0 0;
+        z-index: 10;
+        padding: 80px 0 120px;
+      }
+
+      .blog-content-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .blog-lead {
+        font-size: 24px;
+        line-height: 1.6;
+        color: var(--gray-800);
+        font-weight: 400;
+        margin-bottom: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .blog-lead strong {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .blog-body {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--gray-800);
+      }
+
+      .blog-body p {
+        margin-bottom: 32px;
+      }
+
+      .blog-body h2 {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 400;
+        color: var(--black);
+        margin: 64px 0 24px;
+        letter-spacing: -1px;
+        line-height: 1.1;
+      }
+
+      .blog-body h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--black);
+        margin: 48px 0 16px;
+      }
+
+      .blog-body blockquote {
+        position: relative;
+        padding: 32px 40px;
+        margin: 48px 0;
+        background: var(--gray-50);
+        border-radius: 16px;
+        border-left: 4px solid var(--primary);
+      }
+
+      .blog-body blockquote::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-family: "SohneSchmal", sans-serif;
+        font-size: 80px;
+        color: var(--primary);
+        opacity: 0.2;
+        line-height: 1;
+      }
+
+      .blog-body blockquote p {
+        font-style: italic;
+        color: var(--gray-600);
+        font-size: 22px;
+        line-height: 1.5;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .blog-body ul {
+        margin: 32px 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .blog-body li {
+        margin-bottom: 20px;
+        padding-left: 36px;
+        position: relative;
+        font-size: 17px;
+      }
+
+      .blog-body li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 20px;
+        height: 20px;
+        background: var(--primary-glow);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .blog-body li::after {
+        content: "✓";
+        position: absolute;
+        left: 4px;
+        top: 6px;
+        font-size: 12px;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .blog-body strong {
+        color: var(--black);
+        font-weight: 600;
+      }
+
+      /* Image Styles */
+      .blog-image-full {
+        width: 100vw;
+        margin: 64px calc(-50vw + 50%);
+        height: 500px;
+        object-fit: cover;
+      }
+
+      .blog-image-inline {
+        width: 100%;
+        border-radius: 16px;
+        margin: 48px 0;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .blog-image-caption {
+        text-align: center;
+        font-size: 14px;
+        color: var(--gray-400);
+        margin-top: -32px;
+        margin-bottom: 48px;
+        font-style: italic;
+      }
+
+      /* Stats Grid */
+      .blog-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin: 48px 0;
+        padding: 40px;
+        background: var(--gray-50);
+        border-radius: 24px;
+        border: 1px solid var(--gray-200);
+      }
+
+      .blog-stat {
+        text-align: center;
+      }
+
+      .blog-stat-number {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: 48px;
+        color: var(--primary);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .blog-stat-label {
+        font-size: 13px;
+        color: var(--gray-600);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+
+      /* Tags & Share */
+      .blog-footer-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 80px;
+        padding-top: 40px;
+        border-top: 1px solid var(--gray-200);
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .blog-tags {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .blog-tag {
+        padding: 10px 20px;
+        background: var(--gray-100);
+        border-radius: 100px;
+        font-size: 13px;
+        color: var(--gray-600);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+      }
+
+      .blog-tag:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .blog-share {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .blog-share-label {
+        font-size: 13px;
+        color: var(--gray-400);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+
+      .share-buttons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .share-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gray-100);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-600);
+        transition: all 0.3s ease;
+        border: 1px solid var(--gray-200);
+      }
+
+      .share-btn:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-3px);
+        border-color: var(--primary);
+      }
+
+      /* Author Section */
+      .author-section {
+        margin-top: 80px;
+        padding: 48px;
+        background: linear-gradient(
+          135deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+        border-radius: 24px;
+        border: 1px solid var(--gray-200);
+        display: flex;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .author-avatar-large {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 40px;
+        font-weight: 600;
+        flex-shrink: 0;
+        box-shadow: 0 10px 30px var(--primary-glow);
+      }
+
+      .author-details h4 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--black);
+      }
+
+      .author-details .author-role {
+        font-size: 14px;
+        color: var(--primary);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+
+      .author-details p {
+        font-size: 15px;
+        color: var(--gray-600);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Back Link */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 48px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .back-link:hover {
+        gap: 16px;
+        color: var(--primary-dark);
+      }
+
+      .back-link svg {
+        transition: transform 0.3s ease;
+      }
+
+      .back-link:hover svg {
+        transform: translateX(-4px);
+      }
+
+      /* ============================================
+           RELATED POSTS
+           ============================================ */
+      .related-section {
+        padding: 100px 40px;
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+      }
+
+      .related-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+
+      .related-label {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .related-title {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: clamp(36px, 5vw, 56px);
+        font-weight: 400;
+        letter-spacing: -1px;
+      }
+
+      .related-grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+
+      .related-card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--gray-200);
+        transition: all 0.4s var(--ease-out-expo);
+        text-decoration: none;
+        color: inherit;
+        display: block;
+      }
+
+      .related-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary-light);
+      }
+
+      .related-card-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--primary)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .related-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s var(--ease-out-expo);
+      }
+
+      .related-card:hover .related-card-image img {
+        transform: scale(1.1);
+      }
+
+      .related-card-content {
+        padding: 28px;
+      }
+
+      .related-card-date {
+        font-size: 12px;
+        color: var(--gray-400);
+        font-weight: 500;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .related-card-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--black);
+        line-height: 1.3;
+        margin-bottom: 12px;
+        transition: color 0.3s ease;
+      }
+
+      .related-card:hover .related-card-title {
+        color: var(--primary);
+      }
+
+      .related-card-excerpt {
+        font-size: 14px;
+        color: var(--gray-600);
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* ============================================
+           NEWSLETTER
+           ============================================ */
+      .newsletter-section {
+        padding: 120px 40px;
+        background: var(--white);
+        border-top: 1px solid var(--gray-200);
+      }
+
+      .newsletter-container {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .newsletter-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-glow);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 32px;
+        color: var(--primary);
+      }
+
+      .newsletter-title {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: clamp(36px, 5vw, 52px);
+        font-weight: 400;
+        margin-bottom: 16px;
+        letter-spacing: -1px;
+      }
+
+      .newsletter-subtitle {
+        color: var(--gray-600);
+        margin-bottom: 40px;
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 16px;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 18px 28px;
+        border: 2px solid var(--gray-200);
+        border-radius: 100px;
+        font-size: 15px;
+        outline: none;
+        transition: all 0.3s ease;
+        background: var(--gray-50);
+      }
+
+      .newsletter-input:focus {
+        border-color: var(--primary);
+        background: var(--white);
+        box-shadow: 0 0 0 4px var(--primary-glow);
+      }
+
+      .newsletter-btn {
+        padding: 18px 36px;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: 100px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .newsletter-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px var(--primary-glow);
+      }
+
+      /* ============================================
+           FOOTER
+           ============================================ */
+      .footer {
+        padding: 80px 40px 40px;
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+
+      .footer-brand {
+        font-family: "SohneSchmal", sans-serif;
+        font-size: 36px;
+        color: var(--white);
+        margin-bottom: 16px;
+      }
+
+      .footer-tagline {
+        font-size: 15px;
+        color: var(--gray-400);
+        line-height: 1.6;
+        max-width: 300px;
+      }
+
+      .footer-title {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gray-400);
+        margin-bottom: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-link {
+        font-size: 15px;
+        color: var(--gray-400);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .footer-link:hover {
+        color: var(--primary);
+        transform: translateX(4px);
+      }
+
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 40px;
+        border-top: 1px solid var(--gray-800);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: var(--gray-400);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 16px;
+      }
+
+      .social-link {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--gray-800);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gray-400);
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        color: var(--white);
+        transform: translateY(-3px);
+      }
+
+      /* ============================================
+           RESPONSIVE
+           ============================================ */
+      @media (max-width: 1024px) {
+        .related-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .blog-stats {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-container {
+          padding: 16px 24px;
+        }
+
+        .blog-hero-title {
+          font-size: clamp(40px, 10vw, 64px);
+          letter-spacing: -2px;
+        }
+
+        .blog-hero-meta {
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .blog-content-section {
+          border-radius: 24px 24px 0 0;
+          padding: 60px 0 80px;
+        }
+
+        .blog-content-wrapper {
+          padding: 0 24px;
+        }
+
+        .blog-lead {
+          font-size: 20px;
+        }
+
+        .blog-body {
+          font-size: 16px;
+        }
+
+        .blog-body h2 {
+          font-size: 32px;
+        }
+
+        .blog-image-full {
+          height: 300px;
+        }
+
+        .author-section {
+          flex-direction: column;
+          text-align: center;
+          padding: 32px;
+        }
+
+        .blog-footer-meta {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .related-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .related-section {
+          padding: 60px 24px;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          gap: 24px;
+          text-align: center;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .blog-hero-label {
+          font-size: 10px;
+          padding: 10px 16px;
+        }
+
+        .blog-stats {
+          padding: 24px;
+        }
+
+        .blog-stat-number {
+          font-size: 36px;
+        }
+      }
+
+      /* Animations */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s var(--ease-out-expo);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="nav-header" id="navHeader">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">Gharit</a>
+        <div style="display: flex; align-items: center; gap: 24px">
+          <button
+            class="hamburger-toggle"
+            id="hamburgerBtn"
+            aria-label="Toggle Menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+      <ul class="menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="privacy-policy.html">Legal</a></li>
+      </ul>
+      <div class="menu-footer">
+        © 2024 GHAR!T. Crafted with <span class="heart">💛</span> in Mumbai
+      </div>
+    </div>
+
+    <!-- FULL SCREEN HERO -->
+    <section class="blog-hero-full">
+      <div class="blog-hero-bg"></div>
+      <div class="blog-hero-grid"></div>
+
+      <div class="blog-hero-content">
+        <div class="blog-hero-label">Live Now</div>
+        <h1 class="blog-hero-title">Gharit<br />Launches</h1>
+        <p class="blog-hero-subtitle">
+          Revolutionizing laundry care across India. Premium service meets
+          modern convenience.
+        </p>
+        <div class="blog-hero-meta">
+          <span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            February 22, 2025
+          </span>
+          <span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            4 min read
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="scroll-indicator"
+        onclick="
+          document
+            .getElementById('content')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+      >
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- BLOG CONTENT -->
+    <section class="blog-content-section" id="content">
+      <div class="blog-content-wrapper">
+        <a href="blog.html" class="back-link">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          All Stories
+        </a>
+
+        <p class="blog-lead reveal">
+          <strong>February 22, 2025</strong> — Today marks a significant
+          milestone for us at Gharit. After months of relentless preparation,
+          testing, and fine-tuning, we're officially launching our premium
+          laundry service app to the public.
+        </p>
+
+        <div class="blog-body reveal">
+          <p>
+            This isn't just another laundry service; it's a complete reimagining
+            of how care, convenience, and quality can come together to serve
+            modern Indian households.
+          </p>
+
+          <p>
+            We started Gharit with a simple observation: despite living in an
+            age of on-demand everything, laundry remained a persistent pain
+            point for millions of Indians. Whether it's the busy professional
+            who doesn't have time to visit the dhobi, the meticulous homemaker
+            who worries about fabric care, or the young urbanite who values
+            sustainability—everyone deserved a better solution.
+          </p>
+
+          <img
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&h=800&fit=crop"
+            alt="Gharit Team"
+            class="blog-image-full"
+          />
+          <p class="blog-image-caption">
+            The Gharit team celebrating launch day at our Mumbai headquarters
+          </p>
+
+          <h2>Why Gharit? Why Now?</h2>
+
+          <p>
+            The laundry industry in India is fragmented, unorganized, and often
+            unreliable. We saw an opportunity to bring the same level of
+            sophistication and customer-centricity that we've come to expect
+            from food delivery and ride-hailing apps to the world of fabric
+            care.
+          </p>
+
+          <p>
+            Our platform combines cutting-edge technology with traditional
+            expertise. Every garment that comes through our doors is treated
+            with the meticulous attention it deserves—whether it's a everyday
+            cotton t-shirt or a delicate silk saree passed down through
+            generations.
+          </p>
+
+          <blockquote>
+            <p>
+              We didn't just want to clean clothes. We wanted to give people
+              back their time while ensuring their most cherished garments
+              receive premium care.
+            </p>
+          </blockquote>
+
+          <h3>What Makes Us Different</h3>
+
+          <ul>
+            <li>
+              <strong>Premium Care Standards:</strong> We use eco-friendly
+              detergents and advanced cleaning techniques that are gentle on
+              fabrics and the environment.
+            </li>
+            <li>
+              <strong>Real-Time Tracking:</strong> Know exactly where your
+              clothes are at every step of the journey.
+            </li>
+            <li>
+              <strong>24-Hour Turnaround:</strong> Schedule by 9 AM, receive by
+              9 PM the next day.
+            </li>
+            <li>
+              <strong>Transparent Pricing:</strong> No hidden charges. What you
+              see is what you pay.
+            </li>
+            <li>
+              <strong>Trained Professionals:</strong> Our cleaning experts
+              undergo rigorous training in fabric care and stain removal.
+            </li>
+          </ul>
+
+          <div class="blog-stats">
+            <div class="blog-stat">
+              <div class="blog-stat-number">50+</div>
+              <div class="blog-stat-label">Cities Targeted</div>
+            </div>
+            <div class="blog-stat">
+              <div class="blog-stat-number">24h</div>
+              <div class="blog-stat-label">Delivery Time</div>
+            </div>
+            <div class="blog-stat">
+              <div class="blog-stat-number">99%</div>
+              <div class="blog-stat-label">Satisfaction</div>
+            </div>
+          </div>
+
+          <h2>The Journey Ahead</h2>
+
+          <p>
+            Launching in 2024 was just the beginning. As of February 22, 2025,
+            our app is officially live and serving customers across Mumbai, with
+            plans to expand to 50+ cities by the end of the year. We're not just
+            building a service; we're building a movement toward smarter, more
+            sustainable fabric care.
+          </p>
+
+          <img
+            src="https://images.unsplash.com/photo-1545173168-9f1947eebb8f?w=1200&h=600&fit=crop"
+            alt="Sustainable Process"
+            class="blog-image-inline"
+          />
+          <p class="blog-image-caption">
+            Our eco-friendly cleaning process uses 40% less water than
+            traditional methods
+          </p>
+
+          <p>
+            Our vision extends beyond clean clothes. We're committed to water
+            conservation, reducing chemical usage, and creating employment
+            opportunities for thousands of skilled workers across India. Every
+            order placed on Gharit contributes to this larger mission.
+          </p>
+
+          <h3>Join the Revolution</h3>
+
+          <p>
+            We invite you to experience the Gharit difference. Download our app
+            today and enjoy your first pickup on us. Whether you're looking to
+            free up your weekends, ensure your workwear always looks crisp, or
+            simply want the peace of mind that comes with professional
+            care—we're here for you.
+          </p>
+
+          <p>
+            To our early supporters, beta testers, and the incredible team that
+            made this possible: thank you. This is just the beginning of India's
+            laundry revolution.
+          </p>
+
+          <p style="margin-top: 48px">
+            <em>Here's to fresh beginnings,</em><br />
+            <strong style="color: var(--primary); font-size: 20px"
+              >The Gharit Team</strong
+            >
+          </p>
+        </div>
+
+        <div class="blog-footer-meta reveal">
+          <div class="blog-tags">
+            <span class="blog-tag">Launch</span>
+            <span class="blog-tag">Company News</span>
+            <span class="blog-tag">Sustainability</span>
+            <span class="blog-tag">India</span>
+          </div>
+          <div class="blog-share">
+            <span class="blog-share-label">Share</span>
+            <div class="share-buttons">
+              <button class="share-btn" onclick="alert('Shared to Twitter!')">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+              </button>
+              <button class="share-btn" onclick="alert('Shared to LinkedIn!')">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </button>
+              <button class="share-btn" onclick="alert('Link copied!')">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  ></path>
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="author-section reveal">
+          <div class="author-avatar-large">G</div>
+          <div class="author-details">
+            <div class="author-role">Editorial Team</div>
+            <h4>Gharit</h4>
+            <p>
+              Stories from the people reimagining laundry care in India. We're
+              passionate about clean clothes, sustainability, and giving you
+              back your weekends.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED POSTS -->
+    <section class="related-section">
+      <div class="related-header reveal">
+        <span class="related-label">Keep Reading</span>
+        <h2 class="related-title">More Stories</h2>
+      </div>
+
+      <div class="related-grid">
+        <a href="#" class="related-card reveal" onclick="alert('Coming soon!')">
+          <div class="related-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1604335399105-a0c585fd81a1?w=600&h=400&fit=crop"
+              alt="Sustainability"
+            />
+          </div>
+          <div class="related-card-content">
+            <div class="related-card-date">Coming Soon</div>
+            <h3 class="related-card-title">
+              Our Commitment to Sustainable Laundry
+            </h3>
+            <p class="related-card-excerpt">
+              How we're reducing water usage and eliminating harmful chemicals
+              from the cleaning process.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="related-card reveal"
+          onclick="alert('Coming soon!')"
+          style="transition-delay: 0.1s"
+        >
+          <div class="related-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop"
+              alt="Fabric Care"
+            />
+          </div>
+          <div class="related-card-content">
+            <div class="related-card-date">Coming Soon</div>
+            <h3 class="related-card-title">The Science of Fabric Care</h3>
+            <p class="related-card-excerpt">
+              Understanding different textiles and how to make your clothes last
+              longer.
+            </p>
+          </div>
+        </a>
+
+        <a
+          href="#"
+          class="related-card reveal"
+          onclick="alert('Coming soon!')"
+          style="transition-delay: 0.2s"
+        >
+          <div class="related-card-image">
+            <img
+              src="https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?w=600&h=400&fit=crop"
+              alt="Behind the Scenes"
+            />
+          </div>
+          <div class="related-card-content">
+            <div class="related-card-date">Coming Soon</div>
+            <h3 class="related-card-title">Behind the Scenes at Gharit</h3>
+            <p class="related-card-excerpt">
+              A day in the life of our cleaning experts and delivery partners.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+      <div class="newsletter-container reveal">
+        <div class="newsletter-icon">
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <h2 class="newsletter-title">Stay in the loop</h2>
+        <p class="newsletter-subtitle">
+          Get the latest updates, laundry tips, and exclusive offers delivered
+          to your inbox.
+        </p>
+        <form
+          class="newsletter-form"
+          onsubmit="
+            event.preventDefault();
+            alert('Thanks for subscribing!');
+          "
+        >
+          <input
+            type="email"
+            class="newsletter-input"
+            placeholder="Enter your email"
+            required
+          />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <div class="footer-brand">Gharit</div>
+          <p class="footer-tagline">
+            India's most loved laundry service. Premium care for the clothes you
+            love.
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Company</div>
+          <div class="footer-links">
+            <a href="about-us.html" class="footer-link">About Us</a>
+            <a href="careers.html" class="footer-link">Careers</a>
+            <a href="blog.html" class="footer-link">Blog</a>
+            <a href="#" class="footer-link">Press</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Support</div>
+          <div class="footer-links">
+            <a href="faq.html" class="footer-link">Help Center</a>
+            <a href="#" class="footer-link">Track Order</a>
+            <a href="#" class="footer-link">Pricing</a>
+            <a href="#" class="footer-link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <div class="footer-links">
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2024 Gharit Technologies. All rights reserved.</div>
+        <div class="footer-social">
+          <a href="#" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+              />
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.getElementById("navHeader");
+        if (window.scrollY > 100) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
+      // Hamburger Menu
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const fullscreenMenu = document.getElementById("fullscreenMenu");
+
+      hamburgerBtn.addEventListener("click", () => {
+        hamburgerBtn.classList.toggle("active");
+        fullscreenMenu.classList.toggle("active");
+        document.body.style.overflow = fullscreenMenu.classList.contains(
+          "active",
+        )
+          ? "hidden"
+          : "";
+      });
+
+      document.querySelectorAll(".menu-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburgerBtn.classList.remove("active");
+          fullscreenMenu.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+      });
+
+      // Scroll reveal
+      function initScrollReveal() {
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+        );
+
+        reveals.forEach((el) => observer.observe(el));
+      }
+
+      document.addEventListener("DOMContentLoaded", initScrollReveal);
+
+      // Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && fullscreenMenu.classList.contains("active")) {
+          hamburgerBtn.classList.remove("active");
+          fullscreenMenu.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,3448 @@
+<!doctype html>
+<html class="has-no-js" lang="en" data-template="home-alt" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+    <base href="https://www.gharitapp.com/">
+    <title>GHAR!T - Premium Laundry Service</title>
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="HandheldFriendly" content="true">
+
+    <!-- Appearance -->
+    <meta name="theme-color" content="#F4F4F4">
+    <meta name="msapplication-TileColor" content="#F4F4F4">
+
+    <link rel="mask-icon" href="https://shrikantsky.github.io/GHARITWEBIMAGES/uploads/ghar!tlogo.jpg" color="#000000">
+
+    <!-- Styles -->
+    <style media="all">
+        /* Text selection styling */
+        ::selection {
+            background-color: #b3d4fc !important;
+            color: #000 !important;
+        }
+        ::-moz-selection {
+            background-color: #b3d4fc !important;
+            color: #000 !important;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #5ea9ad 0%, #4a8b8b 100%);
+            border-radius: 5px;
+            border: 2px solid #f5f5f5;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #4a8b8b 0%, #3a7b7b 100%);
+        }
+    </style>
+
+    <!-- Preload Fonts -->
+    <link id="main-css" rel="stylesheet" href="https://shrikantsky.github.io/GHARITWEBIMAGES/uploads/style.css"
+        media="all">
+
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    <!-- Styles -->
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @font-face {
+            font-family: 'SohneSchmal Buch';
+            src: url('assets/fonts/SohneSchmal-Buch.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'F37Bolton';
+            src: url('assets/fonts/F37Bolton.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        :root {
+            --color-text: #111;
+            --color-muted: #666;
+            --color-border: #e5e5e5;
+            --color-accent: #5ea9ad;
+
+            /* global horizontal gutter */
+            --page-gutter: 63px;
+
+            --header-font-size: 95px;
+            --header-pad-top: 140px;
+            --header-pad-sides: 80px;
+            --header-pad-bottom: 110px;
+
+            --sidebar-width: 320px;
+            --sidebar-pad-x: 48px;
+            --sidebar-pad-y: 64px;
+            --sidebar-item-size: 20px;
+            --sidebar-item-pad-y: 14px;
+
+            --section-title-size: 70px;
+            --section-title-pad-x: 96px;
+            --section-title-pad-top: 84px;
+            --section-title-pad-bottom: 56px;
+
+            --faq-pad-x: 96px;
+            --faq-pad-bottom: 120px;
+            --faq-item-pad-y: 16px;
+            --faq-question-size: 26px;
+            --faq-toggle-size: 30px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SohneSchmal Buch', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* Headings use F37Bolton stack */
+        .header-title,
+        .section-title {
+            font-family: "F37Bolton", -apple-system, BlinkMacSystemFont, "avenir next", avenir, "segoe ui", "helvetica neue", helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+        }
+
+        .header {
+            text-align: center;
+            padding: var(--header-pad-top) var(--header-pad-sides) var(--header-pad-bottom);
+            font-size: var(--header-font-size);
+            font-weight: 300;
+            letter-spacing: -1px;
+            color: var(--color-text);
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-title {
+            display: inline-block;
+            border-bottom: 4px solid #5ea9ad;
+            padding-bottom: 8px;
+        }
+
+        .main-container {
+            display: flex;
+            /* removed dividing line */
+            border-top: none;
+            scroll-snap-type: y mandatory;
+            padding-left: var(--page-gutter);
+            padding-right: var(--page-gutter);
+        }
+
+        /* (overlay helpers removed) */
+
+        .sidebar {
+            width: var(--sidebar-width);
+            padding: var(--sidebar-pad-y) var(--sidebar-pad-x);
+            /* removed dividing line */
+            border-right: none;
+            position: fixed;
+            left: var(--page-gutter);
+            top: 23px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+            margin-top: 0;
+        }
+
+        .sidebar-item {
+            font-size: var(--sidebar-item-size);
+            font-weight: 400;
+            color: var(--color-muted);
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-color: transparent;
+            padding: var(--sidebar-item-pad-y) 0;
+            line-height: 1.4;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.6;
+        }
+
+        .sidebar-item:hover {
+            color: #000;
+        }
+
+        .sidebar-item.active {
+            color: var(--color-accent);
+            font-weight: 500;
+            text-decoration-color: var(--color-accent);
+            opacity: 1;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            margin-left: calc(var(--sidebar-width) + var(--page-gutter));
+            padding-right: var(--page-gutter);
+        }
+
+        .section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+        }
+
+        .section-title {
+            font-size: var(--section-title-size);
+            font-weight: 400;
+            letter-spacing: -1px;
+            color: #000;
+            padding: var(--section-title-pad-top) var(--section-title-pad-x) var(--section-title-pad-bottom) var(--section-title-pad-x);
+            background: #ffffff;
+            z-index: 50;
+        }
+
+        .faq-content {
+            padding: 0 var(--faq-pad-x) var(--faq-pad-bottom) var(--faq-pad-x);
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 1000px;
+        }
+
+        .faq-item {
+            /* removed horizontal separator */
+            border-bottom: none;
+            padding: var(--faq-item-pad-y) 0;
+            opacity: 0;
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item:nth-child(1) { animation-delay: 0s; }
+        .faq-item:nth-child(2) { animation-delay: 0.1s; }
+        .faq-item:nth-child(3) { animation-delay: 0.2s; }
+        .faq-item:nth-child(4) { animation-delay: 0.3s; }
+        .faq-item:nth-child(5) { animation-delay: 0.4s; }
+        .faq-item:nth-child(6) { animation-delay: 0.5s; }
+        .faq-item:nth-child(7) { animation-delay: 0.6s; }
+        .faq-item:nth-child(8) { animation-delay: 0.7s; }
+        .faq-item:nth-child(9) { animation-delay: 0.8s; }
+
+        /* no separator for last child needed */
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            cursor: pointer;
+            font-size: var(--faq-question-size);
+            font-weight: 400;
+            color: #333;
+            line-height: 1.5;
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover {
+            color: #000;
+        }
+
+        .faq-item.open .faq-question {
+            color: #5ea9ad;
+        }
+
+        .faq-question-text {
+            flex: 1;
+        }
+
+        .faq-toggle {
+            font-size: var(--faq-toggle-size);
+            color: #999;
+            flex-shrink: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            line-height: 0.8;
+            padding-top: 2px;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
+            color: #000;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 12px;
+            font-size: 20px;
+            color: #555;
+            line-height: 1.8;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 12px;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-answer p {
+            margin-bottom: 14px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-bottom: 14px;
+        }
+
+        .faq-answer ul li {
+            margin-bottom: 10px;
+        }
+
+        .faq-answer strong {
+            font-weight: 600;
+            color: #333;
+        }
+
+        @media (max-width: 1200px) {
+            :root {
+                --sidebar-width: 300px;
+                --section-title-size: 48px;
+                --section-title-pad-x: 84px;
+                --faq-pad-x: 84px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            :root {
+                --sidebar-width: 260px;
+                --sidebar-pad-x: 36px;
+                --sidebar-pad-y: 48px;
+                --section-title-size: 55px;
+                --section-title-pad-x: 72px;
+                --section-title-pad-top: 64px;
+                --section-title-pad-bottom: 44px;
+                --faq-pad-x: 72px;
+                --faq-item-pad-y: 26px;
+                --faq-question-size: 23px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --header-font-size: 46px;
+                --header-pad-top: 56px;
+                --header-pad-sides: 20px;
+                --header-pad-bottom: 56px;
+
+                --section-title-size: 28px;
+                --section-title-pad-x: 20px;
+                --section-title-pad-top: 28px;
+                --section-title-pad-bottom: 16px;
+
+                --faq-pad-x: 20px;
+                --faq-item-pad-y: 14px;
+                --faq-question-size: 18px;
+                --faq-toggle-size: 30px;
+                --page-gutter: 16px;
+            }
+
+            .main-container { flex-direction: column; padding-left: var(--page-gutter); padding-right: var(--page-gutter); }
+
+            /* Sidebar becomes horizontal chips */
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+                padding: 10px var(--page-gutter);
+                display: flex;
+                gap: 8px;
+                overflow-x: auto;
+                overflow-y: hidden;
+                background: #fff;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .sidebar::-webkit-scrollbar { height: 6px; }
+
+            .sidebar-item {
+                flex: 0 0 auto;
+                font-size: 16px;
+                padding: 8px 12px;
+                border: 1px solid var(--color-border);
+                border-radius: 20px;
+                text-decoration: none;
+                opacity: 1;
+                color: #333;
+                transition: background 0.2s, color 0.2s, border-color 0.2s;
+            }
+
+            .sidebar-item.active {
+                background: #000;
+                color: #fff;
+                border-color: #000;
+            }
+
+            .content-wrapper { margin-left: 0; }
+            .faq-list { max-width: 100%; }
+
+            /* Minimalist FAQ cards */
+            .faq-item { padding: 12px 0; }
+            .faq-question { gap: 16px; }
+            .faq-answer {
+                display: none;
+                margin-top: 8px;
+                font-size: 17px;
+                line-height: 1.7;
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .section-title { border-bottom: 1px solid var(--color-border); }
+            /* subtle separators for clarity */
+            .faq-item { border-bottom: 1px solid var(--color-border); }
+            .faq-item:last-child { border-bottom: none; }
+
+            .faq-toggle { color: #000; }
+            .faq-item.open .faq-toggle { color: var(--color-accent); }
+            .faq-question:hover { color: #333; }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --header-font-size: 40px;
+                --header-pad-top: 48px;
+                --header-pad-sides: 16px;
+                --header-pad-bottom: 48px;
+
+                --section-title-size: 25px;
+                --section-title-pad-x: 16px;
+                --section-title-pad-top: 24px;
+                --section-title-pad-bottom: 14px;
+
+                --faq-pad-x: 16px;
+                --faq-item-pad-y: 12px;
+                --faq-question-size: 17px;
+                --faq-toggle-size: 28px;
+            }
+
+            .sidebar { padding: 8px var(--page-gutter); gap: 8px; }
+            .sidebar-item { font-size: 15px; padding: 8px 12px; }
+            .main-container { scroll-snap-type: none; }
+        }
+
+        /* Ultra-small phones (e.g., iPhone 7/SE in portrait ~375px, older Android 360px) */
+        @media (max-width: 380px) {
+            :root {
+                --header-font-size: 36px;
+                --header-pad-top: 40px;
+                --header-pad-sides: 12px;
+                --header-pad-bottom: 40px;
+
+                --section-title-size: 23px;
+                --section-title-pad-x: 12px;
+                --section-title-pad-top: 18px;
+                --section-title-pad-bottom: 12px;
+
+                --faq-pad-x: 12px;
+                --faq-item-pad-y: 10px;
+                --faq-question-size: 16px;
+                --faq-toggle-size: 26px;
+            }
+
+            .faq-question { gap: 14px; }
+            .sidebar-item { font-size: 14px; padding: 8px 10px; }
+            .header-title { padding-bottom: 6px; }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #5ea9ad;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5ea9ad;
+        }
+    </style>
+
+
+
+
+
+    <style>
+        /* Brand color for the header Download button */
+        .c-header_link,
+        .c-header_link .c-button_inner,
+        .c-header_link .c-button_label,
+        .c-header_link .c-button_rail_item {
+            color: #5ea9ad !important;
+        }
+    </style>
+
+
+
+
+    <!-- HEADER SECTION - Copy everything below this line -->
+
+<!-- HEADER SECTION END - Copy everything above this line -->
+<base target="_blank">
+</head>
+
+
+
+<body>
+
+
+    <style>
+    /* Header Styles */
+    .nav-header {
+        background: white;
+        border-bottom: 1px solid #e5e5e5;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 50px;
+        max-width: 100%;
+    }
+    
+    .hamburger-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 10px;
+        transition: all 0.3s ease;
+        z-index: 2000;
+        position: relative;
+    }
+    
+    .hamburger-toggle span {
+        display: block;
+        width: 45px;
+        height: 6px;
+        background: #2c0707;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+    
+    .hamburger-toggle.active span:nth-child(2) {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    
+    .hamburger-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+    
+    /* Pricing Button Styles */
+    .pricing-btn {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #6db3a6;
+        text-decoration: none;
+        padding: 12px 28px;
+        border: 2px solid #000000;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        letter-spacing: -0.01em;
+        background: transparent;
+        cursor: pointer;
+        z-index: 2000;
+        position: relative;
+        min-width: 100px;
+        text-align: center;
+    }
+    
+    .pricing-btn:hover {
+        background: #6db3a6;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(109, 179, 166, 0.2);
+        border-color: #000000;
+    }
+    
+    .pricing-btn.active {
+        background: #6db3a6;
+        color: #ffffff;
+        border-color: #000000;
+    }
+    
+    .fullscreen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #0a0a0a;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .fullscreen-menu.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .menu-links {
+        list-style: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .menu-links li {
+        margin: 5px 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s ease;
+    }
+    
+    .fullscreen-menu.active .menu-links li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .fullscreen-menu.active .menu-links li:nth-child(1) { transition-delay: 0.1s; }
+    .fullscreen-menu.active .menu-links li:nth-child(2) { transition-delay: 0.2s; }
+    .fullscreen-menu.active .menu-links li:nth-child(3) { transition-delay: 0.3s; }
+    .fullscreen-menu.active .menu-links li:nth-child(4) { transition-delay: 0.4s; }
+    .fullscreen-menu.active .menu-links li:nth-child(5) { transition-delay: 0.5s; }
+    
+    .menu-links a {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: clamp(24px, 5vw, 48px);
+        font-weight: 600;
+        color: #ffffff;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        position: relative;
+        letter-spacing: -0.02em;
+    }
+    
+    .menu-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: #5ea9ad;
+        transition: width 0.3s ease;
+    }
+    
+    .menu-links a:hover {
+        color: #5ea9ad;
+    }
+    
+    .menu-links a:hover::after {
+        width: 100%;
+    }
+    
+    /* Footer Styles */
+    .menu-footer {
+        margin-top: 40px;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: 20px;
+        color: #666666;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease 0.5s;
+    }
+    
+    .fullscreen-menu.active .menu-footer {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .menu-footer .heart {
+        color: #ff6b6b;
+        display: inline-block;
+        animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+    
+    /* Social Media Styles */
+    .social-media-section {
+        margin: 50px 0 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease 0.4s;
+    }
+    
+    .fullscreen-menu.active .social-media-section {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .social-media-title {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: #999999;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+    }
+    
+    .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(94, 169, 173, 0.1);
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .social-icon:hover {
+        background: rgba(94, 169, 173, 0.3);
+        transform: scale(1.1);
+    }
+    
+    .social-icon img {
+        display: block;
+    }
+    
+    /* Pricing Overlay Card Styles */
+    .pricing-overlay-card {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        z-index: 998;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+    }
+    
+    .pricing-overlay-card.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .pricing-overlay-card .pricing-close-btn {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 10px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease 0.3s;
+    }
+    
+    .pricing-overlay-card.active .pricing-close-btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .pricing-overlay-card .pricing-close-btn span {
+        display: block;
+        width: 36px;
+        height: 4px;
+        background: #000000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .pricing-overlay-card .pricing-close-btn span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .pricing-overlay-card .pricing-close-btn span:nth-child(2) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .pricing-overlay-card .pricing-close-btn:hover span {
+        background: #6db3a6;
+    }
+    
+    .pricing-overlay-card .pricing-content-wrapper {
+        padding: 60px 15px 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s ease 0.2s;
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100vh - 100px);
+        box-sizing: border-box;
+    }
+    
+    @media (max-width: 479px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            margin-top: 1rem !important;
+        }
+    }
+    
+    @media (min-width: 480px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 70px 20px 35px;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 25px 40px 50px;
+            max-height: calc(100vh - 70px);
+            margin-top: 5rem;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 20px 60px 60px;
+            max-height: calc(100vh - 60px);
+            margin-top: 5rem;
+        }
+    }
+    
+    .pricing-overlay-card.active .pricing-content-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    @media (max-width: 968px) {
+        .nav-container {
+            padding: 14px 25px;
+        }
+        .hamburger-toggle span {
+            width: 36px;
+            height: 4px;
+        }
+        .pricing-btn {
+            font-size: 14px;
+            padding: 10px 20px;
+            min-width: 90px;
+        }
+        .menu-links a {
+            font-size: clamp(18px, 4vw, 36px);
+        }
+        .menu-links li {
+            margin: 12px 0;
+        }
+        .menu-footer {
+            font-size: 16px;
+            margin-top: 30px;
+        }
+        .social-media-section {
+            margin: 30px 0 20px 0;
+            gap: 12px;
+        }
+        .social-icons {
+            gap: 20px;
+        }
+        .pricing-overlay-card .pricing-close-btn {
+            right: 25px;
+            top: 16px;
+        }
+        .pricing-overlay-card .pricing-close-btn span {
+            width: 30px;
+            height: 3px;
+        }
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 70px 15px 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .pricing-btn {
+            font-size: 13px;
+            padding: 8px 16px;
+            min-width: 80px;
+        }
+        .menu-links a {
+            font-size: clamp(20px, 6vw, 32px);
+        }
+        .menu-links li {
+            margin: 14px 0;
+        }
+    }
+    </style>
+    
+    <header class="nav-header">
+        <div class="nav-container">
+            <button class="hamburger-toggle" id="hamburgerBtn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="pricing-btn" id="pricingBtn" onclick="togglePricingCard()">Pricing</button>
+        </div>
+    </header>
+    
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <ul class="menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+        <div class="menu-footer">
+            © 2024 GHAR!T. Crafted with <span class="heart">💛</span> in Mumbai, India
+        </div>
+    </div>
+    
+    <!-- Pricing Overlay Card -->
+    <div class="pricing-overlay-card" id="pricingOverlayCard">
+        <button class="pricing-close-btn" onclick="togglePricingCard()" aria-label="Close Pricing">
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="pricing-content-wrapper">
+            <section class="gharit-pricing-section">
+                <style>
+                    .gharit-pricing-section {
+                        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                        background-color: #ffffff;
+                        color: #111827;
+                        box-sizing: border-box;
+                        width: 100%;
+                        max-width: 100%;
+                        overflow-x: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 0.4rem;
+                        margin: 0 auto;
+                        border-radius: 0.8rem;
+                        max-height: 100%;
+                    }
+
+                    /* iPhone 7 / Ultra small screens (max-width: 375px) */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section {
+                            padding: 0.35rem;
+                            border-radius: 0.6rem;
+                        }
+                    }
+    
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section {
+                            padding: 0.5rem;
+                            border-radius: 0.75rem;
+                        }
+                    }
+
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section {
+                            padding: 0.75rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section {
+                            padding: 1.5rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section {
+                            padding: 2rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header {
+                        margin-bottom: 0.75rem;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-header {
+                            margin-bottom: 1rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-header {
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header-container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.75rem;
+                        width: 100%;
+                        position: relative;
+                    }
+    
+                    .gharit-pricing-section .gharit-download-link {
+                        font-weight: 700;
+                        text-decoration: underline;
+                        color: #ef4444;
+                        font-size: 0.875rem;
+                        line-height: 1.4;
+                        word-break: break-word;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: inline-block;
+                    }
+                    
+                    .gharit-pricing-section .gharit-download-link:hover {
+                        color: #dc2626;
+                        text-decoration: underline;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-header-container {
+                            gap: 1rem;
+                        }
+                        
+                        .gharit-pricing-section .gharit-download-link {
+                            font-size: 0.9375rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-header-container {
+                            flex-direction: row;
+                            align-items: flex-start;
+                            justify-content: space-between;
+                            gap: 1.5rem;
+                        }
+    
+                        .gharit-pricing-section .gharit-download-link {
+                            max-width: 12rem;
+                            padding-left: 1rem;
+                            border-left: 2px solid #e5e7eb;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-title-wrapper {
+                        flex: 1;
+                        width: 100%;
+                        min-width: 0;
+                    }
+    
+                    .gharit-pricing-section .gharit-main-title {
+                        font-size: 1.2rem;
+                        font-weight: 800;
+                        letter-spacing: -0.025em;
+                        line-height: 1.1;
+                        margin-bottom: 0.4rem;
+                        margin-top: -0.1rem;
+                        text-transform: uppercase;
+                        word-break: break-word;
+                        color: #111827;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 1rem;
+                            line-height: 1.05;
+                            margin-bottom: 0.3rem;
+                            word-spacing: -0.01em;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 1.35rem;
+                            margin-bottom: 0.45rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 1.875rem;
+                            margin-bottom: 0.6rem;
+                            margin-top: -0.2rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 2.25rem;
+                            line-height: 1.1;
+                            margin-bottom: 0.8rem;
+                            margin-top: -0.2rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 3rem;
+                            margin-bottom: -0.5rem;
+                            margin-top: -0rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-section {
+                        margin-bottom: 0.75rem;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-search-section {
+                            margin-bottom: 1rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-section {
+                            margin-bottom: 1.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-wrapper {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.5rem;
+                        align-items: center;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-search-wrapper {
+                            flex-direction: row;
+                            gap: 0.75rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-wrapper {
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-box {
+                        position: relative;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-box {
+                            width: 20rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-search-box {
+                            width: 24rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-icon {
+                        position: absolute;
+                        left: 0.75rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #9ca3af;
+                        pointer-events: none;
+                        width: 1rem;
+                        height: 1rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-icon {
+                            width: 1.25rem;
+                            height: 1.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-input {
+                        width: 100%;
+                        padding: 0.5rem 2rem 0.5rem 2rem;
+                        border: 1px solid #e5e7eb;
+                        border-radius: 0.5rem;
+                        background-color: #ffffff;
+                        font-size: 0.75rem;
+                        color: #111827;
+                        transition: all 0.3s ease;
+                        outline: none;
+                        box-sizing: border-box;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-search-input {
+                            padding: 0.45rem 1.8rem 0.45rem 1.8rem;
+                            font-size: 0.7rem;
+                            border-radius: 0.4rem;
+                            min-height: 32px;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-search-input {
+                            padding: 0.55rem 2.1rem 0.55rem 2.1rem;
+                            font-size: 0.8rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-input {
+                            padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+                            font-size: 0.875rem;
+                            border-radius: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-input::placeholder {
+                        color: #9ca3af;
+                    }
+    
+                    .gharit-pricing-section .gharit-search-input:focus {
+                        border-color: #6db3a6;
+                        box-shadow: 0 0 0 3px rgba(109, 179, 166, 0.2);
+                    }
+    
+                    .gharit-pricing-section .gharit-clear-btn {
+                        position: absolute;
+                        right: 0.625rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: none;
+                        border: none;
+                        color: #9ca3af;
+                        cursor: pointer;
+                        padding: 0;
+                        display: none;
+                        width: 1.25rem;
+                        height: 1.25rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-clear-btn {
+                            right: 0.75rem;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-clear-btn:hover {
+                        color: #4b5563;
+                    }
+    
+                    .gharit-pricing-section .gharit-clear-btn.visible {
+                        display: block;
+                    }
+    
+                    .gharit-pricing-section .gharit-results-count {
+                        font-size: 0.6rem;
+                        color: #6b7280;
+                        text-align: right;
+                        white-space: nowrap;
+                        flex-shrink: 0;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.55rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.65rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.75rem;
+                            text-align: right;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.875rem;
+                            text-align: right;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-active-filters {
+                        margin-top: 0.5rem;
+                        display: none;
+                        flex-wrap: wrap;
+                        gap: 0.5rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-active-filters {
+                            margin-top: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-active-filters.visible {
+                        display: flex;
+                    }
+    
+                    .gharit-pricing-section .gharit-filter-tag {
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 0.25rem 0.625rem;
+                        border-radius: 9999px;
+                        font-size: 0.6875rem;
+                        font-weight: 500;
+                        background-color: #6db3a6;
+                        color: #ffffff;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-filter-tag {
+                            padding: 0.25rem 0.75rem;
+                            font-size: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-filter-tag button {
+                        margin-left: 0.375rem;
+                        background: none;
+                        border: none;
+                        color: #ffffff;
+                        cursor: pointer;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        width: 0.75rem;
+                        height: 0.75rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-filter-tag button {
+                            margin-left: 0.5rem;
+                            width: 0.875rem;
+                            height: 0.875rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-filter-tag button:hover {
+                        color: #e5e7eb;
+                    }
+    
+                    .gharit-pricing-section .gharit-global-search-mode .gharit-tabs-nav {
+                        display: none;
+                    }
+    
+                    .gharit-pricing-section .gharit-category-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 0.125rem 0.5rem;
+                        border-radius: 0.25rem;
+                        font-size: 0.625rem;
+                        font-weight: 600;
+                        background-color: #e5e7eb;
+                        color: #374151;
+                        margin-left: 0.5rem;
+                        text-transform: uppercase;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-category-badge {
+                            padding: 0.25rem 0.625rem;
+                            font-size: 0.6875rem;
+                            margin-left: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tabs-nav {
+                        margin-bottom: 0.75rem;
+                        overflow-x: auto;
+                        padding-bottom: 0.25rem;
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-tabs-nav {
+                            margin-bottom: 1rem;
+                            padding-bottom: 0.375rem;
+                            overflow-x: visible;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tabs-nav {
+                            margin-bottom: 1rem;
+                            padding-bottom: 0.5rem;
+                            margin-top: 0;
+                            overflow-x: visible;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tabs-nav::-webkit-scrollbar {
+                        display: none;
+                    }
+    
+                    .gharit-pricing-section .gharit-tabs-container {
+                        display: flex;
+                        gap: 0.5rem;
+                        min-width: auto;
+                        flex-wrap: nowrap;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tabs-nav {
+                            overflow-x: visible;
+                        }
+                        
+                        .gharit-pricing-section .gharit-tabs-container {
+                            gap: 0.75rem;
+                            flex-wrap: wrap;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tab-btn {
+                        padding: 0.4rem 0.8rem;
+                        border-radius: 0.4rem;
+                        font-size: 0.65rem;
+                        font-weight: 600;
+                        white-space: nowrap;
+                        border: 1px solid #e5e7eb;
+                        background-color: #ffffff;
+                        color: #4b5563;
+                        cursor: pointer;
+                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        outline: none;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-tab-btn {
+                            padding: 0.35rem 0.7rem;
+                            font-size: 0.6rem;
+                            border-radius: 0.35rem;
+                            min-height: 30px;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-tab-btn {
+                            padding: 0.42rem 0.85rem;
+                            font-size: 0.68rem;
+                        }
+                    }
+
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tab-btn {
+                            padding: 0.75rem 1.25rem;
+                            font-size: 0.875rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tab-btn:hover {
+                        border-color: #9ca3af;
+                        background-color: #f9fafb;
+                    }
+    
+                    .gharit-pricing-section .gharit-tab-btn.active {
+                        background-color: #000000;
+                        color: #ffffff;
+                        border-color: #000000;
+                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                        transform: scale(1.02);
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tab-btn.active {
+                            transform: scale(1.05);
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-container {
+                        flex-grow: 1;
+                        background-color: #ffffff;
+                        border-radius: 0.75rem;
+                        border: 1px solid #e5e7eb;
+                        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        box-sizing: border-box;
+                        min-height: auto;
+                        max-height: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-table-container {
+                            flex-grow: 1;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-container {
+                            border-radius: 1rem;
+                            max-height: 100%;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-header {
+                        display: none;
+                        grid-template-columns: repeat(12, minmax(0, 1fr));
+                        gap: 0.75rem;
+                        padding: 1rem;
+                        border-bottom: 1px solid #f3f4f6;
+                        background-color: rgba(249, 250, 251, 0.5);
+                        font-size: 0.625rem;
+                        font-weight: 700;
+                        letter-spacing: 0.05em;
+                        color: #6b7280;
+                        text-transform: uppercase;
+                        position: sticky;
+                        top: 0;
+                        z-index: 10;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-header {
+                            display: grid;
+                            padding: 1rem;
+                            font-size: 0.75rem;
+                            gap: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header-col-service {
+                        grid-column: span 5 / span 5;
+                        padding-left: 0.75rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-header-col-service {
+                            padding-left: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header-col-price {
+                        grid-column: span 2 / span 2;
+                        text-align: center;
+                    }
+    
+                    .gharit-pricing-section .gharit-header-col-desc {
+                        grid-column: span 3 / span 3;
+                        text-align: right;
+                        padding-right: 0.75rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-header-col-desc {
+                            padding-right: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body {
+                        overflow-y: scroll;
+                        max-height: 50vh;
+                        scrollbar-width: thin;
+                        scrollbar-color: #5ea9ad #f5f5f5;
+                        width: 100%;
+                        flex-grow: 1;
+                        transition: opacity 0.3s ease;
+                        scroll-behavior: smooth;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 42vh;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 46vh;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 50vh;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 84vh;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 92vh;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                        width: 7px;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                            width: 5px;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                            width: 6px;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                            width: 10px;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar-track {
+                        background: #f5f5f5;
+                        border-radius: 5px;
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar-thumb {
+                        background: linear-gradient(180deg, #5ea9ad 0%, #4a8b8b 100%);
+                        border-radius: 5px;
+                        border: 2px solid #f5f5f5;
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar-thumb:hover {
+                        background: linear-gradient(180deg, #4a8b8b 0%, #3a7b7b 100%);
+                    }
+    
+                    .gharit-pricing-section .gharit-service-row {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 0.4rem;
+                        padding: 0.55rem;
+                        border-bottom: 1px solid #f3f4f6;
+                        align-items: start;
+                        transition: all 0.2s ease;
+                        animation: gharitFadeIn 0.3s ease-in-out forwards;
+                        opacity: 0;
+                        transform: translateY(10px);
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            gap: 0.35rem;
+                            padding: 0.5rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            gap: 0.5rem;
+                            padding: 0.6rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            grid-template-columns: 1fr auto auto;
+                            gap: 0.625rem;
+                            padding: 0.75rem;
+                            align-items: center;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            grid-template-columns: repeat(12, minmax(0, 1fr));
+                            gap: 1rem;
+                            padding: 1rem;
+                            align-items: center;
+                        }
+                    }
+    
+                    @keyframes gharitFadeIn {
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-row:hover {
+                        background-color: #f9fafb;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-row:hover {
+                            transform: translateX(4px);
+                        }
+                    }
+    
+                    @media (max-width: 767px) {
+                        .gharit-pricing-section .gharit-service-row:hover {
+                            transform: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-info {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+                        min-width: 0;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-service-info {
+                            grid-column: span 1;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-info {
+                            grid-column: span 5 / span 5;
+                            gap: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-img-container {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 0.35rem;
+                        background-color: #f3f4f6;
+                        overflow: hidden;
+                        flex-shrink: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid #f3f4f6;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 2.2rem;
+                            height: 2.2rem;
+                            border-radius: 0.3rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 2.8rem;
+                            height: 2.8rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 3.5rem;
+                            height: 3.5rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 4.5rem;
+                            height: 4.5rem;
+                            border-radius: 0.5rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-img-container img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                    }
+    
+                    .gharit-pricing-section .gharit-service-row:hover .gharit-img-container img {
+                        transform: scale(1.05);
+                    }
+    
+                    .gharit-pricing-section .gharit-service-details {
+                        min-width: 0;
+                        overflow: hidden;
+                    }
+    
+                    .gharit-pricing-section .gharit-service-details h3 {
+                        font-weight: 700;
+                        color: #111827;
+                        font-size: 0.7rem;
+                        margin: 0 0 0.1rem 0;
+                        line-height: 1.25;
+                        word-break: break-word;
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 0.65rem;
+                            line-height: 1.2;
+                            margin: 0 0 0.08rem 0;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 0.75rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 0.875rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 1rem;
+                            margin-bottom: 0.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-code {
+                        font-size: 0.625rem;
+                        color: #9ca3af;
+                        display: block;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-code {
+                            display: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-desc-mobile {
+                        font-size: 0.6875rem;
+                        color: #6b7280;
+                        margin-top: 0.25rem;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        line-height: 1.4;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-desc-mobile {
+                            display: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-cell {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 0.5rem;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-price-cell {
+                            flex-direction: column;
+                            align-items: flex-end;
+                            justify-content: center;
+                            gap: 0.25rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-price-cell {
+                            grid-column: span 2 / span 2;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-label {
+                        font-size: 0.625rem;
+                        font-weight: 700;
+                        color: #9ca3af;
+                        text-transform: uppercase;
+                        letter-spacing: 0.05em;
+                        white-space: nowrap;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-price-label {
+                            font-size: 0.6875rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-price-label {
+                            display: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-value {
+                        font-weight: 700;
+                        font-size: 0.8rem;
+                        color: #111827;
+                        white-space: nowrap;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 0.75rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 0.85rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 1rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 1.125rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-value.accent {
+                        color: #6db3a6;
+                    }
+    
+                    .gharit-pricing-section .gharit-price-value.muted {
+                        color: #9ca3af;
+                    }
+    
+                    .gharit-pricing-section .gharit-desc-cell {
+                        display: none;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-desc-cell {
+                            display: block;
+                            grid-column: span 3 / span 3;
+                            text-align: right;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-desc-box {
+                        display: inline-block;
+                        background-color: #f9fafb;
+                        border: 1px solid #f3f4f6;
+                        border-radius: 0.5rem;
+                        padding: 0.625rem;
+                        max-width: 100%;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-desc-box {
+                            padding: 0.75rem;
+                            max-width: 20rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-desc-text {
+                        font-size: 0.6875rem;
+                        color: #4b5563;
+                        line-height: 1.5;
+                        margin: 0;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-desc-text {
+                            font-size: 0.75rem;
+                            line-height: 1.625;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results {
+                        text-align: center;
+                        padding: 2rem 1rem;
+                        color: #6b7280;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results {
+                            padding: 3rem 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results svg {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        margin: 0 auto 0.75rem;
+                        color: #d1d5db;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results svg {
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results-title {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        color: #111827;
+                        margin: 0 0 0.25rem 0;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results-title {
+                            font-size: 1.125rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results-text {
+                        font-size: 0.8125rem;
+                        margin: 0;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results-text {
+                            font-size: 0.875rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section mark {
+                        background-color: #fef08a;
+                        padding: 0 0.125rem;
+                        border-radius: 0.125rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section mark {
+                            padding: 0 0.25rem;
+                            border-radius: 0.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-footer {
+                        margin-top: 0.6rem;
+                        font-size: 0.55rem;
+                        color: #9ca3af;
+                        line-height: 1.35;
+                        max-width: 100%;
+                        word-break: break-word;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 0.5rem;
+                            font-size: 0.5rem;
+                            line-height: 1.3;
+                            display: none;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 0.7rem;
+                            font-size: 0.58rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 1rem;
+                            font-size: 0.6875rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 1.5rem;
+                            font-size: 0.75rem;
+                            line-height: 1.625;
+                            max-width: 56rem;
+                        }
+                    }
+
+                    @media (max-width: 767px) {
+                        .gharit-pricing-section .gharit-footer {
+                            display: none;
+                        }
+                    }
+
+                    @media print {
+                        .gharit-pricing-section .gharit-no-print {
+                            display: none !important;
+                        }
+                        
+                        .gharit-pricing-section .gharit-table-body {
+                            overflow: visible !important;
+                            max-height: none !important;
+                        }
+                    }
+    
+                    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                        .gharit-pricing-section .gharit-service-row {
+                            display: flex;
+                            width: 100%;
+                        }
+                    }
+                </style>
+    
+                <!-- <header class="gharit-header">
+                    <div class="gharit-header-container">
+                        <div class="gharit-title-wrapper">
+                            <h1 class="gharit-main-title">
+                                TRANSPARENT<br>
+                                PRICING
+                                FOR GHAR!T
+                                SERVICES
+                            </h1>
+                        </div>
+                        <a href="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/SKU/properties_list.xlsx" download="gharit-price-list.xlsx" class="gharit-download-link">
+                            Download our detailed price list
+                        </a>
+                    </div>
+                </header> -->
+    
+                <div class="gharit-search-section gharit-no-print">
+                    <div class="gharit-search-wrapper">
+                        <div class="gharit-search-box">
+                            <svg class="gharit-search-icon" xmlns="http://www.w3.org/2000/svg " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            <input type="text" id="gharit-search-input-pricing" class="gharit-search-input" placeholder="Search all items...">
+                            <button id="gharit-clear-search-pricing" class="gharit-clear-btn" onclick="gharitClearSearchPricing()">
+                                <svg xmlns="http://www.w3.org/2000/svg " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                            </button>
+                        </div>
+                        <div class="gharit-results-count">
+                            <span id="gharit-results-count-pricing">Showing all items</span>
+                        </div>
+                    </div>
+                    <div id="gharit-active-filters-pricing" class="gharit-active-filters">
+                        <span class="gharit-filter-tag">
+                            Search: "<span id="gharit-search-term-pricing"></span>"
+                            <button onclick="gharitClearSearchPricing()">
+                                <svg xmlns="http://www.w3.org/2000/svg " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+    
+                <nav class="gharit-tabs-nav gharit-no-print" id="gharit-tabs-nav-pricing">
+                    <div class="gharit-tabs-container" id="gharit-category-tabs-pricing"></div>
+                </nav>
+    
+                <main class="gharit-table-container" id="gharit-table-container-pricing">
+                    <div class="gharit-table-header">
+                        <div class="gharit-header-col-service">Service</div>
+                        <div class="gharit-header-col-price">Ironing</div>
+                        <div class="gharit-header-col-price">Dry Cleaning</div>
+                        <div class="gharit-header-col-desc">Description</div>
+                    </div>
+                    <div id="gharit-services-list-pricing" class="gharit-table-body"></div>
+                </main>
+    
+                <footer class="gharit-footer">
+                    *Please note that pricing may vary based on the location, fabric type, and special treatment required. Prices listed above are our standard rates and may be adjusted for delicate or premium garments. For items not listed, please contact us for a custom quote. All services are performed with professional care and attention to detail.
+                </footer>
+            </section>
+        </div>
+    </div>
+    
+    <script src="assets/js/gharit-pricing-api.js"></script>
+    <script>
+    // Hamburger Menu Logic
+    (function() {
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const fullscreenMenu = document.getElementById('fullscreenMenu');
+        
+        hamburgerBtn.addEventListener('click', function() {
+            // Close pricing if open
+            const pricingCard = document.getElementById('pricingOverlayCard');
+            const pricingBtn = document.getElementById('pricingBtn');
+            if (pricingCard.classList.contains('active')) {
+                pricingCard.classList.remove('active');
+                pricingBtn.textContent = 'Pricing';
+                pricingBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            hamburgerBtn.classList.toggle('active');
+            fullscreenMenu.classList.toggle('active');
+            document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+        });
+    
+        document.querySelectorAll('.menu-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburgerBtn.classList.remove('active');
+                fullscreenMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    })();
+    
+    // Toggle Pricing Card Function
+    function togglePricingCard() {
+        const pricingCard = document.getElementById('pricingOverlayCard');
+        const pricingBtn = document.getElementById('pricingBtn');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const fullscreenMenu = document.getElementById('fullscreenMenu');
+        
+        // Close hamburger menu if open
+        if (fullscreenMenu.classList.contains('active')) {
+            hamburgerBtn.classList.remove('active');
+            fullscreenMenu.classList.remove('active');
+        }
+        
+        pricingCard.classList.toggle('active');
+        
+        // Update button text and style based on state
+        if (pricingCard.classList.contains('active')) {
+            pricingBtn.textContent = 'Close Pricing';
+            pricingBtn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Initialize pricing data if first time opening
+            if (!window.pricingInitialized) {
+                initPricingSection();
+                window.pricingInitialized = true;
+            }
+        } else {
+            pricingBtn.textContent = 'Pricing';
+            pricingBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Close pricing card when clicking outside content
+    document.getElementById('pricingOverlayCard').addEventListener('click', function(e) {
+        if (e.target === this) {
+            togglePricingCard();
+        }
+    });
+    
+    // Close pricing card on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const pricingCard = document.getElementById('pricingOverlayCard');
+            const pricingBtn = document.getElementById('pricingBtn');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const fullscreenMenu = document.getElementById('fullscreenMenu');
+            
+            if (pricingCard.classList.contains('active')) {
+                pricingCard.classList.remove('active');
+                pricingBtn.textContent = 'Pricing';
+                pricingBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (fullscreenMenu.classList.contains('active')) {
+                hamburgerBtn.classList.remove('active');
+                fullscreenMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+    
+    </script>
+
+
+    
+
+    
+    <script>
+    // Set one-time flag so index.html skips loader/promo on return
+    try { sessionStorage.setItem('skipIntro', '1'); } catch (_) {}
+    </script>
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS5933BS" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <style>
+        /* Ensure the menu toggle icon and labels are visible on white backgrounds */
+        /* Circle background for the menu toggler */
+    button,
+.c-button {
+    display: inline-block;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    background: none rgba(0, 0, 0, 0);
+    color: #5ea9ad;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    font: inherit;
+    line-height: normal;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+button:focus,
+button:hover,
+.c-button:focus,
+.c-button:hover {
+    text-decoration: none
+}
+      
+        .c-menu-toggler_label_item {
+            color: #000 !important;
+        }
+
+
+         /* Desktop-only: make button inner text black */
+            @media (min-width: 1024px) {
+                .c-button_inner,
+                .c-button_inner .c-button_label {
+                    color: #000 !important;
+                }
+            }
+
+            @media (min-width: 1024px) {
+    .c-button_inner, .c-button_inner .c-button_label {
+        color: #5ea9ad !important;
+    }
+}
+
+
+.c-button.-rail {
+    --color-text-hover: #FFFFFF !important;
+    --color-background-hover: #000000 !important;
+    color: currentColor
+}
+       
+        /* Optional: subtle focus/hover outline for accessibility */
+      
+    </style>
+
+   
+    <div data-load-container>
+
+        <!-- Header Navigation -->
+    
+
+    <!-- Header Navigation end -->
+    </div>
+
+ <div class="header"><span class="header-title">FAQs</span></div>
+
+    <div class="main-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-spacer" aria-hidden="true"></div>
+            <a class="sidebar-item active" data-section="0">Service Details</a>
+            <a class="sidebar-item" data-section="1">Booking & Delivery</a>
+            <a class="sidebar-item" data-section="2">Quality & Guarantee</a>
+            <a class="sidebar-item" data-section="3">Pricing & Payment</a>
+            <a class="sidebar-item" data-section="4">Customer Support</a>
+        </aside>
+
+        <main class="content-wrapper">
+            <!-- Service Details Section -->
+            <section class="section" id="section-0">
+                <h1 class="section-title">Service Details</h1>
+                <div class="faq-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What laundry services does Gharit offer?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Gharit provides premium laundry services including washing, drying, ironing, and dry cleaning with specialized care for delicate fabrics, formal wear, and everyday clothing.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How does Gharit ensure quality laundry care?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We use premium detergents, state-of-the-art equipment, and trained professionals. Every garment is inspected for quality and handled with precision to maintain fabric integrity.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Can Gharit handle delicate fabrics and formal wear?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, absolutely. Our specialists are trained to handle silk, wool, cashmere, wedding dresses, suits, and other delicate garments with expert care.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What is included in the laundry service package?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Each package includes pickup from your location, professional washing or dry cleaning, careful drying or pressing, quality inspection, and timely delivery back to your home.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Do you offer rush or express laundry services?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! We offer express laundry services with faster turnaround times for urgent needs. Contact our support team for availability and premium rates.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Are there any items you cannot launder?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We handle most garments professionally. Items with severe stains, fabric damage, or special care requirements need assessment. Contact us for specific items or instructions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking & Delivery Section -->
+            <section class="section" id="section-1">
+                <h1 class="section-title">Booking & Delivery</h1>
+                <div class="faq-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How do I book a laundry service with Gharit?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Download the Gharit app on iOS or Android, create your account, select your laundry service, choose pickup and delivery dates, and confirm your booking. It's quick and easy!</p>
+                                <div style="display: flex; gap: 12px; margin-top: 20px; align-items: center;">
+                                    <a href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+                                        <img src="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/gharitplaystoreicon.png" alt="Get it on Google Play" style="height: 40px; width: auto; border-radius: 8px; transition: transform 0.2s;">
+                                    </a>
+                                    <a href="https://apps.apple.com/ng/app/ghar-t/id6752650388" target="_blank" rel="noopener noreferrer" style="display: inline-block;">
+                                        <img src="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/gharitappstore.png" alt="Download on App Store" style="height: 40px; width: auto; border-radius: 8px; transition: transform 0.2s;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How do I schedule pickup from my home?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>In the Gharit app, select your preferred pickup date and time window. Our drivers will arrive within that window to collect your laundry. Real-time tracking lets you know when they're on the way.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What are the service coverage areas?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Gharit currently operates across Mumbai with reliable pickup and delivery services. Check the app to confirm service availability at your specific address.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How long does the turnaround time take?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Standard laundry service typically takes 3-5 business days from pickup to delivery. Express services are available with faster turnaround for an additional premium.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Can I track my laundry order in real-time?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! The Gharit app provides real-time tracking for pickup and delivery. You'll receive notifications at each stage of your laundry service journey.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Are recurring scheduled pickups available?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely! Set up weekly or bi-weekly recurring pickups through the app. Gharit will automatically schedule and remind you of each service.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What if my delivery address changes?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can update your delivery address in the app before your service is completed. For bookings already in progress, contact our support team for assistance.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Do you offer special request or notes on my order?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes, the app includes a special instructions section. Add specific care requirements, fabric sensitivities, or special handling notes for your garments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quality & Guarantee Section -->
+            <section class="section" id="section-2">
+                <h1 class="section-title">Quality & Guarantee</h1>
+                <div class="faq-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What is Gharit's damage guarantee policy?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Gharit provides a comprehensive damage guarantee. If anything happens to your clothes during our service, we will discuss the issue with you, contact you promptly, and provide compensation to cover the cost of your damaged garments.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What happens if my clothes get damaged during laundry?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We inspect all items carefully before and after service. If damage occurs, our team will call you immediately to discuss the incident, assess the damage, and compensate you fairly for the affected garments.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How does Gharit handle stain removal?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our specialists use advanced stain removal techniques for various stain types. We treat stubborn stains with care based on fabric type. If a stain cannot be removed, we'll discuss options with you before proceeding.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Are there any items with special care requirements?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes. Items like cashmere, silk, leather, wool, and embellished garments receive specialized treatment. Always mention special requirements or care instructions in the app notes.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What quality checks does Gharit perform?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Every garment undergoes inspection for cleanliness, proper ironing, color fastness, and any signs of damage. Our quality assurance team ensures professional standards throughout the service lifecycle.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How long are items guaranteed after delivery?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>We guarantee our work for 14 days after delivery. If you notice any issues with pressing, cleanliness, or quality, contact us within this period for resolution.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What if I find an item missing from my delivery?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Contact our support team immediately with details of the missing item. We maintain detailed inventory records and will quickly investigate and resolve the issue with compensation if needed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing & Payment Section -->
+            <section class="section" id="section-3">
+                <h1 class="section-title">Pricing & Payment</h1>
+                <div class="faq-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How is laundry pricing structured?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Gharit pricing is transparent and based on garment type, fabric care requirements, and service type. We offer flexible rate charts that you can view in detail on our <a href="index.html" style="color: #5ea9ad; text-decoration: underline; cursor: pointer;">Pricing page</a>. Specialty services like dry cleaning, premium ironing, and express delivery have additional charges clearly displayed in the app before booking. No hidden fees—what you see is what you pay.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Are there discounts for bulk orders or subscriptions?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! Gharit offers subscription discounts for weekly and bi-weekly recurring services. Bulk orders also qualify for special pricing. Contact our support team for personalized quotes.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What payment methods does Gharit accept?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Gharit accepts all major credit cards, debit cards, digital wallets (Google Pay, Apple Pay), and UPI payments through the secure in-app payment gateway.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Is the payment secure on the Gharit app?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely. Gharit uses industry-leading encryption and secure payment processors to protect your financial information. Your payment data is never stored directly on our servers.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Can I pay on delivery or after service completion?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Payment is typically required upfront through the app to confirm your booking. This ensures service processing and allows you to track your order securely.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What is the pricing for express laundry services?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Express services are available at premium rates based on your preferred turnaround time. Standard pricing applies to the base service, with additional express fees added. Check the app for exact pricing.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Are there any hidden charges or additional fees?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>No hidden charges. All pricing is transparent and displayed in the app before you confirm your booking. Any additional charges (express, special care, etc.) are clearly listed upfront.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customer Support Section -->
+            <section class="section" id="section-4">
+                <h1 class="section-title">Customer Support</h1>
+                <div class="faq-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How can I contact Gharit customer support?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can reach us through the Gharit app chat support, email support@gharitapp.com, or call our customer service team during business hours. Response times are typically within 2-4 hours.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What are Gharit's customer support hours?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Our customer support team is available Monday through Saturday, 8 AM to 10 PM IST. For urgent issues, you can call us directly through our in-app chat support feature or use the in-app support form for priority response outside business hours.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How do I cancel or modify my order?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can cancel or modify your order directly in the app before the pickup window begins. For orders already in progress, contact our support team immediately for assistance.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">What is your refund policy?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Cancellations before pickup receive full refunds. If you cancel after pickup, refund eligibility is assessed based on service completion stage. Contact support for refund requests.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Can I request a specific driver or delivery window?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can select your preferred pickup and delivery time window in the app. We'll do our best to accommodate your preferences. Contact support for specific requests or recurring scheduling.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Does Gharit have a loyalty or rewards program?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! Every new customer receives a ₹100 joining bonus to experience our premium laundry service. Additionally, when you place orders above ₹1,000, you earn rewards and cashback that can be used on future bookings. No mandatory subscription required—use Gharit whenever you need laundry services and earn rewards on every order.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">How is my personal data protected?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Gharit follows strict data privacy practices compliant with Indian data protection laws. Your personal and payment information is encrypted and never shared with third parties without your consent. See our Privacy Policy for details.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(event)">
+                                <div class="faq-question-text">Can I provide feedback about my experience?</div>
+                                <div class="faq-toggle">+</div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Yes! After each delivery, you can rate your experience and provide detailed feedback through the app. Your feedback helps us improve our service quality continuously.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        (function () {
+            var host = (location.hostname || '').toLowerCase();
+            var isProd = host.endsWith('gharitapp.com');
+            var baseEl = document.querySelector('base');
+            if (!baseEl) {
+                baseEl = document.createElement('base');
+                document.head.insertBefore(baseEl, document.head.firstChild);
+            }
+            baseEl.setAttribute('href', isProd ? 'https://www.gharitapp.com/' : './');
+        })();
+    </script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        function toggleFaq(event) {
+            event.preventDefault();
+            const faqItem = event.currentTarget.parentElement;
+            faqItem.classList.toggle('open');
+        }
+
+        // Pin each section title until the next section reaches it
+        // Enabled for all breakpoints with mobile-friendly smoothing
+        const setupTitlePinning = () => {
+            // Clean up any existing triggers before re-creating
+            ScrollTrigger.getAll().forEach(st => {
+                const vars = st.vars || {};
+                if (vars && vars.pin) st.kill();
+            });
+
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            // On mobile, do not pin titles to keep scrolling smooth
+            if (isMobile) return;
+            document.querySelectorAll('.section').forEach((section) => {
+                const title = section.querySelector('.section-title');
+                ScrollTrigger.create({
+                    trigger: section,
+                    start: 'top top',
+                    end: 'bottom top',
+                    pin: title,
+                    pinSpacing: false,
+                    anticipatePin: 0,
+                    markers: false
+                });
+            });
+        };
+
+        setupTitlePinning();
+
+        // Re-evaluate on resize/orientation changes
+        window.addEventListener('resize', () => {
+            setupTitlePinning();
+        });
+
+        // Sidebar item highlighting
+        const sections = document.querySelectorAll('.section');
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+        sections.forEach((section, index) => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: 'top center',
+                end: 'bottom center',
+                onEnter: () => {
+                    sidebarItems.forEach(item => item.classList.remove('active'));
+                    sidebarItems[index].classList.add('active');
+                },
+                onEnterBack: () => {
+                    sidebarItems.forEach(item => item.classList.remove('active'));
+                    sidebarItems[index].classList.add('active');
+                }
+            });
+        });
+
+        // Animate FAQ items when section comes into view
+        const faqLists = document.querySelectorAll('.faq-list');
+        faqLists.forEach((list) => {
+            gsap.from(list.querySelectorAll('.faq-item'), {
+                scrollTrigger: {
+                    trigger: list,
+                    start: 'top 80%',
+                    once: false,
+                },
+                opacity: 0,
+                y: 20,
+                stagger: 0.1,
+                duration: 0.6,
+                ease: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            });
+        });
+
+        // Sidebar click-to-scroll behavior
+        sidebarItems.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                const idx = Number(item.getAttribute('data-section'));
+                const target = document.getElementById(`section-${idx}`);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Overlay logic removed
+    </script>
+    <script src="script.js" defer></script>
+
+
+
+    
+
+
+
+    </main>
+
+
+    <!-- Footer  start from here -->
+
+    <section class="gf-footer">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.gf-footer {
+    --gf-teal: #5ea9ad;
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #999;
+    width: 100%;
+    margin: 0;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+}
+
+.gf-footer * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.gf-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: clamp(16px, 5vw, 80px);
+    padding-right: clamp(16px, 5vw, 80px);
+}
+
+.gf-cta {
+    background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+    padding: clamp(32px, 6vw, 60px) 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.gf-cta h2 {
+    color: #fff;
+    font-size: clamp(24px, 5vw, 48px);
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.gf-cta h2 span { color: var(--gf-teal); }
+
+.gf-cta p {
+    color: #888;
+    font-size: clamp(14px, 3vw, 18px);
+    margin-bottom: 20px;
+}
+
+.gf-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gf-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    transition: all 0.2s;
+}
+
+.gf-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.gf-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.gf-btn--outline {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.gf-btn--outline:hover {
+    border-color: var(--gf-teal);
+    background: rgba(94,169,173,0.1);
+}
+
+.gf-links {
+    padding: clamp(32px, 5vw, 48px) 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: clamp(32px, 5vw, 80px);
+}
+
+.gf-brand img {
+    height: 24px;
+    margin-bottom: 16px;
+    filter: brightness(0) invert(1);
+}
+
+.gf-brand p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #aaa;
+    margin-bottom: 20px;
+    max-width: 280px;
+}
+
+.gf-social {
+    display: flex;
+    gap: 10px;
+}
+
+.gf-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    transition: all 0.2s;
+}
+
+.gf-social a:hover {
+    background: var(--gf-teal);
+    color: #000;
+}
+
+.gf-social svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.gf-col h4 {
+    color: var(--gf-teal);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.gf-col a {
+    display: block;
+    color: #bbb;
+    font-size: 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.gf-col a:hover {
+    color: var(--gf-teal);
+}
+
+.gf-contact {
+    margin-top: 16px;
+    padding: 14px;
+    background: rgba(94,169,173,0.08);
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.gf-contact a {
+    color: var(--gf-teal);
+    font-weight: 500;
+    display: inline;
+}
+
+.gf-contact p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.gf-bar {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #777;
+}
+
+/* ==================== MOBILE - Company Below Social Icons ==================== */
+
+@media (max-width: 768px) {
+    .gf-footer {
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .gf-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .gf-cta { 
+        padding: 24px 0;
+    }
+    
+    .gf-cta h2 {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+    
+    .gf-cta p {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+    
+    .gf-btns { 
+        flex-direction: column; 
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .gf-btn { 
+        width: 100%;
+        max-width: 280px;
+        justify-content: center; 
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    /* Layout: Brand centered, then Company & Support side by side */
+    .gf-links { 
+        padding: 24px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "brand brand"
+            "company support"
+            "legal legal";
+        gap: 20px;
+        text-align: left;
+    }
+    
+    .gf-brand { 
+        grid-area: brand;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    
+    .gf-brand img {
+        height: 26px;
+        margin: 0 auto 12px;
+        display: block;
+    }
+    
+    .gf-brand p {
+        font-size: 14px;
+        color: #bbb;
+        margin: 0 auto 16px;
+        max-width: 300px;
+    }
+    
+    .gf-social {
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+    
+    /* Company - positioned under social icons (center-left) */
+    .gf-col:nth-of-type(2) {
+        grid-area: company;
+        text-align: left;
+        padding: 0;
+        /* No margin - starts from center-left under social icons */
+        justify-self: center; /* Center in its grid cell */
+        padding-left: 20px; /* Slight padding to align under icons */
+    }
+    
+    /* Support - RIGHT side */
+    .gf-col:nth-of-type(3) {
+        grid-area: support;
+        text-align: left;
+        padding: 0;
+        justify-self: center; /* Center in its grid cell */
+    }
+    
+    /* Legal at bottom */
+    .gf-col:nth-of-type(4) {
+        grid-area: legal;
+        text-align: center;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .gf-col:nth-of-type(4) h4 {
+        display: none;
+    }
+    
+    .gf-col:nth-of-type(4) a {
+        display: inline-block;
+        font-size: 13px;
+        color: #777;
+    }
+    
+    .gf-col h4 {
+        font-size: 11px;
+        margin-bottom: 12px;
+        color: var(--gf-teal);
+        letter-spacing: 2px;
+    }
+    
+    .gf-col a {
+        font-size: 14px;
+        color: #ddd;
+        margin-bottom: 10px;
+    }
+    
+    .gf-contact {
+        margin: 12px 0 0;
+        padding: 12px;
+        background: rgba(94,169,173,0.1);
+    }
+    
+    .gf-contact a {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+    
+    .gf-contact p {
+        color: #888;
+        font-size: 11px;
+        margin: 0;
+    }
+    
+    .gf-bar { 
+        padding: 16px 0;
+        flex-direction: column; 
+        gap: 4px; 
+        text-align: center;
+        font-size: 12px;
+        color: #555;
+    }
+}
+
+@media (max-width: 480px) {
+    .gf-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .gf-cta {
+        padding: 20px 0;
+    }
+    
+    .gf-cta h2 {
+        font-size: 22px;
+    }
+    
+    .gf-links { 
+        padding: 20px 0;
+        gap: 16px;
+    }
+    
+    /* Adjust alignment for small screens */
+    .gf-col:nth-of-type(2) {
+        padding-left: 10px;
+    }
+    
+    .gf-brand img {
+        height: 24px;
+    }
+    
+    .gf-brand p {
+        font-size: 13px;
+    }
+    
+    .gf-col h4 {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .gf-col a {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+    
+    .gf-contact {
+        padding: 10px;
+    }
+    
+    .gf-bar {
+        padding: 14px 0;
+        font-size: 11px;
+    }
+}
+</style>
+
+<!-- CTA -->
+<div class="gf-cta">
+    <div class="gf-container">
+        <h2>Ready for <span>premium</span> laundry?</h2>
+        <p>Download the app and get your first wash free.</p>
+        <div class="gf-btns">
+            <a
+              href="https://apps.apple.com/ng/app/ghar-t/id6752650388"
+              class="gf-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp"
+              class="gf-btn gf-btn--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+                <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                Google Play
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Links -->
+<div class="gf-links gf-container">
+    <div class="gf-brand">
+        <img src="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/GHarit%20Full%20logo%20PNG%20.svg" alt="GHAR!T">
+        <p>Premium laundry service that comes to you. Professional care for your clothes.</p>
+        <div class="gf-social">
+            <a href="https://www.instagram.com/gharitapp?igsh=MWpkZWJvNTdkcXN3cw==" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://www.linkedin.com/company/ghar-t/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://www.facebook.com/people/Gharit-App/61583880161338/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+    </div>
+
+    <div class="gf-col">
+        <h4>Company</h4>
+        <a href="about-us.html">About</a>
+        <a href="careers.html">Careers</a>
+        <a href="blog.html">Blog</a>
+    </div>
+
+    <div class="gf-col">
+        <h4>Support</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Contact</a>
+        <div class="gf-contact">
+            <a href="mailto:support@gharitapp.com">support@gharitapp.com</a>
+            <p>Mon–Sat, 9am–7pm</p>
+        </div>
+    </div>
+
+    <div class="gf-col">
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+</div>
+
+<!-- Bottom -->
+<div class="gf-bar gf-container">
+    <span>© 2024 GHAR!T</span>
+    <span>Made with 💛 in Mumbai</span>
+</div>
+
+</section>
+
+    <!-- about scetion ends here -->
+<SCRIPT>
+        // Removed global click-blocker to allow normal link navigation
+
+        // Desktop-only: hide header when scrolling down, show when scrolling up
+        (function () {
+            var lastScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+            var threshold = 50; // don't hide until user scrolls a bit
+
+            function updateHeaderVisibility() {
+                var isDesktop = window.innerWidth >= 1024;
+                if (!isDesktop) {
+                    document.documentElement.classList.remove('is-header-hidden');
+                    return;
+                }
+                // Don't hide while the menu is open
+                if (document.documentElement.classList.contains('has-menu-open')) {
+                    document.documentElement.classList.remove('is-header-hidden');
+                    return;
+                }
+
+                var currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+                var scrollingDown = currentY > lastScrollY;
+
+                if (scrollingDown && currentY > threshold) {
+                    document.documentElement.classList.add('is-header-hidden');
+                } else {
+                    document.documentElement.classList.remove('is-header-hidden');
+                }
+                lastScrollY = currentY;
+            }
+
+            window.addEventListener('scroll', updateHeaderVisibility, { passive: true });
+            window.addEventListener('resize', updateHeaderVisibility);
+        })();
+    </script>
+
+
+
+
+</body>
+
+</html>
