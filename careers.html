@@ -838,6 +838,8 @@
     @media (max-width: 479px) {
         .pricing-overlay-card .pricing-content-wrapper {
             margin-top: 1rem !important;
+            padding: 50px 12px 20px;
+            max-height: calc(100vh - 80px);
         }
     }
     
@@ -1608,22 +1610,22 @@
                         scroll-behavior: smooth;
                     }
 
-                    /* iPhone 7 / Ultra small screens */
+                    /* Mobile: give articles list more vertical space */
                     @media (max-width: 375px) {
                         .gharit-pricing-section .gharit-table-body {
-                            max-height: 42vh;
+                            max-height: 60vh;
                         }
                     }
 
                     @media (min-width: 376px) and (max-width: 479px) {
                         .gharit-pricing-section .gharit-table-body {
-                            max-height: 46vh;
+                            max-height: 65vh;
                         }
                     }
     
-                    @media (min-width: 480px) {
+                    @media (min-width: 480px) and (max-width: 767px) {
                         .gharit-pricing-section .gharit-table-body {
-                            max-height: 50vh;
+                            max-height: 70vh;
                         }
                     }
     
@@ -1692,6 +1694,13 @@
                         box-sizing: border-box;
                     }
 
+                    /* Force single-column stack on mobile so inline gridTemplateColumns from JS doesn't squash content */
+                    @media (max-width: 767px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            grid-template-columns: 1fr !important;
+                        }
+                    }
+
                     /* iPhone 7 / Ultra small screens */
                     @media (max-width: 375px) {
                         .gharit-pricing-section .gharit-service-row {
@@ -1707,9 +1716,14 @@
                         }
                     }
     
+                    @media (min-width: 480px) and (max-width: 767px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            grid-template-columns: 1fr !important;
+                        }
+                    }
+
                     @media (min-width: 480px) {
                         .gharit-pricing-section .gharit-service-row {
-                            grid-template-columns: 1fr auto auto;
                             gap: 0.625rem;
                             padding: 0.75rem;
                             align-items: center;
@@ -1903,7 +1917,16 @@
                         justify-content: space-between;
                         gap: 0.5rem;
                     }
-    
+
+                    @media (max-width: 767px) {
+                        .gharit-pricing-section .gharit-price-cell {
+                            padding: 0.4rem 0.5rem;
+                            background: #f9fafb;
+                            border-radius: 0.35rem;
+                            border: 1px solid #f3f4f6;
+                        }
+                    }
+
                     @media (min-width: 480px) {
                         .gharit-pricing-section .gharit-price-cell {
                             flex-direction: column;
