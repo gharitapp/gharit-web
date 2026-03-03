@@ -1,0 +1,3887 @@
+<!doctype html>
+<html class="has-no-js" lang="en" data-template="home-alt" data-theme="light">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <style>
+        /* Text selection styling */
+        ::selection {
+            background-color: #b3d4fc !important;
+            color: #000 !important;
+        }
+        ::-moz-selection {
+            background-color: #b3d4fc !important;
+            color: #000 !important;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #5ea9ad 0%, #4a8b8b 100%);
+            border-radius: 5px;
+            border: 2px solid #f5f5f5;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #4a8b8b 0%, #3a7b7b 100%);
+        }
+    </style>
+
+
+
+
+        <!-- Environment-aware base: use production domain on gharitapp.com, else use local relative base -->
+        <script>
+            (function () {
+                var host = (location.hostname || '').toLowerCase();
+                var isProd = host.endsWith('gharitapp.com');
+                var baseEl = document.querySelector('base');
+                if (!baseEl) {
+                    baseEl = document.createElement('base');
+                    // insert at the very start of <head> for early resolution
+                    document.head.insertBefore(baseEl, document.head.firstChild);
+                }
+                baseEl.setAttribute('href', isProd ? 'https://www.gharitapp.com/ ' : './');
+            })();
+        </script>
+        <base href="https://www.gharitapp.com/ ">
+    <title>GHAR!T - Premium Laundry Service</title>
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="HandheldFriendly" content="true">
+
+    <!-- Appearance -->
+    <meta name="theme-color" content="#F4F4F4">
+    <meta name="msapplication-TileColor" content="#F4F4F4">
+
+    <link rel="mask-icon" href="https://shrikantsky.github.io/GHARITWEBIMAGES/uploads/ghar !tlogo.jpg" color="#000000">
+
+    <!-- Styles -->
+
+
+    <!-- Preload Fonts -->
+    <link id="main-css" rel="stylesheet" href="https://shrikantsky.github.io/GHARITWEBIMAGES/uploads/style.css "
+        media="all">
+
+
+    <script>window.dataLayer = window.dataLayer || [];</script>
+    <!-- Styles -->
+
+    <style>
+        /* Prevent layout shift when scrollbar appears */
+        html {
+            scrollbar-gutter: stable;
+        }
+
+        /* Customize scrollbar - make it smaller */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #5ea9ad;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a8a8e;
+        }
+    </style>
+
+<!-- css for apply job design start  -->
+ <style>
+        .applyjob-module * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .applyjob-module {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #ffffff;
+            color: #1d1d1f;
+            line-height: 1.47059;
+            font-size: clamp(14px, 1.2vw, 18px);
+        }
+
+        /* Consistent Header Design matching Careers Portal - Viewport Responsive Fonts */
+        .applyjob-module .header {
+            background: #ffffff;
+            padding: clamp(60px, 8vw, 120px) clamp(16px, 3vw, 40px) clamp(40px, 5vw, 80px);
+            text-align: center;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+
+        /* Back link styling */
+        .applyjob-module .back-link {
+            position: absolute;
+            top: clamp(20px, 3vw, 40px);
+            left: clamp(16px, 3vw, 40px);
+            font-size: clamp(12px, 1vw, 16px);
+            color: #5ea9ad;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 400;
+            transition: opacity 0.2s;
+        }
+
+        .applyjob-module .back-link:hover {
+            opacity: 0.7;
+        }
+
+        .applyjob-module .back-link::before {
+            content: '←';
+            font-size: clamp(14px, 1.2vw, 18px);
+        }
+
+        /* Label styling matching careers portal */
+        .applyjob-module .job-label {
+            font-size: clamp(10px, 0.9vw, 14px);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #5ea9ad;
+            margin-bottom: clamp(12px, 1.5vw, 24px);
+            display: block;
+        }
+
+        /* Viewport-responsive headline */
+        .applyjob-module h1 {
+            font-size: clamp(28px, 5vw, 64px);
+            font-weight: 600;
+            margin-bottom: clamp(16px, 2.5vw, 40px);
+            color: #1d1d1f;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            letter-spacing: -0.021em;
+            line-height: 1.08349;
+        }
+
+        /* Job meta info with viewport-responsive fonts */
+        .applyjob-module .job-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(12px, 2vw, 32px);
+            flex-wrap: wrap;
+            font-size: clamp(13px, 1.4vw, 20px);
+            color: #86868b;
+            font-weight: 400;
+        }
+
+        .applyjob-module .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: clamp(6px, 1vw, 12px);
+        }
+
+        .applyjob-module .job-meta-item::before {
+            content: '';
+            width: clamp(3px, 0.4vw, 6px);
+            height: clamp(3px, 0.4vw, 6px);
+            background: #d1d1d6;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .applyjob-module .job-meta-item:first-child::before {
+            display: none;
+        }
+
+        .applyjob-module .job-meta strong {
+            color: #1d1d1f;
+            font-weight: 600;
+        }
+
+        .applyjob-module .container {
+            max-width: min(800px, 90vw);
+            margin: 0 auto;
+            padding: clamp(32px, 5vw, 80px) clamp(16px, 3vw, 40px);
+            background: #ffffff;
+        }
+
+        .applyjob-module .section-title {
+            font-size: clamp(10px, 0.9vw, 14px);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: clamp(24px, 3vw, 40px);
+            color: #1d1d1f;
+            position: relative;
+            padding-bottom: clamp(12px, 1.5vw, 20px);
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .applyjob-module .form-group {
+            margin-bottom: clamp(24px, 3vw, 40px);
+        }
+
+        .applyjob-module label {
+            display: block;
+            margin-bottom: clamp(6px, 0.8vw, 12px);
+            font-size: clamp(12px, 1.1vw, 16px);
+            color: #1d1d1f;
+            font-weight: 400;
+        }
+
+        .applyjob-module .required {
+            color: #ff3b30;
+        }
+
+        .applyjob-module input[type="text"],
+        .applyjob-module input[type="email"],
+        .applyjob-module input[type="url"],
+        .applyjob-module input[type="file"] {
+            width: 100%;
+            padding: clamp(10px, 1.2vw, 16px) clamp(12px, 1.5vw, 20px);
+            border: 1px solid #d1d1d6;
+            border-radius: clamp(6px, 0.8vw, 12px);
+            font-size: clamp(14px, 1.3vw, 19px);
+            background-color: #fff;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .applyjob-module input[type="text"]:hover,
+        .applyjob-module input[type="email"]:hover,
+        .applyjob-module input[type="url"]:hover {
+            border-color: #5ea9ad;
+        }
+
+        /* Match selects to inputs */
+        .applyjob-module select {
+            width: 100%;
+            padding: clamp(10px, 1.2vw, 16px) clamp(12px, 1.5vw, 20px);
+            border: 1px solid #d1d1d6;
+            border-radius: clamp(6px, 0.8vw, 12px);
+            font-size: clamp(14px, 1.3vw, 19px);
+            background-color: #fff;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .applyjob-module select:hover {
+            border-color: #5ea9ad;
+        }
+        .applyjob-module select:focus {
+            outline: none;
+            border-color: #5ea9ad;
+            box-shadow: 0 0 0 clamp(2px, 0.4vw, 4px) rgba(94, 169, 173, 0.1);
+        }
+
+        .applyjob-module input[type="text"]:focus,
+        .applyjob-module input[type="email"]:focus,
+        .applyjob-module input[type="url"]:focus {
+            outline: none;
+            border-color: #5ea9ad;
+            box-shadow: 0 0 0 clamp(2px, 0.4vw, 4px) rgba(94, 169, 173, 0.1);
+        }
+
+        /* Pill-shaped button with viewport-responsive sizing */
+        .applyjob-module .file-upload {
+            display: inline-flex;
+            align-items: center;
+            padding: clamp(10px, 1.2vw, 16px) clamp(20px, 2.5vw, 32px);
+            background-color: #fff;
+            border: 1px solid #5ea9ad;
+            border-radius: 980px;
+            cursor: pointer;
+            font-size: clamp(12px, 1.1vw, 16px);
+            color: #5ea9ad;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .applyjob-module .file-upload:hover {
+            background-color: #5ea9ad;
+            color: #fff;
+        }
+
+        .applyjob-module .file-upload::before {
+            content: '+';
+            margin-right: 6px;
+            font-size: clamp(16px, 1.5vw, 22px);
+            font-weight: 300;
+        }
+
+        .applyjob-module input[type="file"] {
+            display: none;
+        }
+
+        .applyjob-module .pronouns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(clamp(100px, 15vw, 180px), 1fr));
+            gap: clamp(8px, 1.2vw, 16px);
+            margin-bottom: clamp(12px, 1.5vw, 20px);
+        }
+
+        .applyjob-module .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .applyjob-module input[type="checkbox"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: clamp(18px, 1.8vw, 24px);
+            height: clamp(18px, 1.8vw, 24px);
+            margin-right: clamp(8px, 1vw, 12px);
+            cursor: pointer;
+            border: 1.5px solid #d1d1d6;
+            border-radius: clamp(4px, 0.6vw, 8px);
+            background-color: #ffffff;
+            position: relative;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .applyjob-module input[type="checkbox"]:hover {
+            border-color: #5ea9ad;
+        }
+
+        .applyjob-module input[type="checkbox"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 clamp(2px, 0.4vw, 4px) rgba(94, 169, 173, 0.1);
+        }
+
+        .applyjob-module input[type="checkbox"]:checked {
+            border-color: #5ea9ad;
+            background-color: #5ea9ad;
+        }
+
+        .applyjob-module input[type="checkbox"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 30%;
+            top: 10%;
+            width: 25%;
+            height: 50%;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .applyjob-module .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: clamp(13px, 1.2vw, 17px);
+            color: #1d1d1f;
+        }
+
+        .applyjob-module .help-text {
+            font-size: clamp(11px, 1vw, 15px);
+            color: #86868b;
+            margin-top: clamp(6px, 0.8vw, 12px);
+            line-height: 1.4;
+        }
+
+        .applyjob-module .custom-input {
+            display: none;
+            margin-top: clamp(8px, 1vw, 16px);
+        }
+
+        .applyjob-module .custom-input.show {
+            display: block;
+        }
+
+        .applyjob-module .custom-option {
+            margin-top: clamp(8px, 1vw, 16px);
+        }
+
+        .applyjob-module .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(10px, 1.2vw, 16px);
+        }
+
+        .applyjob-module .radio-option {
+            display: flex;
+            align-items: center;
+        }
+
+        .applyjob-module input[type="radio"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: clamp(18px, 1.8vw, 24px);
+            height: clamp(18px, 1.8vw, 24px);
+            margin-right: clamp(8px, 1vw, 12px);
+            cursor: pointer;
+            border: 1.5px solid #d1d1d6;
+            border-radius: 50%;
+            background-color: #ffffff;
+            position: relative;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .applyjob-module input[type="radio"]:hover {
+            border-color: #5ea9ad;
+        }
+
+        .applyjob-module input[type="radio"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 clamp(2px, 0.4vw, 4px) rgba(94, 169, 173, 0.1);
+        }
+
+        .applyjob-module input[type="radio"]:checked {
+            border-color: #5ea9ad;
+            background-color: #fff;
+        }
+
+        .applyjob-module input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 40%;
+            height: 40%;
+            background: #5ea9ad;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .applyjob-module .radio-option label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: clamp(13px, 1.2vw, 17px);
+            color: #1d1d1f;
+        }
+
+        .applyjob-module textarea {
+            width: 100%;
+            padding: clamp(10px, 1.2vw, 16px) clamp(12px, 1.5vw, 20px);
+            border: 1px solid #d1d1d6;
+            border-radius: clamp(6px, 0.8vw, 12px);
+            font-size: clamp(14px, 1.3vw, 19px);
+            font-family: inherit;
+            background-color: #fff;
+            resize: vertical;
+            transition: all 0.2s;
+            min-height: clamp(100px, 12vw, 180px);
+        }
+
+        .applyjob-module textarea:hover {
+            border-color: #5ea9ad;
+        }
+
+        .applyjob-module textarea:focus {
+            outline: none;
+            border-color: #5ea9ad;
+            box-shadow: 0 0 0 clamp(2px, 0.4vw, 4px) rgba(94, 169, 173, 0.1);
+        }
+
+        .applyjob-module textarea::placeholder {
+            color: #86868b;
+        }
+
+        .applyjob-module .submit-section {
+            margin-top: clamp(32px, 5vw, 64px);
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        /* Pill-shaped submit button with viewport-responsive sizing */
+        .applyjob-module .submit-btn {
+            background: #fff;
+            color: #5ea9ad;
+            padding: clamp(12px, 1.5vw, 20px) clamp(24px, 4vw, 48px);
+            font-size: clamp(13px, 1.2vw, 18px);
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            border: 1px solid #5ea9ad;
+            border-radius: 980px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .applyjob-module .submit-btn:hover {
+            background: #5ea9ad;
+            color: #fff;
+        }
+
+        .applyjob-module .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .applyjob-module .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Editable applied position field */
+        .applyjob-module .applied-position_input {
+            width: 100%;
+            padding: clamp(10px, 1.2vw, 16px) clamp(12px, 1.5vw, 20px);
+            border: 1px solid #d1d1d6;
+            border-radius: clamp(6px, 0.8vw, 12px);
+            font-size: clamp(13px, 1.2vw, 17px);
+            color: #86868b;
+            background-color: #f5f5f7;
+            font-family: inherit;
+        }
+
+        .applyjob-module .applied-position_label {
+            display: block;
+            margin-bottom: clamp(6px, 0.8vw, 12px);
+            font-size: clamp(10px, 0.9vw, 13px);
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        /* Resume preview layout */
+        .applyjob-module .resume-row {
+            display: flex;
+            gap: clamp(12px, 2vw, 24px);
+            align-items: flex-start;
+        }
+
+        .applyjob-module .phone-row {
+            display: flex;
+            gap: clamp(8px, 1.2vw, 16px);
+            align-items: center;
+        }
+
+        .applyjob-module .resume-controls {
+            flex: 1 1 auto;
+        }
+
+        .applyjob-module .resume-preview {
+            width: clamp(200px, 25vw, 300px);
+            min-height: clamp(250px, 30vw, 400px);
+            border: 1px solid #d1d1d6;
+            border-radius: clamp(6px, 0.8vw, 12px);
+            background: #f5f5f7;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .applyjob-module .resume-preview.is-hidden {
+            display: none;
+        }
+
+        .applyjob-module .resume-preview embed,
+        .applyjob-module .resume-preview iframe,
+        .applyjob-module .resume-preview object {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .applyjob-module .resume-preview .placeholder {
+            padding: clamp(16px, 2vw, 24px);
+            font-size: clamp(12px, 1.1vw, 15px);
+            color: #86868b;
+            text-align: center;
+        }
+
+        .applyjob-module .resume-filename {
+            margin-top: clamp(6px, 0.8vw, 12px);
+            font-size: clamp(12px, 1.1vw, 15px);
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+
+        .applyjob-module .file-remove {
+            margin-top: clamp(6px, 0.8vw, 12px);
+            display: none;
+            background: transparent;
+            border: 1px solid #ff3b30;
+            color: #ff3b30;
+            padding: clamp(6px, 0.8vw, 10px) clamp(10px, 1.2vw, 16px);
+            border-radius: 980px;
+            font-size: clamp(11px, 1vw, 14px);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .applyjob-module .file-remove:hover {
+            background: #ff3b30;
+            color: #fff;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .applyjob-module .header {
+                padding-top: 80px;
+            }
+
+            .applyjob-module .back-link {
+                top: 20px;
+                left: 16px;
+            }
+
+            .applyjob-module .job-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .applyjob-module .job-meta-item::before {
+                display: none;
+            }
+
+            .applyjob-module .pronouns-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .applyjob-module .resume-row {
+                flex-direction: column;
+            }
+
+            .applyjob-module .resume-preview {
+                width: 100%;
+                min-height: 300px;
+            }
+
+            .applyjob-module .phone-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .applyjob-module .phone-row > div:first-child {
+                flex: 1 1 auto !important;
+            }
+
+            .applyjob-module .submit-section {
+                justify-content: center;
+            }
+
+            .applyjob-module .submit-btn {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .applyjob-module .pronouns-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .applyjob-module h1 {
+                font-size: clamp(24px, 8vw, 32px);
+            }
+        }
+
+        /* Large screen optimizations */
+        @media (min-width: 1920px) {
+            .applyjob-module .container {
+                max-width: 1000px;
+            }
+        }
+    </style>
+
+<!-- css fro appply job design end -->
+
+
+
+    <style>
+        /* Brand color for the header Download button */
+        .c-header_link,
+        .c-header_link .c-button_inner,
+        .c-header_link .c-button_label,
+        .c-header_link .c-button_rail_item {
+            color: #5ea9ad !important;
+        }
+    </style>
+<base target="_blank">
+</head>
+
+
+
+<body>
+
+    <!-- HEADER SECTION - Copy everything below this line -->
+
+  <style>
+    /* Header Styles */
+    .nav-header {
+        background: white;
+        border-bottom: 1px solid #e5e5e5;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 50px;
+        max-width: 100%;
+    }
+    
+    .hamburger-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 10px;
+        transition: all 0.3s ease;
+        z-index: 2000;
+        position: relative;
+    }
+    
+    .hamburger-toggle span {
+        display: block;
+        width: 45px;
+        height: 6px;
+        background: #2c0707;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .hamburger-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+    
+    .hamburger-toggle.active span:nth-child(2) {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    
+    .hamburger-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+    
+    /* Pricing Button Styles */
+    .pricing-btn {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #6db3a6;
+        text-decoration: none;
+        padding: 12px 28px;
+        border: 2px solid #000000;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        letter-spacing: -0.01em;
+        background: transparent;
+        cursor: pointer;
+        z-index: 2000;
+        position: relative;
+        min-width: 100px;
+        text-align: center;
+    }
+    
+    .pricing-btn:hover {
+        background: #6db3a6;
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(109, 179, 166, 0.2);
+        border-color: #000000;
+    }
+    
+    .pricing-btn.active {
+        background: #6db3a6;
+        color: #ffffff;
+        border-color: #000000;
+    }
+    
+    .fullscreen-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #0a0a0a;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .fullscreen-menu.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .menu-links {
+        list-style: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .menu-links li {
+        margin: 5px 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s ease;
+    }
+    
+    .fullscreen-menu.active .menu-links li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .fullscreen-menu.active .menu-links li:nth-child(1) { transition-delay: 0.1s; }
+    .fullscreen-menu.active .menu-links li:nth-child(2) { transition-delay: 0.2s; }
+    .fullscreen-menu.active .menu-links li:nth-child(3) { transition-delay: 0.3s; }
+    .fullscreen-menu.active .menu-links li:nth-child(4) { transition-delay: 0.4s; }
+    .fullscreen-menu.active .menu-links li:nth-child(5) { transition-delay: 0.5s; }
+    
+    .menu-links a {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: clamp(24px, 5vw, 48px);
+        font-weight: 600;
+        color: #ffffff;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s ease;
+        position: relative;
+        letter-spacing: -0.02em;
+    }
+    
+    .menu-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: #5ea9ad;
+        transition: width 0.3s ease;
+    }
+    
+    .menu-links a:hover {
+        color: #5ea9ad;
+    }
+    
+    .menu-links a:hover::after {
+        width: 100%;
+    }
+    
+    /* Footer Styles */
+    .menu-footer {
+        margin-top: 40px;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: 20px;
+        color: #666666;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease 0.5s;
+    }
+    
+    .fullscreen-menu.active .menu-footer {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .menu-footer .heart {
+        color: #ff6b6b;
+        display: inline-block;
+        animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+    
+    /* Social Media Styles */
+    .social-media-section {
+        margin: 50px 0 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease 0.4s;
+    }
+    
+    .fullscreen-menu.active .social-media-section {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .social-media-title {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: #999999;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+    }
+    
+    .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(94, 169, 173, 0.1);
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .social-icon:hover {
+        background: rgba(94, 169, 173, 0.3);
+        transform: scale(1.1);
+    }
+    
+    .social-icon img {
+        display: block;
+    }
+    
+    /* Pricing Overlay Card Styles */
+    .pricing-overlay-card {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        z-index: 998;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        overflow-y: auto;
+    }
+    
+    .pricing-overlay-card.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .pricing-overlay-card .pricing-close-btn {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 10px;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease 0.3s;
+    }
+    
+    .pricing-overlay-card.active .pricing-close-btn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .pricing-overlay-card .pricing-close-btn span {
+        display: block;
+        width: 36px;
+        height: 4px;
+        background: #000000;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .pricing-overlay-card .pricing-close-btn span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .pricing-overlay-card .pricing-close-btn span:nth-child(2) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .pricing-overlay-card .pricing-close-btn:hover span {
+        background: #6db3a6;
+    }
+    
+    .pricing-overlay-card .pricing-content-wrapper {
+        padding: 60px 15px 30px;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.5s ease 0.2s;
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100vh - 100px);
+        box-sizing: border-box;
+    }
+    
+    @media (max-width: 479px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            margin-top: 1rem !important;
+        }
+    }
+    
+    @media (min-width: 480px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 70px 20px 35px;
+        }
+    }
+    
+    @media (min-width: 768px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 25px 40px 50px;
+            max-height: calc(100vh - 70px);
+            margin-top: 5rem;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 20px 60px 60px;
+            max-height: calc(100vh - 60px);
+            margin-top: 5rem;
+        }
+    }
+    
+    .pricing-overlay-card.active .pricing-content-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    @media (max-width: 968px) {
+        .nav-container {
+            padding: 14px 25px;
+        }
+        .hamburger-toggle span {
+            width: 36px;
+            height: 4px;
+        }
+        .pricing-btn {
+            font-size: 14px;
+            padding: 10px 20px;
+            min-width: 90px;
+        }
+        .menu-links a {
+            font-size: clamp(18px, 4vw, 36px);
+        }
+        .menu-links li {
+            margin: 12px 0;
+        }
+        .menu-footer {
+            font-size: 16px;
+            margin-top: 30px;
+        }
+        .social-media-section {
+            margin: 30px 0 20px 0;
+            gap: 12px;
+        }
+        .social-icons {
+            gap: 20px;
+        }
+        .pricing-overlay-card .pricing-close-btn {
+            right: 25px;
+            top: 16px;
+        }
+        .pricing-overlay-card .pricing-close-btn span {
+            width: 30px;
+            height: 3px;
+        }
+        .pricing-overlay-card .pricing-content-wrapper {
+            padding: 70px 15px 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .pricing-btn {
+            font-size: 13px;
+            padding: 8px 16px;
+            min-width: 80px;
+        }
+        .menu-links a {
+            font-size: clamp(20px, 6vw, 32px);
+        }
+        .menu-links li {
+            margin: 14px 0;
+        }
+    }
+    </style>
+    
+    <header class="nav-header">
+        <div class="nav-container">
+            <button class="hamburger-toggle" id="hamburgerBtn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="pricing-btn" id="pricingBtn" onclick="togglePricingCard()">Pricing</button>
+        </div>
+    </header>
+    
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <ul class="menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+        <div class="menu-footer">
+            © 2024 GHAR!T. Crafted with <span class="heart">💛</span> in Mumbai, India
+        </div>
+    </div>
+    
+    <!-- Pricing Overlay Card -->
+    <div class="pricing-overlay-card" id="pricingOverlayCard">
+        <button class="pricing-close-btn" onclick="togglePricingCard()" aria-label="Close Pricing">
+            <span></span>
+            <span></span>
+        </button>
+        
+        <div class="pricing-content-wrapper">
+            <section class="gharit-pricing-section">
+                <style>
+                    .gharit-pricing-section {
+                        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                        background-color: #ffffff;
+                        color: #111827;
+                        box-sizing: border-box;
+                        width: 100%;
+                        max-width: 100%;
+                        overflow-x: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 0.4rem;
+                        margin: 0 auto;
+                        border-radius: 0.8rem;
+                        max-height: 100%;
+                    }
+
+                    /* iPhone 7 / Ultra small screens (max-width: 375px) */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section {
+                            padding: 0.35rem;
+                            border-radius: 0.6rem;
+                        }
+                    }
+    
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section {
+                            padding: 0.5rem;
+                            border-radius: 0.75rem;
+                        }
+                    }
+
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section {
+                            padding: 0.75rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section {
+                            padding: 1.5rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section {
+                            padding: 2rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header {
+                        margin-bottom: 0.75rem;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-header {
+                            margin-bottom: 1rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-header {
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header-container {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.75rem;
+                        width: 100%;
+                        position: relative;
+                    }
+    
+                    .gharit-pricing-section .gharit-download-link {
+                        font-weight: 700;
+                        text-decoration: underline;
+                        color: #ef4444;
+                        font-size: 0.875rem;
+                        line-height: 1.4;
+                        word-break: break-word;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: inline-block;
+                    }
+                    
+                    .gharit-pricing-section .gharit-download-link:hover {
+                        color: #dc2626;
+                        text-decoration: underline;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-header-container {
+                            gap: 1rem;
+                        }
+                        
+                        .gharit-pricing-section .gharit-download-link {
+                            font-size: 0.9375rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-header-container {
+                            flex-direction: row;
+                            align-items: flex-start;
+                            justify-content: space-between;
+                            gap: 1.5rem;
+                        }
+    
+                        .gharit-pricing-section .gharit-download-link {
+                            max-width: 12rem;
+                            padding-left: 1rem;
+                            border-left: 2px solid #e5e7eb;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-title-wrapper {
+                        flex: 1;
+                        width: 100%;
+                        min-width: 0;
+                    }
+    
+                    .gharit-pricing-section .gharit-main-title {
+                        font-size: 1.2rem;
+                        font-weight: 800;
+                        letter-spacing: -0.025em;
+                        line-height: 1.1;
+                        margin-bottom: 0.4rem;
+                        margin-top: -0.1rem;
+                        text-transform: uppercase;
+                        word-break: break-word;
+                        color: #111827;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 1rem;
+                            line-height: 1.05;
+                            margin-bottom: 0.3rem;
+                            word-spacing: -0.01em;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 1.35rem;
+                            margin-bottom: 0.45rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 1.875rem;
+                            margin-bottom: 0.6rem;
+                            margin-top: -0.2rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 2.25rem;
+                            line-height: 1.1;
+                            margin-bottom: 0.8rem;
+                            margin-top: -0.2rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-main-title {
+                            font-size: 3rem;
+                            margin-bottom: -0.5rem;
+                            margin-top: -0rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-section {
+                        margin-bottom: 0.75rem;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-search-section {
+                            margin-bottom: 1rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-section {
+                            margin-bottom: 1.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-wrapper {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 0.5rem;
+                        align-items: center;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-search-wrapper {
+                            flex-direction: row;
+                            gap: 0.75rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-wrapper {
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-box {
+                        position: relative;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-box {
+                            width: 20rem;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-search-box {
+                            width: 24rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-icon {
+                        position: absolute;
+                        left: 0.75rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #9ca3af;
+                        pointer-events: none;
+                        width: 1rem;
+                        height: 1rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-icon {
+                            width: 1.25rem;
+                            height: 1.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-input {
+                        width: 100%;
+                        padding: 0.5rem 2rem 0.5rem 2rem;
+                        border: 1px solid #e5e7eb;
+                        border-radius: 0.5rem;
+                        background-color: #ffffff;
+                        font-size: 0.75rem;
+                        color: #111827;
+                        transition: all 0.3s ease;
+                        outline: none;
+                        box-sizing: border-box;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-search-input {
+                            padding: 0.45rem 1.8rem 0.45rem 1.8rem;
+                            font-size: 0.7rem;
+                            border-radius: 0.4rem;
+                            min-height: 32px;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-search-input {
+                            padding: 0.55rem 2.1rem 0.55rem 2.1rem;
+                            font-size: 0.8rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-search-input {
+                            padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+                            font-size: 0.875rem;
+                            border-radius: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-search-input::placeholder {
+                        color: #9ca3af;
+                    }
+    
+                    .gharit-pricing-section .gharit-search-input:focus {
+                        border-color: #6db3a6;
+                        box-shadow: 0 0 0 3px rgba(109, 179, 166, 0.2);
+                    }
+    
+                    .gharit-pricing-section .gharit-clear-btn {
+                        position: absolute;
+                        right: 0.625rem;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: none;
+                        border: none;
+                        color: #9ca3af;
+                        cursor: pointer;
+                        padding: 0;
+                        display: none;
+                        width: 1.25rem;
+                        height: 1.25rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-clear-btn {
+                            right: 0.75rem;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-clear-btn:hover {
+                        color: #4b5563;
+                    }
+    
+                    .gharit-pricing-section .gharit-clear-btn.visible {
+                        display: block;
+                    }
+    
+                    .gharit-pricing-section .gharit-results-count {
+                        font-size: 0.6rem;
+                        color: #6b7280;
+                        text-align: right;
+                        white-space: nowrap;
+                        flex-shrink: 0;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.55rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.65rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.75rem;
+                            text-align: right;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-results-count {
+                            font-size: 0.875rem;
+                            text-align: right;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-active-filters {
+                        margin-top: 0.5rem;
+                        display: none;
+                        flex-wrap: wrap;
+                        gap: 0.5rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-active-filters {
+                            margin-top: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-active-filters.visible {
+                        display: flex;
+                    }
+    
+                    .gharit-pricing-section .gharit-filter-tag {
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 0.25rem 0.625rem;
+                        border-radius: 9999px;
+                        font-size: 0.6875rem;
+                        font-weight: 500;
+                        background-color: #6db3a6;
+                        color: #ffffff;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-filter-tag {
+                            padding: 0.25rem 0.75rem;
+                            font-size: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-filter-tag button {
+                        margin-left: 0.375rem;
+                        background: none;
+                        border: none;
+                        color: #ffffff;
+                        cursor: pointer;
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        width: 0.75rem;
+                        height: 0.75rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-filter-tag button {
+                            margin-left: 0.5rem;
+                            width: 0.875rem;
+                            height: 0.875rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-filter-tag button:hover {
+                        color: #e5e7eb;
+                    }
+    
+                    .gharit-pricing-section .gharit-global-search-mode .gharit-tabs-nav {
+                        display: none;
+                    }
+    
+                    .gharit-pricing-section .gharit-category-badge {
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 0.125rem 0.5rem;
+                        border-radius: 0.25rem;
+                        font-size: 0.625rem;
+                        font-weight: 600;
+                        background-color: #e5e7eb;
+                        color: #374151;
+                        margin-left: 0.5rem;
+                        text-transform: uppercase;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-category-badge {
+                            padding: 0.25rem 0.625rem;
+                            font-size: 0.6875rem;
+                            margin-left: 0.75rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tabs-nav {
+                        margin-bottom: 0.75rem;
+                        overflow-x: auto;
+                        padding-bottom: 0.25rem;
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                        width: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-tabs-nav {
+                            margin-bottom: 1rem;
+                            padding-bottom: 0.375rem;
+                            overflow-x: visible;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tabs-nav {
+                            margin-bottom: 1rem;
+                            padding-bottom: 0.5rem;
+                            margin-top: 0;
+                            overflow-x: visible;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tabs-nav::-webkit-scrollbar {
+                        display: none;
+                    }
+    
+                    .gharit-pricing-section .gharit-tabs-container {
+                        display: flex;
+                        gap: 0.5rem;
+                        min-width: auto;
+                        flex-wrap: nowrap;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tabs-nav {
+                            overflow-x: visible;
+                        }
+                        
+                        .gharit-pricing-section .gharit-tabs-container {
+                            gap: 0.75rem;
+                            flex-wrap: wrap;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tab-btn {
+                        padding: 0.4rem 0.8rem;
+                        border-radius: 0.4rem;
+                        font-size: 0.65rem;
+                        font-weight: 600;
+                        white-space: nowrap;
+                        border: 1px solid #e5e7eb;
+                        background-color: #ffffff;
+                        color: #4b5563;
+                        cursor: pointer;
+                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        outline: none;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-tab-btn {
+                            padding: 0.35rem 0.7rem;
+                            font-size: 0.6rem;
+                            border-radius: 0.35rem;
+                            min-height: 30px;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-tab-btn {
+                            padding: 0.42rem 0.85rem;
+                            font-size: 0.68rem;
+                        }
+                    }
+
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tab-btn {
+                            padding: 0.75rem 1.25rem;
+                            font-size: 0.875rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-tab-btn:hover {
+                        border-color: #9ca3af;
+                        background-color: #f9fafb;
+                    }
+    
+                    .gharit-pricing-section .gharit-tab-btn.active {
+                        background-color: #000000;
+                        color: #ffffff;
+                        border-color: #000000;
+                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                        transform: scale(1.02);
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-tab-btn.active {
+                            transform: scale(1.05);
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-container {
+                        flex-grow: 1;
+                        background-color: #ffffff;
+                        border-radius: 0.75rem;
+                        border: 1px solid #e5e7eb;
+                        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        box-sizing: border-box;
+                        min-height: auto;
+                        max-height: 100%;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-table-container {
+                            flex-grow: 1;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-container {
+                            border-radius: 1rem;
+                            max-height: 100%;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-header {
+                        display: none;
+                        grid-template-columns: repeat(12, minmax(0, 1fr));
+                        gap: 0.75rem;
+                        padding: 1rem;
+                        border-bottom: 1px solid #f3f4f6;
+                        background-color: rgba(249, 250, 251, 0.5);
+                        font-size: 0.625rem;
+                        font-weight: 700;
+                        letter-spacing: 0.05em;
+                        color: #6b7280;
+                        text-transform: uppercase;
+                        position: sticky;
+                        top: 0;
+                        z-index: 10;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-header {
+                            display: grid;
+                            padding: 1rem;
+                            font-size: 0.75rem;
+                            gap: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header-col-service {
+                        grid-column: span 5 / span 5;
+                        padding-left: 0.75rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-header-col-service {
+                            padding-left: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-header-col-price {
+                        grid-column: span 2 / span 2;
+                        text-align: center;
+                    }
+    
+                    .gharit-pricing-section .gharit-header-col-desc {
+                        grid-column: span 3 / span 3;
+                        text-align: right;
+                        padding-right: 0.75rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-header-col-desc {
+                            padding-right: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body {
+                        overflow-y: scroll;
+                        max-height: 50vh;
+                        scrollbar-width: thin;
+                        scrollbar-color: #5ea9ad #f5f5f5;
+                        width: 100%;
+                        flex-grow: 1;
+                        transition: opacity 0.3s ease;
+                        scroll-behavior: smooth;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 42vh;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 46vh;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 50vh;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 84vh;
+                        }
+                    }
+    
+                    @media (min-width: 1024px) {
+                        .gharit-pricing-section .gharit-table-body {
+                            max-height: 92vh;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                        width: 7px;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                            width: 5px;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                            width: 6px;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-table-body::-webkit-scrollbar {
+                            width: 10px;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar-track {
+                        background: #f5f5f5;
+                        border-radius: 5px;
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar-thumb {
+                        background: linear-gradient(180deg, #5ea9ad 0%, #4a8b8b 100%);
+                        border-radius: 5px;
+                        border: 2px solid #f5f5f5;
+                    }
+    
+                    .gharit-pricing-section .gharit-table-body::-webkit-scrollbar-thumb:hover {
+                        background: linear-gradient(180deg, #4a8b8b 0%, #3a7b7b 100%);
+                    }
+    
+                    .gharit-pricing-section .gharit-service-row {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: 0.4rem;
+                        padding: 0.55rem;
+                        border-bottom: 1px solid #f3f4f6;
+                        align-items: start;
+                        transition: all 0.2s ease;
+                        animation: gharitFadeIn 0.3s ease-in-out forwards;
+                        opacity: 0;
+                        transform: translateY(10px);
+                        width: 100%;
+                        box-sizing: border-box;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            gap: 0.35rem;
+                            padding: 0.5rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            gap: 0.5rem;
+                            padding: 0.6rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            grid-template-columns: 1fr auto auto;
+                            gap: 0.625rem;
+                            padding: 0.75rem;
+                            align-items: center;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-row {
+                            grid-template-columns: repeat(12, minmax(0, 1fr));
+                            gap: 1rem;
+                            padding: 1rem;
+                            align-items: center;
+                        }
+                    }
+    
+                    @keyframes gharitFadeIn {
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-row:hover {
+                        background-color: #f9fafb;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-row:hover {
+                            transform: translateX(4px);
+                        }
+                    }
+    
+                    @media (max-width: 767px) {
+                        .gharit-pricing-section .gharit-service-row:hover {
+                            transform: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-info {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.75rem;
+                        min-width: 0;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-service-info {
+                            grid-column: span 1;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-info {
+                            grid-column: span 5 / span 5;
+                            gap: 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-img-container {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 0.35rem;
+                        background-color: #f3f4f6;
+                        overflow: hidden;
+                        flex-shrink: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid #f3f4f6;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 2.2rem;
+                            height: 2.2rem;
+                            border-radius: 0.3rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 2.8rem;
+                            height: 2.8rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 3.5rem;
+                            height: 3.5rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-img-container {
+                            width: 4.5rem;
+                            height: 4.5rem;
+                            border-radius: 0.5rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-img-container img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                    }
+    
+                    .gharit-pricing-section .gharit-service-row:hover .gharit-img-container img {
+                        transform: scale(1.05);
+                    }
+    
+                    .gharit-pricing-section .gharit-service-details {
+                        min-width: 0;
+                        overflow: hidden;
+                    }
+    
+                    .gharit-pricing-section .gharit-service-details h3 {
+                        font-weight: 700;
+                        color: #111827;
+                        font-size: 0.7rem;
+                        margin: 0 0 0.1rem 0;
+                        line-height: 1.25;
+                        word-break: break-word;
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 0.65rem;
+                            line-height: 1.2;
+                            margin: 0 0 0.08rem 0;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 0.75rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 0.875rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-details h3 {
+                            font-size: 1rem;
+                            margin-bottom: 0.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-code {
+                        font-size: 0.625rem;
+                        color: #9ca3af;
+                        display: block;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-code {
+                            display: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-service-desc-mobile {
+                        font-size: 0.6875rem;
+                        color: #6b7280;
+                        margin-top: 0.25rem;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        line-height: 1.4;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-service-desc-mobile {
+                            display: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-cell {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 0.5rem;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-price-cell {
+                            flex-direction: column;
+                            align-items: flex-end;
+                            justify-content: center;
+                            gap: 0.25rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-price-cell {
+                            grid-column: span 2 / span 2;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 0;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-label {
+                        font-size: 0.625rem;
+                        font-weight: 700;
+                        color: #9ca3af;
+                        text-transform: uppercase;
+                        letter-spacing: 0.05em;
+                        white-space: nowrap;
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-price-label {
+                            font-size: 0.6875rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-price-label {
+                            display: none;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-value {
+                        font-weight: 700;
+                        font-size: 0.8rem;
+                        color: #111827;
+                        white-space: nowrap;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 0.75rem;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 0.85rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 1rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-price-value {
+                            font-size: 1.125rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-price-value.accent {
+                        color: #6db3a6;
+                    }
+    
+                    .gharit-pricing-section .gharit-price-value.muted {
+                        color: #9ca3af;
+                    }
+    
+                    .gharit-pricing-section .gharit-desc-cell {
+                        display: none;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-desc-cell {
+                            display: block;
+                            grid-column: span 3 / span 3;
+                            text-align: right;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-desc-box {
+                        display: inline-block;
+                        background-color: #f9fafb;
+                        border: 1px solid #f3f4f6;
+                        border-radius: 0.5rem;
+                        padding: 0.625rem;
+                        max-width: 100%;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-desc-box {
+                            padding: 0.75rem;
+                            max-width: 20rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-desc-text {
+                        font-size: 0.6875rem;
+                        color: #4b5563;
+                        line-height: 1.5;
+                        margin: 0;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-desc-text {
+                            font-size: 0.75rem;
+                            line-height: 1.625;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results {
+                        text-align: center;
+                        padding: 2rem 1rem;
+                        color: #6b7280;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results {
+                            padding: 3rem 1rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results svg {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        margin: 0 auto 0.75rem;
+                        color: #d1d5db;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results svg {
+                            width: 3rem;
+                            height: 3rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results-title {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        color: #111827;
+                        margin: 0 0 0.25rem 0;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results-title {
+                            font-size: 1.125rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-no-results-text {
+                        font-size: 0.8125rem;
+                        margin: 0;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-no-results-text {
+                            font-size: 0.875rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section mark {
+                        background-color: #fef08a;
+                        padding: 0 0.125rem;
+                        border-radius: 0.125rem;
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section mark {
+                            padding: 0 0.25rem;
+                            border-radius: 0.25rem;
+                        }
+                    }
+    
+                    .gharit-pricing-section .gharit-footer {
+                        margin-top: 0.6rem;
+                        font-size: 0.55rem;
+                        color: #9ca3af;
+                        line-height: 1.35;
+                        max-width: 100%;
+                        word-break: break-word;
+                    }
+
+                    /* iPhone 7 / Ultra small screens */
+                    @media (max-width: 375px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 0.5rem;
+                            font-size: 0.5rem;
+                            line-height: 1.3;
+                            display: none;
+                        }
+                    }
+
+                    @media (min-width: 376px) and (max-width: 479px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 0.7rem;
+                            font-size: 0.58rem;
+                        }
+                    }
+    
+                    @media (min-width: 480px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 1rem;
+                            font-size: 0.6875rem;
+                        }
+                    }
+    
+                    @media (min-width: 768px) {
+                        .gharit-pricing-section .gharit-footer {
+                            margin-top: 1.5rem;
+                            font-size: 0.75rem;
+                            line-height: 1.625;
+                            max-width: 56rem;
+                        }
+                    }
+
+                    @media (max-width: 767px) {
+                        .gharit-pricing-section .gharit-footer {
+                            display: none;
+                        }
+                    }
+
+                    @media print {
+                        .gharit-pricing-section .gharit-no-print {
+                            display: none !important;
+                        }
+                        
+                        .gharit-pricing-section .gharit-table-body {
+                            overflow: visible !important;
+                            max-height: none !important;
+                        }
+                    }
+    
+                    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                        .gharit-pricing-section .gharit-service-row {
+                            display: flex;
+                            width: 100%;
+                        }
+                    }
+                </style>
+    
+                <!-- <header class="gharit-header">
+                    <div class="gharit-header-container">
+                        <div class="gharit-title-wrapper">
+                            <h1 class="gharit-main-title">
+                                TRANSPARENT<br>
+                                PRICING
+                                FOR GHAR!T
+                                SERVICES
+                            </h1>
+                        </div>
+                        <a href="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/SKU/properties_list.xlsx" download="gharit-price-list.xlsx" class="gharit-download-link">
+                            Download our detailed price list
+                        </a>
+                    </div>
+                </header> -->
+    
+                <div class="gharit-search-section gharit-no-print">
+                    <div class="gharit-search-wrapper">
+                        <div class="gharit-search-box">
+                            <svg class="gharit-search-icon" xmlns="http://www.w3.org/2000/svg " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                            <input type="text" id="gharit-search-input-pricing" class="gharit-search-input" placeholder="Search all items...">
+                            <button id="gharit-clear-search-pricing" class="gharit-clear-btn" onclick="gharitClearSearchPricing()">
+                                <svg xmlns="http://www.w3.org/2000/svg " width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                            </button>
+                        </div>
+                        <div class="gharit-results-count">
+                            <span id="gharit-results-count-pricing">Showing all items</span>
+                        </div>
+                    </div>
+                    <div id="gharit-active-filters-pricing" class="gharit-active-filters">
+                        <span class="gharit-filter-tag">
+                            Search: "<span id="gharit-search-term-pricing"></span>"
+                            <button onclick="gharitClearSearchPricing()">
+                                <svg xmlns="http://www.w3.org/2000/svg " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+    
+                <nav class="gharit-tabs-nav gharit-no-print" id="gharit-tabs-nav-pricing">
+                    <div class="gharit-tabs-container" id="gharit-category-tabs-pricing"></div>
+                </nav>
+    
+                <main class="gharit-table-container" id="gharit-table-container-pricing">
+                    <div class="gharit-table-header">
+                        <div class="gharit-header-col-service">Service</div>
+                        <div class="gharit-header-col-price">Ironing</div>
+                        <div class="gharit-header-col-price">Dry Cleaning</div>
+                        <div class="gharit-header-col-desc">Description</div>
+                    </div>
+                    <div id="gharit-services-list-pricing" class="gharit-table-body"></div>
+                </main>
+    
+                <footer class="gharit-footer">
+                    *Please note that pricing may vary based on the location, fabric type, and special treatment required. Prices listed above are our standard rates and may be adjusted for delicate or premium garments. For items not listed, please contact us for a custom quote. All services are performed with professional care and attention to detail.
+                </footer>
+            </section>
+        </div>
+    </div>
+    
+    <script src="assets/js/gharit-pricing-api.js"></script>
+    <script>
+    // Hamburger Menu Logic
+    (function() {
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const fullscreenMenu = document.getElementById('fullscreenMenu');
+        
+        hamburgerBtn.addEventListener('click', function() {
+            // Close pricing if open
+            const pricingCard = document.getElementById('pricingOverlayCard');
+            const pricingBtn = document.getElementById('pricingBtn');
+            if (pricingCard.classList.contains('active')) {
+                pricingCard.classList.remove('active');
+                pricingBtn.textContent = 'Pricing';
+                pricingBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            hamburgerBtn.classList.toggle('active');
+            fullscreenMenu.classList.toggle('active');
+            document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+        });
+    
+        document.querySelectorAll('.menu-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburgerBtn.classList.remove('active');
+                fullscreenMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    })();
+    
+    // Toggle Pricing Card Function
+    function togglePricingCard() {
+        const pricingCard = document.getElementById('pricingOverlayCard');
+        const pricingBtn = document.getElementById('pricingBtn');
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const fullscreenMenu = document.getElementById('fullscreenMenu');
+        
+        // Close hamburger menu if open
+        if (fullscreenMenu.classList.contains('active')) {
+            hamburgerBtn.classList.remove('active');
+            fullscreenMenu.classList.remove('active');
+        }
+        
+        pricingCard.classList.toggle('active');
+        
+        // Update button text and style based on state
+        if (pricingCard.classList.contains('active')) {
+            pricingBtn.textContent = 'Close Pricing';
+            pricingBtn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Initialize pricing data if first time opening
+            if (!window.pricingInitialized) {
+                initPricingSection();
+                window.pricingInitialized = true;
+            }
+        } else {
+            pricingBtn.textContent = 'Pricing';
+            pricingBtn.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Close pricing card when clicking outside content
+    document.getElementById('pricingOverlayCard').addEventListener('click', function(e) {
+        if (e.target === this) {
+            togglePricingCard();
+        }
+    });
+    
+    // Close pricing card on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const pricingCard = document.getElementById('pricingOverlayCard');
+            const pricingBtn = document.getElementById('pricingBtn');
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const fullscreenMenu = document.getElementById('fullscreenMenu');
+            
+            if (pricingCard.classList.contains('active')) {
+                pricingCard.classList.remove('active');
+                pricingBtn.textContent = 'Pricing';
+                pricingBtn.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (fullscreenMenu.classList.contains('active')) {
+                hamburgerBtn.classList.remove('active');
+                fullscreenMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+    
+    </script>
+
+<!-- HEADER SECTION END - Copy everything above this line -->
+
+    <script>
+    // Ensure Main will skip intro/promo once when returning from ApplyJob
+    try { sessionStorage.setItem('skipIntro', '1'); } catch (_) {}
+    </script>
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NS5933BS " height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <style>
+        /* Ensure the menu toggle icon and labels are visible on white backgrounds */
+        /* Circle background for the menu toggler */
+    button,
+.c-button {
+    display: inline-block;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    background: none rgba(0, 0, 0, 0);
+    color: #5ea9ad;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    font: inherit;
+    line-height: normal;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none
+}
+
+button:focus,
+button:hover,
+.c-button:focus,
+.c-button:hover {
+    text-decoration: none
+}
+      
+        .c-menu-toggler_label_item {
+            color: #000 !important;
+        }
+
+
+         /* Desktop-only: make button inner text black */
+            @media (min-width: 1024px) {
+                .c-button_inner,
+                .c-button_inner .c-button_label {
+                    color: #000 !important;
+                }
+            }
+
+            @media (min-width: 1024px) {
+    .c-button_inner, .c-button_inner .c-button_label {
+        color: #5ea9ad !important;
+    }
+}
+
+
+.c-button.-rail {
+    --color-text-hover: #FFFFFF !important;
+    --color-background-hover: #000000 !important;
+    color: currentColor
+}
+       
+        /* Optional: subtle focus/hover outline for accessibility */
+      
+    </style>
+
+
+ <!-- Header Navigation -->
+    
+
+        <!-- Header fixed -->
+
+
+
+
+
+
+    </div>
+    </div>
+
+   <div class="applyjob-module">
+    <div class="header">
+        <a href="careers.html" class="back-link">Back to careers</a>
+        <span class="job-label">Apply for position</span>
+        <h1>Senior Sales Manager</h1>
+        <div class="job-meta">
+            <span class="job-meta-item"><strong>South San Francisco, CA</strong></span>
+            <span class="job-meta-item">Sales & Marketing</span>
+            <span class="job-meta-item">Full Time</span>
+            <span class="job-meta-item">Hybrid</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">Submit Your Application</h2>
+
+           <!-- Form captures job details via hidden inputs populated from URL parameters.
+               If testing locally, ensure the Careers page navigates here with ?job=&team=&location=&type=. -->
+           <form id="application-form" action="https://api.web3forms.com/submit " method="POST" enctype="multipart/form-data">
+            <!-- Hidden fields to capture selected job details -->
+            <input type="hidden" name="job" id="jobHidden">
+            <input type="hidden" name="team" id="teamHidden">
+            <input type="hidden" name="location" id="locationHidden">
+            <input type="hidden" name="workType" id="workTypeHidden">
+            <!-- Web3Forms config -->
+            <input type="hidden" name="access_key" value="df657d42-f5cc-4e4a-8223-e98602ce2224">
+            <input type="hidden" name="subject" id="emailSubject" value="New Job Application">
+            <input type="hidden" name="reply_to" id="reply_to">
+            <input type="hidden" name="from_name" id="from_name_hidden">
+            <input type="hidden" name="from_email" id="from_email_hidden">
+            <div class="form-group">
+                <label>Resume/CV</label>
+                <div class="resume-row">
+                    <div class="resume-controls">
+                        <label for="resume" class="file-upload">Attach Resume/CV</label>
+                        <input type="file" id="resume" name="attachments[]" accept=".pdf,.doc,.docx">
+                        <div id="resumeFilename" class="resume-filename" aria-live="polite"></div>
+                        <button type="button" id="resumeRemove" class="file-remove" aria-label="Remove attached file">Remove file</button>
+                    </div>
+                    <div class="resume-preview is-hidden" id="resumePreview" aria-label="Resume preview">
+                        <div class="placeholder">Attach a PDF to preview here.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fullname">Full name <span class="required">*</span></label>
+                <input type="text" id="fullname" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Pronouns</label>
+                
+                <div class="pronouns-grid">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="he-him" name="pronouns" value="He/him">
+                        <label for="he-him">He/him</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="she-her" name="pronouns" value="She/her">
+                        <label for="she-her">She/her</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="they-them" name="pronouns" value="They/them">
+                        <label for="they-them">They/them</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="xe-xem" name="pronouns" value="Xe/xem">
+                        <label for="xe-xem">Xe/xem</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ze-hir" name="pronouns" value="Ze/hir">
+                        <label for="ze-hir">Ze/hir</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="ey-em" name="pronouns" value="Ey/em">
+                        <label for="ey-em">Ey/em</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="hir-hir" name="pronouns" value="Hir/hir">
+                        <label for="hir-hir">Hir/hir</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="fae-faer" name="pronouns" value="Fae/faer">
+                        <label for="fae-faer">Fae/faer</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="hu-hu" name="pronouns" value="Hu/hu">
+                        <label for="hu-hu">Hu/hu</label>
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="name-only" name="pronouns" value="Use name only">
+                    <label for="name-only">Use name only</label>
+                </div>
+
+                <div class="checkbox-group custom-option">
+                    <input type="checkbox" id="custom" name="pronouns" value="Custom">
+                    <label for="custom">Custom</label>
+                </div>
+
+                <div class="custom-input" aria-hidden="true">
+                    <label for="custom-pronouns">Custom pronouns</label>
+                    <input type="text" id="custom-pronouns" name="custom_pronouns" placeholder="Enter your pronouns">
+                </div>
+
+                <p class="help-text">Let the employer know what pronouns you use so that they can address you correctly.</p>
+                <!-- Hidden combined pronouns field populated on submit -->
+                <input type="hidden" id="pronounsSelected" name="pronouns_selected">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone <span class="required">*</span></label>
+                <div class="phone-row">
+                    <div style="flex:0 0 clamp(120px, 15vw, 160px);">
+                        <label for="country-code" class="u-screen-reader-text">Country code</label>
+                        <select id="country-code" name="country_code" required aria-label="Country code">
+                            <option value="" disabled selected>Select code</option>
+                            <option value="+1">+1 (US/CA)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+91">+91 (IN)</option>
+                            <option value="+61">+61 (AU)</option>
+                            <option value="+81">+81 (JP)</option>
+                            <option value="+49">+49 (DE)</option>
+                            <option value="+33">+33 (FR)</option>
+                            <option value="+971">+971 (AE)</option>
+                        </select>
+                    </div>
+                    <div style="flex:1 1 auto;">
+                        <input type="text" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="Phone number" pattern="^[0-9]{6,14}$" title="Enter 6–14 digits." required>
+                    </div>
+                </div>
+                <p class="help-text">Enter your number digits only; select your country code. We will send it as a single international number.</p>
+                <div id="phoneError" class="help-text" aria-live="polite" style="color:#ff3b30;"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Current location</label>
+                <input type="text" id="location" name="current_location">
+            </div>
+
+            <div class="form-group">
+                <label for="company">Current company</label>
+                <input type="text" id="company" name="current_company">
+            </div>
+
+            <h2 class="section-title" style="margin-top: clamp(32px, 5vw, 64px);">Links</h2>
+
+            <div class="form-group">
+                <label for="linkedin">LinkedIn URL <span class="required">*</span></label>
+                <input type="url" id="linkedin" name="linkedin_url" placeholder="https://www.linkedin.com/in/username " required>
+                <div id="linkedinError" class="help-text" aria-live="polite" style="color:#ff3b30;"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="github">GitHub URL</label>
+                <input type="url" id="github" name="github_url" placeholder="https://github.com/username ">
+                <div id="githubError" class="help-text" aria-live="polite" style="color:#ff3b30;"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="portfolio">Portfolio URL</label>
+                <input type="url" id="portfolio" name="portfolio_url" placeholder="https://example.com ">
+                <div id="portfolioError" class="help-text" aria-live="polite" style="color:#ff3b30;"></div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: clamp(32px, 5vw, 64px);">Work Eligibility</h2>
+
+            <div class="form-group">
+                <label>Are you currently eligible to work in the United States? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="eligible-yes" name="work-eligible" value="Yes" required>
+                        <label for="eligible-yes">Yes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="eligible-no" name="work-eligible" value="No">
+                        <label for="eligible-no">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Do you now or in the future require visa sponsorship to continue working in the United States? <span class="required">*</span></label>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="visa-yes" name="visa-sponsorship" value="Yes" required>
+                        <label for="visa-yes">Yes</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="visa-no" name="visa-sponsorship" value="No">
+                        <label for="visa-no">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: clamp(32px, 5vw, 64px);">Additional Information</h2>
+
+            <div class="form-group">
+                <label for="applied-position-edit" class="applied-position_label">Position Applied</label>
+                <input type="text" id="applied-position-edit" class="applied-position_input" placeholder="e.g., Senior Sales Manager" readonly aria-readonly="true">
+                <textarea id="additional-info" name="message" rows="6" style="margin-top:clamp(8px, 1vw, 16px);" placeholder="Add a cover letter or anything else you want to share."></textarea>
+            </div>
+
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Submit Application</button>
+                <div id="formStatus" class="help-text" aria-live="polite" style="margin-left: clamp(12px, 2vw, 24px);"></div>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script>
+        (function () {
+            var host = (location.hostname || '').toLowerCase();
+            var isProd = host.endsWith('gharitapp.com');
+            var baseEl = document.querySelector('base');
+            if (!baseEl) {
+                baseEl = document.createElement('base');
+                document.head.insertBefore(baseEl, document.head.firstChild);
+            }
+            baseEl.setAttribute('href', isProd ? 'https://www.gharitapp.com/ ' : './');
+        })();
+    </script>
+    <script>
+        // Scoped behavior inside Apply Job module
+        (function() {
+            var module = document.querySelector('.applyjob-module');
+            if (!module) return;
+            var checkboxes = module.querySelectorAll('input[name="pronouns"]');
+            var customCb = module.querySelector('#custom');
+            var nameOnlyCb = module.querySelector('#name-only');
+            var customWrap = module.querySelector('.custom-input');
+
+            function updateCustom() {
+                if (customCb && customCb.checked) {
+                    if (customWrap) customWrap.classList.add('show');
+                    if (nameOnlyCb) nameOnlyCb.checked = false;
+                } else {
+                    if (customWrap) customWrap.classList.remove('show');
+                }
+            }
+
+            function handleNameOnly() {
+                if (!nameOnlyCb || !nameOnlyCb.checked) return;
+                checkboxes.forEach(function(cb) {
+                    if (cb !== nameOnlyCb) cb.checked = false;
+                });
+                if (customCb) customCb.checked = false;
+                updateCustom();
+            }
+
+            checkboxes.forEach(function(cb) {
+                cb.addEventListener('change', function() {
+                    if (cb === customCb) updateCustom();
+                    if (cb === nameOnlyCb) handleNameOnly();
+                });
+            });
+
+            updateCustom();
+        })();
+    </script>
+    <script>
+        // Resume preview: show PDF inline, fallback text for other types
+        (function() {
+            var input = document.getElementById('resume');
+            var preview = document.getElementById('resumePreview');
+            var filenameEl = document.getElementById('resumeFilename');
+            var removeBtn = document.getElementById('resumeRemove');
+            if (!input || !preview) return;
+
+            var currentUrl = null;
+
+            function setPlaceholder(text) {
+                preview.innerHTML = '<div class="placeholder">' + (text || 'Attach a PDF to preview here.') + '</div>';
+            }
+
+            function formatSize(bytes) {
+                if (typeof bytes !== 'number') return '';
+                if (bytes >= 1024 * 1024) return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+                if (bytes >= 1024) return (bytes / 1024).toFixed(1) + ' KB';
+                return bytes + ' B';
+            }
+
+            function updateRemoveVisibility(show) {
+                if (removeBtn) {
+                    removeBtn.style.display = show ? 'inline-block' : 'none';
+                }
+            }
+
+            function clearPreview() {
+                if (currentUrl) {
+                    try { URL.revokeObjectURL(currentUrl); } catch (e) {}
+                    currentUrl = null;
+                }
+                if (filenameEl) filenameEl.textContent = '';
+                setPlaceholder('Attach a PDF to preview here.');
+                preview.classList.add('is-hidden');
+                updateRemoveVisibility(false);
+            }
+
+            input.addEventListener('change', function() {
+                if (currentUrl) {
+                    try { URL.revokeObjectURL(currentUrl); } catch (e) {}
+                    currentUrl = null;
+                }
+                if (!input.files || input.files.length === 0) {
+                    clearPreview();
+                    return;
+                }
+                var file = input.files[0];
+                if (filenameEl) filenameEl.textContent = file.name + (file.size ? (' (' + formatSize(file.size) + ')') : '');
+                var isPdf = /pdf$/i.test(file.type || '') || /\.pdf$/i.test(file.name || '');
+                if (isPdf) {
+                    preview.classList.remove('is-hidden');
+                    currentUrl = URL.createObjectURL(file);
+                    preview.innerHTML = '<embed type="application/pdf" src="' + currentUrl + '" />';
+                } else {
+                    preview.classList.remove('is-hidden');
+                    setPlaceholder('Attach a PDF to preview here.');
+                }
+                updateRemoveVisibility(true);
+            });
+
+            if (removeBtn) {
+                removeBtn.addEventListener('click', function() {
+                    input.value = '';
+                    clearPreview();
+                    input.focus();
+                });
+            }
+
+            // Set initial state
+            clearPreview();
+        })();
+    </script>
+
+        <!-- Populate job details from URL parameters.
+            This updates the header (title, location, team, work arrangement)
+            and sets hidden form fields for submission. -->
+    <script>
+        (function () {
+            function applyJobParams() {
+                var params = new URLSearchParams(window.location.search || '');
+                var job = params.get('job');
+                var team = params.get('team');
+                var location = params.get('location');
+                var type = params.get('type'); // On-site / Hybrid
+                // Fallback: try sessionStorage if URL params are missing
+                if (!job || !team || !location || !type) {
+                    try {
+                        var raw = sessionStorage.getItem('applyJobData');
+                        if (raw) {
+                            var data = JSON.parse(raw);
+                            job = job || (data && data.job) || job;
+                            team = team || (data && data.team) || team;
+                            location = location || (data && data.location) || location;
+                            type = type || (data && data.type) || type;
+                            // Clear after use to avoid stale values on future visits
+                            sessionStorage.removeItem('applyJobData');
+                        }
+                    } catch (e) {}
+                }
+
+                var module = document.querySelector('.applyjob-module');
+                if (!module) return;
+
+                var titleEl = module.querySelector('.header h1');
+                if (job && titleEl) { titleEl.textContent = job; }
+
+                var detailSpans = module.querySelectorAll('.header .job-meta-item');
+                // Expected order: [0]=location, [1]=team, [2]=type, [3]=work arrangement
+                if (detailSpans && detailSpans.length >= 4) {
+                    if (location) {
+                        var locStrong = detailSpans[0].querySelector('strong');
+                        if (locStrong) locStrong.textContent = location;
+                    }
+                    if (team) detailSpans[1].textContent = team;
+                    if (type) detailSpans[2].textContent = type;
+                    // Keep Full Time or update if needed
+                }
+
+                // Populate hidden inputs for submission
+                var form = document.getElementById('application-form');
+                if (form) {
+                    var j = form.querySelector('#jobHidden');
+                    var t = form.querySelector('#teamHidden');
+                    var l = form.querySelector('#locationHidden');
+                    var w = form.querySelector('#workTypeHidden');
+                    if (j && job) j.value = job;
+                    if (t && team) t.value = team;
+                    if (l && location) l.value = location;
+                    if (w && type) w.value = type;
+
+                    // Prefill editable Position Applied field from URL or header
+                    var headerTitleEl = module.querySelector('.header h1');
+                    var appliedTitle = job || (headerTitleEl ? headerTitleEl.textContent.trim() : '');
+                    var appliedInput = document.getElementById('applied-position-edit');
+                    if (appliedInput && appliedTitle) {
+                        appliedInput.value = appliedTitle;
+                    }
+                }
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', applyJobParams);
+            } else {
+                applyJobParams();
+            }
+        })();
+    </script>
+
+
+
+    </main>
+
+  
+
+
+
+   
+       
+<!-- footer ended  -->
+
+<section class="gf-footer">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.gf-footer {
+    --gf-teal: #5ea9ad;
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #999;
+    width: 100%;
+    margin: 0;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+}
+
+.gf-footer * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.gf-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: clamp(16px, 5vw, 80px);
+    padding-right: clamp(16px, 5vw, 80px);
+}
+
+.gf-cta {
+    background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+    padding: clamp(32px, 6vw, 60px) 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.gf-cta h2 {
+    color: #fff;
+    font-size: clamp(24px, 5vw, 48px);
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.gf-cta h2 span { color: var(--gf-teal); }
+
+.gf-cta p {
+    color: #888;
+    font-size: clamp(14px, 3vw, 18px);
+    margin-bottom: 20px;
+}
+
+.gf-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.gf-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    transition: all 0.2s;
+}
+
+.gf-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.gf-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.gf-btn--outline {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.gf-btn--outline:hover {
+    border-color: var(--gf-teal);
+    background: rgba(94,169,173,0.1);
+}
+
+.gf-links {
+    padding: clamp(32px, 5vw, 48px) 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: clamp(32px, 5vw, 80px);
+}
+
+.gf-brand img {
+    height: 24px;
+    margin-bottom: 16px;
+    filter: brightness(0) invert(1);
+}
+
+.gf-brand p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #aaa;
+    margin-bottom: 20px;
+    max-width: 280px;
+}
+
+.gf-social {
+    display: flex;
+    gap: 10px;
+}
+
+.gf-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    transition: all 0.2s;
+}
+
+.gf-social a:hover {
+    background: var(--gf-teal);
+    color: #000;
+}
+
+.gf-social svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.gf-col h4 {
+    color: var(--gf-teal);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.gf-col a {
+    display: block;
+    color: #bbb;
+    font-size: 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.gf-col a:hover {
+    color: var(--gf-teal);
+}
+
+.gf-contact {
+    margin-top: 16px;
+    padding: 14px;
+    background: rgba(94,169,173,0.08);
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+.gf-contact a {
+    color: var(--gf-teal);
+    font-weight: 500;
+    display: inline;
+}
+
+.gf-contact p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.gf-bar {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #777;
+}
+
+/* ==================== MOBILE - Company Below Social Icons ==================== */
+
+@media (max-width: 768px) {
+    .gf-footer {
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .gf-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .gf-cta { 
+        padding: 24px 0;
+    }
+    
+    .gf-cta h2 {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+    
+    .gf-cta p {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+    
+    .gf-btns { 
+        flex-direction: column; 
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .gf-btn { 
+        width: 100%;
+        max-width: 280px;
+        justify-content: center; 
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    /* Layout: Brand centered, then Company & Support side by side */
+    .gf-links { 
+        padding: 24px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "brand brand"
+            "company support"
+            "legal legal";
+        gap: 20px;
+        text-align: left;
+    }
+    
+    .gf-brand { 
+        grid-area: brand;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    
+    .gf-brand img {
+        height: 26px;
+        margin: 0 auto 12px;
+        display: block;
+    }
+    
+    .gf-brand p {
+        font-size: 14px;
+        color: #bbb;
+        margin: 0 auto 16px;
+        max-width: 300px;
+    }
+    
+    .gf-social {
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 8px;
+    }
+    
+    /* Company - positioned under social icons (center-left) */
+    .gf-col:nth-of-type(2) {
+        grid-area: company;
+        text-align: left;
+        padding: 0;
+        /* No margin - starts from center-left under social icons */
+        justify-self: center; /* Center in its grid cell */
+        padding-left: 20px; /* Slight padding to align under icons */
+    }
+    
+    /* Support - RIGHT side */
+    .gf-col:nth-of-type(3) {
+        grid-area: support;
+        text-align: left;
+        padding: 0;
+        justify-self: center; /* Center in its grid cell */
+    }
+    
+    /* Legal at bottom */
+    .gf-col:nth-of-type(4) {
+        grid-area: legal;
+        text-align: center;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .gf-col:nth-of-type(4) h4 {
+        display: none;
+    }
+    
+    .gf-col:nth-of-type(4) a {
+        display: inline-block;
+        font-size: 13px;
+        color: #777;
+    }
+    
+    .gf-col h4 {
+        font-size: 11px;
+        margin-bottom: 12px;
+        color: var(--gf-teal);
+        letter-spacing: 2px;
+    }
+    
+    .gf-col a {
+        font-size: 14px;
+        color: #ddd;
+        margin-bottom: 10px;
+    }
+    
+    .gf-contact {
+        margin: 12px 0 0;
+        padding: 12px;
+        background: rgba(94,169,173,0.1);
+    }
+    
+    .gf-contact a {
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+    
+    .gf-contact p {
+        color: #888;
+        font-size: 11px;
+        margin: 0;
+    }
+    
+    .gf-bar { 
+        padding: 16px 0;
+        flex-direction: column; 
+        gap: 4px; 
+        text-align: center;
+        font-size: 12px;
+        color: #555;
+    }
+}
+
+@media (max-width: 480px) {
+    .gf-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .gf-cta {
+        padding: 20px 0;
+    }
+    
+    .gf-cta h2 {
+        font-size: 22px;
+    }
+    
+    .gf-links { 
+        padding: 20px 0;
+        gap: 16px;
+    }
+    
+    /* Adjust alignment for small screens */
+    .gf-col:nth-of-type(2) {
+        padding-left: 10px;
+    }
+    
+    .gf-brand img {
+        height: 24px;
+    }
+    
+    .gf-brand p {
+        font-size: 13px;
+    }
+    
+    .gf-col h4 {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .gf-col a {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+    
+    .gf-contact {
+        padding: 10px;
+    }
+    
+    .gf-bar {
+        padding: 14px 0;
+        font-size: 11px;
+    }
+}
+</style>
+
+<!-- CTA -->
+<div class="gf-cta">
+    <div class="gf-container">
+        <h2>Ready for <span>premium</span> laundry?</h2>
+        <p>Download the app and get your first wash free.</p>
+        <div class="gf-btns">
+            <a
+              href="https://apps.apple.com/ng/app/ghar-t/id6752650388"
+              class="gf-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+                <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                App Store
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp"
+              class="gf-btn gf-btn--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+                <svg viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                Google Play
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Links -->
+<div class="gf-links gf-container">
+    <div class="gf-brand">
+        <img src="https://raw.githubusercontent.com/shrikantsky/GHARITWEBIMAGES/main/uploads/GHarit%20Full%20logo%20PNG%20.svg" alt="GHAR!T">
+        <p>Premium laundry service that comes to you. Professional care for your clothes.</p>
+        <div class="gf-social">
+            <a href="https://www.instagram.com/gharitapp?igsh=MWpkZWJvNTdkcXN3cw==" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a href="#"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.261 5.636 5.903-5.636zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="https://www.linkedin.com/company/ghar-t/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="https://www.facebook.com/people/Gharit-App/61583880161338/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+    </div>
+
+    <div class="gf-col">
+        <h4>Company</h4>
+        <a href="about-us.html">About</a>
+        <a href="careers.html">Careers</a>
+        <a href="blog.html">Blog</a>
+    </div>
+
+    <div class="gf-col">
+        <h4>Support</h4>
+        <a href="faq.html">FAQ</a>
+        <a href="support.html">Contact</a>
+        <!-- <div class="gf-contact">
+            <a href="mailto:support@gharitapp.com">support@gharitapp.com</a>
+            <p>Mon–Sat, 9am–7pm</p>
+        </div> -->
+    </div>
+
+    <div class="gf-col">
+        <h4>Legal</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+</div>
+
+<!-- Bottom -->
+<div class="gf-bar gf-container">
+    <span>© 2024 GHAR!T</span>
+    <span>Made with 💛 in Mumbai</span>
+</div>
+
+</section>
+    
+    <!-- Footer end -->
+
+    
+    </div>
+    </div>
+
+    <script src="https://shrikantsky.github.io/GHARITWEBIMAGES/uploads/Gharitdesign.js " defer></script>
+    <script>
+        (function () {
+            var form = document.getElementById('application-form');
+            if (!form) return;
+
+            // Phone validation helpers (E.164-like with per-country rules)
+            function validatePhone() {
+                var phoneInputEl = form.querySelector('#phone');
+                var countryCodeEl = form.querySelector('#country-code');
+                var phoneErrEl = document.getElementById('phoneError');
+                var raw = phoneInputEl ? phoneInputEl.value || '' : '';
+                var digits = raw.replace(/\D+/g, '');
+                // enforce digits-only view
+                if (phoneInputEl && raw !== digits) { phoneInputEl.value = digits; }
+                var cc = countryCodeEl ? (countryCodeEl.value || '').trim() : '';
+                var ccDigits = cc.replace(/\D+/g, '');
+                var combinedLen = (ccDigits + digits).length;
+                // Per-country rules for national significant number length
+                var rules = {
+                    '+1':   { min: 10, max: 10 }, // US/CA NANP
+                    '+44':  { min: 9,  max: 10 }, // UK typical
+                    '+91':  { min: 10, max: 10 }, // India
+                    '+61':  { min: 9,  max: 10 }, // Australia
+                    '+81':  { min: 9,  max: 10 }, // Japan
+                    '+49':  { min: 7,  max: 12 }, // Germany (varies)
+                    '+33':  { min: 9,  max: 9  }, // France
+                    '+971': { min: 9,  max: 9  }  // UAE
+                };
+                var rule = rules[cc] || { min: 6, max: 14 };
+                var ok = !!cc && digits.length >= rule.min && digits.length <= rule.max && combinedLen >= 7 && combinedLen <= 15;
+                var msg = '';
+                if (!cc) msg = 'Please select a country code.';
+                else if (digits.length < rule.min || digits.length > rule.max) msg = 'Enter '+rule.min+'–'+rule.max+' digits for this country.';
+                else if (combinedLen < 7 || combinedLen > 15) msg = 'Total number must be 7–15 digits including country code.';
+                if (phoneErrEl) phoneErrEl.textContent = ok ? '' : msg;
+                if (phoneInputEl) phoneInputEl.setCustomValidity(ok ? '' : msg);
+                return { ok: ok, full: ok ? (cc + ' ' + digits) : '', error: ok ? '' : msg };
+            }
+            // Live validation
+            (function(){
+                var p = form.querySelector('#phone');
+                var c = form.querySelector('#country-code');
+                if (p) { p.addEventListener('input', validatePhone); p.addEventListener('blur', validatePhone); }
+                if (c) { c.addEventListener('change', validatePhone); c.addEventListener('blur', validatePhone); }
+            })();
+
+            // Link normalization + validation (LinkedIn, GitHub, Portfolio)
+            function normalizeUrl(u) {
+                if (!u) return '';
+                var s = (u || '').trim();
+                if (!/^https?:\/\//i.test(s)) s = 'https://' + s;
+                return s;
+            }
+            function validateLinks() {
+                var li = form.querySelector('#linkedin');
+                var gi = form.querySelector('#github');
+                var pi = form.querySelector('#portfolio');
+                var liErr = document.getElementById('linkedinError');
+                var giErr = document.getElementById('githubError');
+                var piErr = document.getElementById('portfolioError');
+                var l = normalizeUrl(li ? li.value : '');
+                var g = normalizeUrl(gi ? gi.value : '');
+                var p = normalizeUrl(pi ? pi.value : '');
+                var okL = /^https?:\/\/(www\.)?linkedin\.com\/.+/i.test(l);
+                // Optional fields: allow empty or even non-matching values without blocking submission
+                var okG = !g || /^https?:\/\/(www\.)?github\.com\/[A-Za-z0-9_.-]+(\/[A-Za-z0-9_.-]+)?\/?$/i.test(g);
+                var okP = !p || /^https?:\/\/[^\s]+$/i.test(p);
+                if (li) { li.value = l; li.setCustomValidity(okL ? '' : 'Enter a valid LinkedIn URL.'); }
+                // Do not set custom validity for optional fields; never block on these
+                if (gi) { gi.value = g; try { gi.setCustomValidity(''); } catch(e){} }
+                if (pi) { pi.value = p; try { pi.setCustomValidity(''); } catch(e){} }
+                if (liErr) liErr.textContent = okL ? '' : 'Please provide a valid LinkedIn URL.';
+                // Optional: show gentle hints without blocking
+                if (giErr) giErr.textContent = okG || !g ? '' : 'GitHub looks unusual (optional).';
+                if (piErr) piErr.textContent = okP || !p ? '' : 'Portfolio URL looks unusual (optional).';
+                // Only LinkedIn validity controls blocking behavior
+                var ok = okL;
+                return { ok: ok, linkedin: l, github: g, portfolio: p };
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Combine pronouns selections into a single hidden field
+                var selected = Array.prototype.slice.call(form.querySelectorAll('input[name="pronouns"]:checked'))
+                    .map(function (cb) { return cb.value; });
+                var customPronouns = form.querySelector('#custom-pronouns');
+                if (customPronouns && customPronouns.value.trim()) {
+                    selected.push(customPronouns.value.trim());
+                }
+                var pronounsHidden = form.querySelector('#pronounsSelected');
+                if (pronounsHidden) pronounsHidden.value = selected.join(', ');
+
+                // Set reply_to to applicant email for convenience
+                var emailInput = form.querySelector('#email');
+                var replyTo = form.querySelector('#reply_to');
+                if (emailInput && replyTo) replyTo.value = emailInput.value;
+
+                // Augment subject with job title; prefer edited input, fallback to hidden or header
+                var subj = form.querySelector('#emailSubject');
+                var jobInput = form.querySelector('#jobHidden');
+                var headerJobEl = document.querySelector('.applyjob-module .header h1');
+                var appliedInput = document.getElementById('applied-position-edit');
+                var jobTitleForSubject = (appliedInput && appliedInput.value.trim()) ? appliedInput.value.trim() : ((jobInput && jobInput.value) ? jobInput.value : (headerJobEl ? headerJobEl.textContent.trim() : ''));
+                if (subj && jobTitleForSubject) {
+                    subj.value = 'New Job Application: ' + jobTitleForSubject;
+                }
+
+                // Build minimal payload for Web3Forms free plan
+                var fullName = form.querySelector('#fullname') ? form.querySelector('#fullname').value : '';
+                var emailVal = emailInput ? emailInput.value : '';
+                var messageVal = form.querySelector('#additional-info') ? form.querySelector('#additional-info').value : '';
+                var accessKeyInput = form.querySelector('input[name="access_key"]');
+                var accessKey = accessKeyInput ? accessKeyInput.value : '';
+
+                // Compose message to include job details so you know the position applied
+                var jobHiddenEl = form.querySelector('#jobHidden');
+                var headerJobEl2 = document.querySelector('.applyjob-module .header h1');
+                var appliedInput2 = document.getElementById('applied-position-edit');
+                var jobVal = (appliedInput2 && appliedInput2.value.trim()) ? appliedInput2.value.trim() : (jobHiddenEl && jobHiddenEl.value ? jobHiddenEl.value : (headerJobEl2 ? headerJobEl2.textContent.trim() : ''));
+                var teamVal = form.querySelector('#teamHidden') ? form.querySelector('#teamHidden').value : '';
+                var locVal = form.querySelector('#locationHidden') ? form.querySelector('#locationHidden').value : '';
+                var typeVal = form.querySelector('#workTypeHidden') ? form.querySelector('#workTypeHidden').value : '';
+                // Capture applicant inputs to include in message for free plan
+                var statusPre = document.getElementById('formStatus');
+                var phoneValidation = validatePhone();
+                if (!phoneValidation.ok) {
+                    if (statusPre) statusPre.textContent = phoneValidation.error;
+                    var ph = form.querySelector('#phone');
+                    if (ph) ph.focus();
+                    return;
+                }
+                var fullPhoneVal = phoneValidation.full;
+                var currLocInputEl = form.querySelector('#location');
+                var currLocVal = currLocInputEl ? currLocInputEl.value.trim() : '';
+                var companyInputEl = form.querySelector('#company');
+                var companyVal = companyInputEl ? companyInputEl.value.trim() : '';
+                var linkCheck = validateLinks();
+                if (!linkCheck.ok) {
+                    if (statusPre) statusPre.textContent = 'Please fix the highlighted link(s).';
+                    var liFocus = form.querySelector('#linkedin');
+                    if (liFocus) liFocus.focus();
+                    return;
+                }
+                var linkedinVal = linkCheck.linkedin;
+                var githubVal = linkCheck.github;
+                var portfolioVal = linkCheck.portfolio;
+                var workEligibleEl = form.querySelector('input[name="work-eligible"]:checked');
+                var workEligibleVal = workEligibleEl ? workEligibleEl.value : '';
+                var visaEl = form.querySelector('input[name="visa-sponsorship"]:checked');
+                var visaVal = visaEl ? visaEl.value : '';
+                var pronounsCombinedEl = form.querySelector('#pronounsSelected');
+                var pronounsVal = pronounsCombinedEl ? pronounsCombinedEl.value.trim() : '';
+                // Duplication checks
+                var hasPhoneInMessage = /Phone:/i.test(messageVal || '');
+                var hasEmailInMessage = /Email:/i.test(messageVal || '');
+                var hasCurrLocInMessage = /Current Location:/i.test(messageVal || '');
+                var hasCompanyInMessage = /Current Company:/i.test(messageVal || '');
+                var hasLinkedInInMessage = /LinkedIn:/i.test(messageVal || '');
+                var hasGithubInMessage = /GitHub:/i.test(messageVal || '');
+                var hasPortfolioInMessage = /Portfolio:/i.test(messageVal || '');
+                var hasWorkEligibleInMessage = /Work Eligible:/i.test(messageVal || '');
+                var hasVisaInMessage = /Visa Sponsorship:/i.test(messageVal || '');
+                var hasPronounsInMessage = /Pronouns:/i.test(messageVal || '');
+                var jobLines = [];
+                if (jobVal) jobLines.push('Position Applied: ' + jobVal);
+                if (teamVal) jobLines.push('Team: ' + teamVal);
+                if (locVal) jobLines.push('Location: ' + locVal);
+                if (typeVal) jobLines.push('Work Type: ' + typeVal);
+                if (fullPhoneVal && !hasPhoneInMessage) jobLines.push('Phone: ' + fullPhoneVal);
+                if (emailVal && !hasEmailInMessage) jobLines.push('Email: ' + emailVal);
+                if (pronounsVal && !hasPronounsInMessage) jobLines.push('Pronouns: ' + pronounsVal);
+                if (currLocVal && !hasCurrLocInMessage) jobLines.push('Current Location: ' + currLocVal);
+                if (companyVal && !hasCompanyInMessage) jobLines.push('Current Company: ' + companyVal);
+                if (linkedinVal && !hasLinkedInInMessage) jobLines.push('LinkedIn: ' + linkedinVal);
+                if (githubVal && !hasGithubInMessage) jobLines.push('GitHub: ' + githubVal);
+                if (portfolioVal && !hasPortfolioInMessage) jobLines.push('Portfolio: ' + portfolioVal);
+                if (workEligibleVal && !hasWorkEligibleInMessage) jobLines.push('Work Eligible: ' + workEligibleVal);
+                if (visaVal && !hasVisaInMessage) jobLines.push('Visa Sponsorship: ' + visaVal);
+                // Avoid duplicating the position line if user field already includes it
+                var hasPositionInMessage = /Position Applied:/i.test(messageVal || '');
+                var composedMessage = jobLines.length ? (!hasPositionInMessage ? (jobLines.join('\n') + '\n\n' + (messageVal || '')) : (messageVal || jobLines.join('\n'))) : (messageVal || '');
+
+                var fd = new FormData();
+                fd.append('access_key', accessKey);
+                fd.append('name', fullName);
+                fd.append('email', emailVal);
+                fd.append('message', composedMessage);
+                // Include helpful email metadata
+                var subjectEl = form.querySelector('#emailSubject');
+                var replyToEl = form.querySelector('#reply_to');
+                if (subjectEl && subjectEl.value) {
+                    fd.append('subject', subjectEl.value);
+                }
+                if (replyToEl && replyToEl.value) {
+                    fd.append('reply_to', replyToEl.value);
+                }
+                fd.append('from_name', fullName || '');
+                fd.append('from_email', emailVal || '');
+                var btn = form.querySelector('.submit-btn');
+                var status = document.getElementById('formStatus');
+                if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+                if (status) { status.textContent = 'Submitting application…'; }
+
+                fetch('https://api.web3forms.com/submit ', {
+                    method: 'POST',
+                    body: fd
+                })
+                .then(function (res) { return res.json(); })
+                .then(function (data) {
+                    if (data && data.success) {
+                        if (status) { status.textContent = (data.message || 'Application submitted successfully!'); }
+                        form.reset();
+                        // Hide preview and remove file button on success
+                        var previewEl = document.getElementById('resumePreview');
+                        var removeBtnEl = document.getElementById('resumeRemove');
+                        var filenameEl2 = document.getElementById('resumeFilename');
+                        if (previewEl) { previewEl.classList.add('is-hidden'); previewEl.innerHTML = '<div class="placeholder">Attach a PDF to preview here.</div>'; }
+                        if (removeBtnEl) { removeBtnEl.style.display = 'none'; }
+                        if (filenameEl2) { filenameEl2.textContent = ''; }
+                    } else {
+                        console.error('Web3Forms error:', data);
+                        if (status) {
+                            var msg = (data && data.message) ? ('Error: ' + data.message) : 'Submission failed. Please try again.';
+                            // Add minimal debug info to help diagnose
+                            if (data && typeof data.code !== 'undefined') {
+                                msg += ' (' + data.code + ')';
+                            }
+                            status.textContent = msg;
+                        }
+                    }
+                })
+                .catch(function (err) {
+                    console.error('Network error:', err);
+                    if (status) { status.textContent = 'Submission failed. Please check your connection.'; }
+                })
+                .finally(function () {
+                    if (btn) { btn.disabled = false; btn.textContent = 'Submit Application'; }
+                });
+            });
+        })();
+    </script>
+    <script>
+        // Set is-first-loaded class when page finishes loading
+        document.addEventListener('DOMContentLoaded', function () {
+            document.documentElement.classList.add('is-first-loaded');
+
+            // Handle ALL menu togglers
+            const menuTogglers = document.querySelectorAll('[data-module-modal-menu-toggler]');
+            menuTogglers.forEach(function (toggler) {
+                toggler.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    document.documentElement.classList.toggle('has-menu-open');
+                    console.log('Menu toggled! has-menu-open:', document.documentElement.classList.contains('has-menu-open'));
+                });
+            });
+
+            // Handle menu overlay click to close menu
+            const menuOverlay = document.querySelector('[data-modal-menu="overlay"]');
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.documentElement.classList.remove('has-menu-open');
+                });
+            }
+        });
+
+        // Fallback in case DOMContentLoaded already fired
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function () {
+                document.documentElement.classList.add('is-first-loaded');
+            });
+        } else {
+            document.documentElement.classList.add('is-first-loaded');
+            // Also try to add handlers immediately if already loaded
+            setTimeout(function () {
+                const menuTogglers = document.querySelectorAll('[data-module-modal-menu-toggler]');
+                menuTogglers.forEach(function (toggler) {
+                    toggler.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        document.documentElement.classList.toggle('has-menu-open');
+                        console.log('Menu toggled! has-menu-open:', document.documentElement.classList.contains('has-menu-open'));
+                    });
+                });
+            }, 100);
+        }
+
+        // Allow internal navigation links (bypass global click blocker)
+        (function markInternalLinksAllowed() {
+            const INTERNAL_PAGES = [
+                'index.html','about-us.html','faq.html','privacy-policy.html','careers.html','apply-job.html'
+            ];
+            const selector = INTERNAL_PAGES.map((p) => `a[href$="/${p}"], a[href$="${p}"]`).join(', ');
+            if (selector) {
+                document.querySelectorAll(selector).forEach((a) => {
+                    a.setAttribute('data-allow', '1');
+                });
+            }
+
+            // Also allow known production slugs pointing to internal pages
+            document.querySelectorAll('a[href]').forEach((a) => {
+                const href = a.getAttribute('href');
+                if (!href) return;
+                try {
+                    const url = new URL(href, window.location.href);
+                    const host = url.host;
+                    let path = url.pathname || '/';
+                    if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+                    const isGharit = host === 'www.gharitapp.com' || host === 'gharitapp.com';
+                    const allowedPaths = new Set([
+                        '/careers','/faq','/company','/privacy-policy','/applyjob',
+                        '/index.html','/about-us.html','/faq.html','/privacy-policy.html','/careers.html','/apply-job.html'
+                    ]);
+                    if (isGharit && allowedPaths.has(path)) {
+                        a.setAttribute('data-allow', '1');
+                    }
+                } catch (_) { /* ignore malformed URLs */ }
+            });
+        })();
+
+        document.addEventListener('click', function (e) {
+            // Allow in-page hash links like #section
+            var a = e.target.closest && e.target.closest('a');
+            if (!a) return;
+            var href = a.getAttribute('href') || '';
+            if (href && href.trim().charAt(0) === '#') {
+                return; // don't block section anchors
+            }
+            // Only block anchors without explicit allow
+            if (!a.hasAttribute('data-allow')) {
+                e.preventDefault();
+            }
+        }, true);
+
+        // Desktop-only: hide header when scrolling down, show when scrolling up
+        (function () {
+            var lastScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+            var threshold = 50; // don't hide until user scrolls a bit
+
+            function updateHeaderVisibility() {
+                var isDesktop = window.innerWidth >= 1024;
+                if (!isDesktop) {
+                    document.documentElement.classList.remove('is-header-hidden');
+                    return;
+                }
+                // Don't hide while the menu is open
+                if (document.documentElement.classList.contains('has-menu-open')) {
+                    document.documentElement.classList.remove('is-header-hidden');
+                    return;
+                }
+
+                var currentY = window.pageYOffset || document.documentElement.scrollTop || 0;
+                var scrollingDown = currentY > lastScrollY;
+
+                if (scrollingDown && currentY > threshold) {
+                    document.documentElement.classList.add('is-header-hidden');
+                } else {
+                    document.documentElement.classList.remove('is-header-hidden');
+                }
+                lastScrollY = currentY;
+            }
+
+            window.addEventListener('scroll', updateHeaderVisibility, { passive: true });
+            window.addEventListener('resize', updateHeaderVisibility);
+        })();
+    </script>
+
+
+
+    
+<!-- footer section starts here -->
+
+
+
+</body>
+
+</html>
