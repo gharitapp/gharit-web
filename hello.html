@@ -452,7 +452,7 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
-      fetch('https://gharitapp.com/v1/qr-analytics/scan', {
+      fetch('https://api.gharitapp.com/v1/qr-analytics/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
