@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "6752650388.com.gharitapp.gharitapp",
+        "paths": [
+          "*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "6752650388.com.gharitapp.gharitapp"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.gharitapp.gharitapp",
+      "sha256_cert_fingerprints": [
+        ["2D:93:47:40:71:3A:A3:18:59:5D:E8:19:5B:F7:16:8A:9F:6F:86:E5:05:F6:7A:3D:31:59:5B:88:81:97:00:69"]
+      ]
+    }
+  }
+]
