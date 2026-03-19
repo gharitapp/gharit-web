@@ -450,6 +450,30 @@
       </p>
     </footer>
 
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      fetch('https://gharitapp.com/v1/qr-analytics/scan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          utm_source: params.get('utm_source'),
+          utm_medium: params.get('utm_medium'),
+          utm_campaign: params.get('utm_campaign'),
+          utm_term: params.get('utm_term'),
+          utm_content: params.get('utm_content'),
+          source: params.get('source'),
+          landing_page: window.location.href,
+          referrer: document.referrer,
+          platform: navigator.platform,
+          device_type: /Mobile|Android|iPhone/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+          browser: navigator.userAgent.match(/(Chrome|Safari|Firefox|Edge|Opera)/i)?.[0],
+          screen_width: screen.width,
+          screen_height: screen.height,
+          language: navigator.language,
+          scanned_at: new Date().toISOString(),
+        }),
+      }).catch(() => {});
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
       (function () {
