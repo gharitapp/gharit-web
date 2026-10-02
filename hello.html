@@ -452,8 +452,11 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
+      // keepalive: mobile visitors are sent to the store immediately below,
+      // and without it the browser drops this request mid-flight.
       fetch('https://api.gharitapp.com/v1/qr-analytics/scan', {
         method: 'POST',
+        keepalive: true,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           utm_source: params.get('utm_source'),
