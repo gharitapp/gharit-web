@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gharit</title>
+  <meta name="robots" content="noindex">
+  <style>
+    :root { --teal: #2F7F7E; --ink: #1D1D1D; --muted: #6E6E6E; --bg: #F7F7F5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+           background: var(--bg); color: var(--ink);
+           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    main { width: 100%; max-width: 420px; padding: 32px 16px; text-align: center; }
+    .mark { font-size: 40px; font-weight: 800; letter-spacing: 1px; margin: 0 0 8px; }
+    .mark span { color: #C48931; }
+    h1 { font-size: 22px; margin: 24px 0 8px; }
+    p { color: var(--muted); line-height: 1.5; margin: 0 0 24px; }
+    a.btn { display: block; padding: 14px 16px; border-radius: 12px; margin: 0 0 12px;
+            text-decoration: none; font-weight: 600; }
+    .primary { background: var(--teal); color: #fff; }
+    .secondary { border: 1px solid #DADADA; color: var(--ink); background: #fff; }
+    .home { color: var(--teal); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark">GHAR<span>!</span>T</div>
+    <div id="app" hidden>
+      <h1>This opens in the Gharit app</h1>
+      <p>Get the app to book pickups, track orders and see prices.</p>
+      <a class="btn primary" id="open" href="#">Open in the app</a>
+      <a class="btn secondary" id="ios" href="https://apps.apple.com/app/id6752650388">Download on the App Store</a>
+      <a class="btn secondary" id="android" href="https://play.google.com/store/apps/details?id=com.gharitapp.gharitapp">Get it on Google Play</a>
+    </div>
+    <div id="missing" hidden>
+      <h1>Page not found</h1>
+      <p>The page you're looking for isn't here.</p>
+    </div>
+    <a class="home" href="/">Go to gharitapp.com</a>
+  </main>
+  <script>
+    // App links (https://gharitapp.com/orders, /pricing/SHOES …) open the app
+    // when it's installed; this page is what everyone else lands on. Keep the
+    // list in step with .well-known/apple-app-site-association.
+    var routes = ['home', 'schedule', 'pickup', 'instant', 'orders', 'pricing',
+                  'profile', 'payments', 'support', 'customer-support', 'bags', 'donate'];
+    var segs = location.pathname.split('/').filter(Boolean);
+    var isApp = segs.length > 0 && routes.indexOf(segs[0].toLowerCase()) !== -1;
+    document.getElementById(isApp ? 'app' : 'missing').hidden = false;
+    if (isApp) {
+      document.getElementById('open').href = 'gharit://' + segs.join('/') + location.search;
+      var ua = navigator.userAgent;
+      if (/android/i.test(ua)) document.getElementById('ios').hidden = true;
+      else if (/iphone|ipad|ipod/i.test(ua)) document.getElementById('android').hidden = true;
+    }
+  </script>
+</body>
+</html>

@@ -3,16 +3,36 @@
     "apps": [],
     "details": [
       {
-        "appID": "6752650388.com.gharitapp.gharitapp",
+        "appIDs": ["VWU3UNBV4Q.com.gharitapp.gharitapp"],
+        "appID": "VWU3UNBV4Q.com.gharitapp.gharitapp",
+        "components": [
+          { "/": "/home" },
+          { "/": "/schedule" },
+          { "/": "/pickup" },
+          { "/": "/instant" },
+          { "/": "/orders" },
+          { "/": "/orders/*" },
+          { "/": "/pricing" },
+          { "/": "/pricing/*" },
+          { "/": "/profile" },
+          { "/": "/profile/*" },
+          { "/": "/payments" },
+          { "/": "/support" },
+          { "/": "/customer-support" },
+          { "/": "/bags" },
+          { "/": "/bags/*" },
+          { "/": "/donate" }
+        ],
         "paths": [
-          "*"
+          "/home", "/schedule", "/pickup", "/instant",
+          "/orders", "/orders/*", "/pricing", "/pricing/*",
+          "/profile", "/profile/*", "/payments", "/support",
+          "/customer-support", "/bags", "/bags/*", "/donate"
         ]
       }
     ]
   },
   "webcredentials": {
-    "apps": [
-      "6752650388.com.gharitapp.gharitapp"
-    ]
+    "apps": ["VWU3UNBV4Q.com.gharitapp.gharitapp"]
   }
 }
