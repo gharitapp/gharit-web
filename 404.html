@@ -44,7 +44,8 @@
     // when it's installed; this page is what everyone else lands on. Keep the
     // list in step with .well-known/apple-app-site-association.
     var routes = ['home', 'schedule', 'pickup', 'instant', 'orders', 'pricing',
-                  'profile', 'payments', 'support', 'customer-support', 'bags', 'donate'];
+                  'profile', 'payments', 'support', 'customer-support', 'bags', 'donate',
+                  'tailor', 'spotlight'];
     var segs = location.pathname.split('/').filter(Boolean);
     var isApp = segs.length > 0 && routes.indexOf(segs[0].toLowerCase()) !== -1;
     document.getElementById(isApp ? 'app' : 'missing').hidden = false;

@@ -21,13 +21,16 @@
           { "/": "/customer-support" },
           { "/": "/bags" },
           { "/": "/bags/*" },
-          { "/": "/donate" }
+          { "/": "/donate" },
+          { "/": "/tailor" },
+          { "/": "/spotlight" }
         ],
         "paths": [
           "/home", "/schedule", "/pickup", "/instant",
           "/orders", "/orders/*", "/pricing", "/pricing/*",
           "/profile", "/profile/*", "/payments", "/support",
-          "/customer-support", "/bags", "/bags/*", "/donate"
+          "/customer-support", "/bags", "/bags/*", "/donate",
+          "/tailor", "/spotlight"
         ]
       }
     ]
